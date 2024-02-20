@@ -1,5 +1,5 @@
 ---
-title: "Quickstart"
+title: "⭐️ Quickstart"
 description: "Setup your analytics stack in 5 minutes"
 ---
 
@@ -29,9 +29,9 @@ Sources are typed data schemas that help Vinyl understand what data is available
 
 First, create a Resource. A resource serves as your connection to locations where you want to access source data.
 
-We've created a `LocalFilesystem` one for you already under `my_project/resources.py`.
+There's a `LocalFilesystem` Resource that comes by default.
 
-```python
+```python my_project/resources.py
 from vinyl import resource
 from vinyl.connectors import TableFileConnector
 
@@ -42,15 +42,15 @@ def local_filesystem():
 
 We've given you some sample data to play with under `data/my-shop`.
 
-Generate sources for your resource data using this vinyl CLI command.
+Generate sources for your resource data using this vinyl CLI command. This command should be ran each time you add a new Resource to your project or if you suspect there are schema changes.
 
 ```bash
 vinyl sources generate
 ```
 
-The result should be a file `my_project/sources/taxi_sample.py` that serves as the representation for that source data in your vinyl project.
+The result should be a file `taxi_sample.py` that serves as the representation for that source data in your vinyl project.
 
-```python
+```python my_project/sources/taxi_sample.py
 from my_project.resources import local_filesystem
 from vinyl import source, types as t
 
@@ -75,7 +75,7 @@ Sources help validate breaking changes, propagate metadata and power development
 
 Sources can be imported across your vinyl project or used in notebooks for analysis.
 
-## Create a model
+## Create a Model
 
 Models are semantic representations of your data. Models can be used in notebooks for analysis, embedded in BI tools, data products or referenced in other parts of your project. Vinyl provides a [wide range of data transforms](/concepts/models) and complex SQL operations out of the box.
 
@@ -83,7 +83,7 @@ Create a file at `my_project/models/taxi_model.py`.
 
 Let's a create a short model that takes our source data and add a new column total_amount to track total money spent by passengers.
 
-```python
+```python resources.py
 from my_project.sources.taxi_sample import TaxiSample
 
 @model(deps=TaxiSample)
@@ -100,25 +100,58 @@ You can preview your data model and inspect columns and rows using the CLI comma
 vinyl models preview amount_base
 ```
 
-## Create a metric
+## Create a Metric
 
 Metrics are a powerful abstraction that allows for tracking time series data. Metrics auto generate complicated timeseries SQL and can be queried across dimensions and time buckets dynamically.
 
-Create a metric by passing in a metric store. We'll reference the `amount_base` model we created earlier so we can track taxi spend over time.
+Create a metric by passing in a `MetricStore`. We'll reference the `amount_base` model we created earlier so we can track average taxi spend over time.
 
 ```python
 @model(deps=[amount_base, MetricStore], publish=True)
-def amount_metric(b, s):
-    s.metric(
+def average_fare_metric(b, store):
+    store.metric(
         tbl=b,
         by=b.store_and_fwd_flag,
         ts=b.pickup_at,
-        fill=lambda x: x.mean(),
-        cols={"total_amount": b.total_amount.mean()},
+        cols={
+            "total_amount": b.total_amount.mean()
+        },
     )
-    return s
+    return store
 ```
 
+Let's preview that our metric has data using the CLI command:
+
+```bash
+vinyl model preview average_fare_metric --30d
 ```
 
+## Deployment
+
+While vinyl is a great data modeling and analysis tool on it's own, it's also designed to be a data platform that can be accessed in places like BI tools, AI agents or data products.
+
+You can orchestrate and deploy your vinyl project using the CLI. By default, vinyl can run workloads and serve data locally. For production, we recommend [self-hosting](/concepts/deployment) or using [Turntable cloud](/concepts/deployment).
+
+```bash
+vinyl project deploy
+```
+
+Vinyl uses fast OLAP caching to support sub second queries on 10s of millions of rows of data. Try serving models and metrics using the CLI command:
+
+```bash
+vinyl project serve -p 5432
+```
+
+Once running, you can serve models and metrics via a postgres connector or HTTP API call. You can query your deployed Vinyl project in numerous BI and data tools (latestearn more about [integrations](/concepts/integrations) here).
+
+Try using a local postgres client (like psql) to query your deployed models and metrics.
+
+```
+psql -h 0.0.0.0 -p 5432 -c "select * from average_fare_metric where bucket = 'monthly' limit 10";
+```
+
+Or via a HTTP API call:
+
+```bash
+curl -X POST -H "Content-Type: application/json" localhost:3000/model/average_fare_metric -d '{"time_bucket": "monthly", "limit": 10}'
 ```

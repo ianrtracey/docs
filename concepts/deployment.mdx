@@ -1,7 +1,31 @@
 ---
 title: "Deployment"
-description: "Display inline code and code blocks"
+description: "Your vinyl project can be queried from numerous BI tools and applications"
 icon: "cloud"
 ---
 
-:)
+## How to Deploy
+
+Once your project is ready, you can run your transforms, metrics aggregations and enrichments using the CLI command:
+
+```bash
+vinyl project deploy
+```
+
+After a successful run, the project data is now ready to be served. Data can either be compressed and optimized for sub second queries or serve via a passthrough to your data sources directly.
+
+Run the following to serve your project (default postgres port is `5432` and the HTTP API is `5000`):
+
+```bash
+vinyl project serve
+```
+
+## Deployment Options
+
+- **Local Deployment** - projects can be ran locally without additional dependencies. This is recommended for development on small datasets.
+- **Docker** - use our docker image to deploy your project to any cloud provider or on-premise.
+- **Turntable Cloud** - leverage memory-optimized compute, storage and GPUs for fast data workflows and low latency queries
+
+## Performance
+
+We plan to publish official performance benchmarking soon. In our latest internal tests, Vinyl is able to query projects with 100M rows in 300-500ms on a RD7 AWS EC2 instance.

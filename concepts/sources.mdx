@@ -3,3 +3,73 @@ title: "Sources"
 description: "Sources are typed data schemas that help Vinyl understand what data is available"
 icon: "database"
 ---
+
+## Setting up a Resource
+
+A resource serves as a connection to data sources. Resources can be a data warehouse (BigQuery, Snowflake), transactional databases (Postgres), object storage (S3), data lakes (Delta) or local files (parquet, csv, json).
+Vinyl comes with standard resource connectors:
+
+- TableFileConnector (csv, json, parquet)
+- BigQueryConnector
+- PostgresConnector
+- DatabaseFileConnector (duckdb)
+
+Resources are defined in the `resources.py` file of our project. Resources are used to fetch metadata and source data queries.
+Here's an example of a postgres connection:
+
+```python my_project/resources.py
+from vinyl import resource
+from vinyl.connectors import PostgresConnector
+
+@resource
+def saas_product_data():
+    return PostgresConnector(
+        host="db.mypostgres.com",
+        port="5432",
+        user="postgres",
+        password="password",
+        tables=["postgres.*.*"],
+    )
+```
+
+## Generate Sources
+
+Once we've defined a resource, we can pull in source data schemas automatically using the following vinyl CLI command
+
+```bash
+vinyl generate sources
+```
+
+This command populates the `sources/` directory with typed source data schemas. These schemas are used to understand the structure of the data and to generate source data queries.
+Here's an example of a source schema for a postgres table:
+
+```python my_project/sources/user.py
+class User:
+    user_id: t.String(nullable=False)
+    created_at: t.Timestamp(timezone=None, scale=None, nullable=True)
+    email: t.String(nullable=True)
+    karma: t.Int32(nullable=True)
+    last_login: t.Timestamp(timezone=None, scale=None, nullable=True)
+    payment_method_id: t.String(nullable=True)
+```
+
+## Using Sources
+
+Sources are used just like any python class. You can import a source in a notebook, script or vinyl project:
+
+```python my_project/myfile.py
+from my_project.sources import User
+
+user_table = User()
+print(user_table.schema)
+```
+
+Generated sources serve as a data contract. With sources, you can validate data transforms without hitting the database and detect upstream schema drift to prevent breaking changes.
+
+## List Sources
+
+As you're adding resources and generating sources, you can list all the sources in your project using the following vinyl CLI command:
+
+```bash
+vinyl sources list
+```

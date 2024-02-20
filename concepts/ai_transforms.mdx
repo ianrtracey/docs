@@ -1,7 +1,67 @@
 ---
 title: "AI Transforms"
-description: "Display inline code and code blocks"
+description: "Leverage LLMs to transform your data"
 icon: "wand-magic-sparkles"
 ---
 
-:)
+<Note>
+  This feature is currently in private beta. Please reach out to us on Slack if
+  you're interested in trying it out
+</Note>
+
+## Overview
+
+AI Transforms can be used to augment data models using large language models in either the cloud or locally. An `LLMTransform` handles token management, column metadata context and more that is provided via Vinyl internals.
+
+Lets take some user reviews of movies from the IMDB dataset. Suppose we want to tag each review with sentiment analysis using the latest LLM models available.
+
+| id  | movie_title         | comment_id | comment                                                           |
+| --- | ------------------- | ---------- | ----------------------------------------------------------------- |
+| 1   | A Quiet Place       | 101        | An intense experience with a few plot holes.                      |
+| 2   | The Room            | 102        | So bad its almost good. A cult classic for all the wrong reasons. |
+| 3   | Lost in Translation | 103        | Subtly powerful and emotionally complex.                          |
+| 4   | Requiem for a Dream | 104        | Disturbing content that leaves a lasting impression.              |
+
+We can import the `LLMTransform` and `OpenAIProvider` from Vinyl to run an LLM-powered transform on a specific column of our dataset.
+
+```python models.py
+from my_project.sources.taxi_sample import TaxiSample
+from vinyl.ai import LLMTransform, OpenAIProvider
+
+@model(deps=Movies)
+def movie_sentiment(m):
+    infer_sentiment = LLMTransform(
+        OpenAIProvider,
+        cols=[
+            m.comment,
+        ]
+        prompt="Rate the sentiment of this movie review comment column either 'positive', 'neutral' or 'negative'"
+    )
+
+    m.mutate({
+        "sentiment": infer_sentiment()
+    })
+
+    return t
+```
+
+Vinyl handles concurrency, caching and incremental updates. Vinyl will only run the transform on new rows. The `OpenAIProvider` allows you to bring your own OpenAI API key.
+
+We can preview the results of this using:
+
+```bash
+vinyl preview model movie_sentiment
+```
+
+Here are 4 rows of revised example data with movie titles and comments that better align with their respective sentiment labels:
+
+| id  | movie_title         | comment_id | comment                                                           | sentiment |
+| --- | ------------------- | ---------- | ----------------------------------------------------------------- | --------- |
+| 1   | A Quiet Place       | 101        | An intense experience with a few plot holes.                      | Neutral   |
+| 2   | The Room            | 102        | So bad its almost good. A cult classic for all the wrong reasons. | Negative  |
+| 3   | Lost in Translation | 103        | Subtly powerful and emotionally complex.                          | Positive  |
+| 4   | Requiem for a Dream | 104        | Disturbing content that leaves a lasting impression.              | Negative  |
+
+## Local AI Inference
+
+Working with data workflows comes with a host of privacy challenges. If you're interested in running AI Transforms using self-hosted models and GPU inference [reach out to us](https://www.turntable.so/join-waitlist?source=ai-transform).

@@ -1,7 +1,64 @@
 ---
 title: "Enrichment"
-description: "Display inline code and code blocks"
+description: "Enrich your data with managed data broker services"
 icon: "download"
 ---
 
-:)
+<Note>
+  This feature is currently in private beta. Please reach out to us on Slack if
+  you're interested in trying it out
+</Note>
+
+## Overview
+
+Your own data can only get you so far. It's common for data pipelines to enrich first party data with third party data in order to get a more complete picture. This is usually a complicated engineering task and involves running additional infrastructure but in Vinyl enrichment is supported directly in the transform layer.
+
+Common use cases for enrichment include:
+
+- Zipcode to city mapping
+- IP address to location mapping
+- Email to company mapping
+- Phone number to company mapping
+- Weather enrichment
+
+We support enrichment through managed data broker services. These services are provided by third party vendors and are integrated directly into Vinyl. You can bring your own API key. Some initial providers that we support in private beta are:
+
+- [Apollo](https://www.apollo.io/product/api)
+- [Clearbit](https://dashboard.clearbit.com/docs)
+- [WeatherAPI](https://openweathermap.org/api)
+- ZipcodeAPI
+
+## How to Enrich Data
+
+Enriching data is as easy as passing in the provider to your existing [model](/concepts/models).
+
+Let's say you have a SaaS product postgres database with users in it that you'd like to enrich with third party data from [Apollo](https://www.apollo.io/product/api).
+
+| id  | name         | email                    |
+| --- | ------------ | ------------------------ |
+| 1   | Alex Johnson | alex.johnson@example.com |
+| 2   | Bethany Kim  | bethany.kim@example.com  |
+| 3   | Carlos Smith | carlos.smith@example.com |
+| 4   | Diana Cruz   | diana.cruz@example.com   |
+| 5   | Ethan Wong   | ethan.wong@example.com   |
+
+We can use Vinyl's `ApolloEnrichment` provider to enrich the data for matching columns and transform the data.
+
+```python my_project/customer_models.py
+from vinyl import model
+from vinyl.enrichment import ApolloEnrichment
+from my_project.sources import PostgresProductUsers
+
+@model(deps=[PostgresProductUsers, ApolloEnrichment])
+def enriched_users(users, apollo):
+    users.enrich(apollo, on='email', cols=['company', 'title', 'website', 'location', 'size'])
+    return users
+```
+
+| id  | name         | email                    | company          | title                 | website             | location          | size      |
+| --- | ------------ | ------------------------ | ---------------- | --------------------- | ------------------- | ----------------- | --------- |
+| 1   | Alex Johnson | alex.johnson@example.com | Tech Innovations | Product Manager       | techinnovations.com | New York, NY      | 101-500   |
+| 2   | Bethany Kim  | bethany.kim@example.com  | Global Solutions | Senior Developer      | globalsolutions.biz | San Francisco, CA | 501-1000  |
+| 3   | Carlos Smith | carlos.smith@example.com | Creative Media   | Creative Director     | creativemedia.co    | Los Angeles, CA   | 51-100    |
+| 4   | Diana Cruz   | diana.cruz@example.com   | Health Plus      | HR Specialist         | healthplus.org      | Chicago, IL       | 1001-5000 |
+| 5   | Ethan Wong   | ethan.wong@example.com   | Eco Ventures     | Environmental Analyst | ecoventures.net     | Austin, TX        | 11-50     |

@@ -1,7 +1,11 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "turntable",
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.png",
+  "logo": {
+    "light": "/logo_light.png",
+    "dark": "/logo_dark.png"
+  },
   "colors": {
     "primary": "#6C757D",
     "light": "#E5E5E5",
@@ -28,7 +32,7 @@
       "group": "Getting Started",
       "pages": [
         "introduction",
-        "setup",
+        "quickstart",
         "ai_agent"
       ]
     },
@@ -37,9 +41,8 @@
       "pages": [
         "concepts/sources",
         "concepts/models",
-        "concepts/metrics",
-        "concepts/ai_transforms",
         "concepts/deployment",
+        "concepts/ai_transforms",
         "concepts/enrichment"
       ]
     },

@@ -1,7 +1,178 @@
 ---
-title: "Models"
+title: "Models & Metrics"
 description: "Display inline code and code blocks"
 icon: "cube"
 ---
 
-:)
+## What are Models
+
+Models are the backbone of a vinyl project. Models are cleaned representations of your source data. Models can either be virtualized or backed by a table (common in data warehouses). Models can be published for use in the semantic layer or used internally for analysis.
+
+To create a model, import the `model` decorator from vinyl and create function.
+
+```python my_project/models.py
+from vinyl import model
+
+@model
+def top_shops():
+    pass
+```
+
+Models are isolated functions that handle transforms of data. Models are built in a pipelined way through mutable state. Models are deferred in their execution allowing for lazy evaluation.
+
+Let's add a dependency to our model. Dependencies can either be a source or another model.
+
+```python my_project/models.py
+from vinyl import model
+from my_project.sources.flower_shops import FlowerShops
+
+@model(deps=FlowerShops)
+def top_shops(shops):
+    pass
+```
+
+Vinyl is built on [Ibis](https://ibis-project.org/), a powerful and performant data manipulation library. This allows for a wide range of transformations to be performed on your data all within a model function. You can reference all of the model transforms in the [reference section](/reference).
+
+Let's write a quick model to get the stores with the most transactions. Vinyl helps write data transforms for analytics use cases (like aggregations) quickly with only a few lines of code.
+
+```python my_project/models.py
+from vinyl import model
+from my_project.sources.flower_shops import FlowerShops
+from my_project.sources.transactions import Transactions
+
+@model(deps=[FlowerShops, Transactions])
+def top_shops(shops, txns):
+    st = shops.join(txns, ["store_nbr"])
+    st.aggregate(
+        cols={"num_transactions": st.transactions.sum()},
+        by=[st.store_nbr, st.city]
+    )
+    st.sort(by=[st.num_transactions.desc()])
+
+    return st
+```
+
+| store_nbr | city              | num_transactions |
+| --------- | ----------------- | ---------------- |
+| 01003     | San Francisco, CA | 11026            |
+| 03001     | Brooklyn, NY      | 10981            |
+| 06002     | Austin, TX        | 8193             |
+
+## Use in Notebooks
+
+Models can also be written and used outside of context of a Vinyl project (like in a jupyter notebook or a python script) using a context manager. We can write the model above as:
+
+```python my_script.py
+from my_project.sources.flower_shops import FlowerShops
+from my_project.sources.transactions import Transactions
+
+stores = Stores()
+
+stores_txns = stores.join(StoreNumTransactions(), ["store_nbr"])
+
+with stores_txns as st:
+    st.aggregate(
+        cols={"num_transactions": st.transactions.sum()},
+        by=[st.store_nbr, st.city]
+    )
+    st.sort(by=[st.num_transactions.desc()])
+
+result = st.execute('pandas')
+```
+
+## Metrics
+
+Timeseries data is an important component of many analytics projects. Vinyl comes with a powerful metrics abstraction to help aggregation and slice time series data without having to write long and complicated SQL.
+
+Let's expand on our example above but now look at how sales for each store has changed over time. To use the metric layer of Vinyl, all we have to do is pass in the `MetricStore` object to our function and pass in the timestamp column to the `metric` method.
+
+```python my_project/metrics.py
+from vinyl import model, MetricStore
+from my_project.sources.flower_shops import FlowerShops
+from my_project.sources.transactions import Transactions
+
+
+@model(deps=[FlowerShops, Transactions, MetricStore])
+def shop_sales(shops, txns, metric_store):
+    st = shops.join(txns, ["store_nbr"])
+    metric_store.metric(
+        tbl=st,
+        by=[st.store_nbr, st.city],
+        ts=st.purchased_at,
+        cols={
+            "sales": st.transactions.sum()
+        }
+    )
+    return metric_store
+```
+
+Our new metric `shop_sales` can now be used throughout our Vinyl project. The Metrics layer allows for dynamic queries across dimensions and time buckets. Metrics also provide useful features like fill options and trailing windows.
+
+If we want to get the sales across each shop location over the past trailing 3 months, we can query it like:
+
+```python
+
+sales_metric = metric_store.select([
+    metric_store.ts.truncate('M'),
+    metric_store.store_nbr,
+    metric_store.city,
+    metric_store.sales
+], trailing=[None, 3])
+
+sales_metric.execute()
+```
+
+| ts         | store_nbr | city              | sales |
+| ---------- | --------- | ----------------- | ----- |
+| 2023-12-01 | 01003     | San Francisco, CA | 752   |
+| 2023-12-01 | 03001     | Brooklyn, NY      | 1130  |
+| 2023-12-01 | 06002     | Austin, TX        | 534   |
+| 2023-01-01 | 01003     | San Francisco, CA | 304   |
+| 2023-01-01 | 03001     | Brooklyn, NY      | 540   |
+| 2023-01-01 | 06002     | Austin, TX        | 121   |
+| 2023-02-01 | 01003     | San Francisco, CA | 910   |
+| 2023-02-01 | 03001     | Brooklyn, NY      | 1520  |
+| 2023-02-01 | 06002     | Austin, TX        | 862   |
+
+If we want to change the time grain to weeks and look at the last 2 weeks, it's as easy as changing the metric select to:
+
+```python
+sales_metric = metric_store.select([
+    metric_store.ts.truncate('W'),
+    metric_store.store_nbr,
+    metric_store.city,
+    metric_store.sales
+], trailing=[None, 2])
+
+sales_metric.execute()
+```
+
+| ts         | store_nbr | city              | sales |
+| ---------- | --------- | ----------------- | ----- |
+| 2023-02-01 | 01003     | San Francisco, CA | 619   |
+| 2023-02-01 | 03001     | Brooklyn, NY      | 811   |
+| 2023-02-01 | 06002     | Austin, TX        | 407   |
+| 2023-02-15 | 01003     | San Francisco, CA | 291   |
+| 2023-02-15 | 03001     | Brooklyn, NY      | 709   |
+| 2023-02-15 | 06002     | Austin, TX        | 455   |
+
+We can wrap this metric as a model in our project:
+
+```python
+@model(deps=[MetricStore])
+def shop_sales_last_30_days(metric_store):
+    sales_metric = metric_store.select([
+        metric_store.ts.truncate('D'),
+        metric_store.store_nbr,
+        metric_store.city,
+        metric_store.sales
+    ], trailing=[None, 30])
+
+    return sales_metric
+```
+
+<Info>
+  Currently Vinyl does not support deploying metrics directly and they must be
+  wrapped as a model to be shared outside a vinyl project. This constraint will
+  be removed in future releases.
+</Info>
