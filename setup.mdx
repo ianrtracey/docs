@@ -1,0 +1,124 @@
+---
+title: "Quickstart"
+description: "Setup your analytics stack in 5 minutes"
+---
+
+## System Requirements
+
+Python version 3.10 or higher
+
+## Install Vinyl
+
+Vinyl is Turntable's framework for developing analytics infrastructure.
+
+```bash
+pip install vinyl
+```
+
+## Create a Project
+
+Navigate to you're preferred path and create a new project
+
+```bash
+vinyl init my_project
+```
+
+## Create a Source
+
+Sources are typed data schemas that help Vinyl understand what data is available. Sources can data warehouses (Snowflake, Bigquery), data lakes (Delta), cloud storage (S3, GCS) or even local files. See all of the [supported connections here](/concepts/sources).
+
+First, create a Resource. A resource serves as your connection to locations where you want to access source data.
+
+We've created a `LocalFilesystem` one for you already under `my_project/resources.py`.
+
+```python
+from vinyl import resource
+from vinyl.connectors import TableFileConnector
+
+@resource
+def local_filesystem():
+    return TableFileConnector(path="data")
+```
+
+We've given you some sample data to play with under `data/my-shop`.
+
+Generate sources for your resource data using this vinyl CLI command.
+
+```bash
+vinyl sources generate
+```
+
+The result should be a file `my_project/sources/taxi_sample.py` that serves as the representation for that source data in your vinyl project.
+
+```python
+from my_project.resources import local_filesystem
+from vinyl import source, types as t
+
+@source(resource=local_filesystem)
+class TaxiSample:
+    vendor_id: t.String(nullable=True)
+    pickup_at: t.Timestamp(timezone=None, scale=None, nullable=True)
+    dropoff_at: t.Timestamp(timezone=None, scale=None, nullable=True)
+    passenger_count: t.Int8(nullable=True)
+    trip_distance: t.Float32(nullable=True)
+    pickup_location_id: t.Int32(nullable=True)
+    dropoff_location_id: t.Int32(nullable=True)
+    payment_type: t.String(nullable=True)
+    fare_amount: t.Float32(nullable=True)
+    mta_tax: t.Float32(nullable=True)
+    tip_amount: t.Float32(nullable=True)
+    tolls_amount: t.Float32(nullable=True)
+    total_amount: t.Float32(nullable=True)
+```
+
+Sources help validate breaking changes, propagate metadata and power development ergonomics like column-level lineage and column autocomplete. [Federated joins](/concepts/sources) are supported for most connectors (ex: Bigquery joined with Postgres) for data across resources.
+
+Sources can be imported across your vinyl project or used in notebooks for analysis.
+
+## Create a model
+
+Models are semantic representations of your data. Models can be used in notebooks for analysis, embedded in BI tools, data products or referenced in other parts of your project. Vinyl provides a [wide range of data transforms](/concepts/models) and complex SQL operations out of the box.
+
+Create a file at `my_project/models/taxi_model.py`.
+
+Let's a create a short model that takes our source data and add a new column total_amount to track total money spent by passengers.
+
+```python
+from my_project.sources.taxi_sample import TaxiSample
+
+@model(deps=TaxiSample)
+def amount_base(t):
+    t.mutate({
+        "total_amount": t.fare_amount + t.tip_amount
+    })
+    return t
+```
+
+You can preview your data model and inspect columns and rows using the CLI command:
+
+```bash
+vinyl models preview amount_base
+```
+
+## Create a metric
+
+Metrics are a powerful abstraction that allows for tracking time series data. Metrics auto generate complicated timeseries SQL and can be queried across dimensions and time buckets dynamically.
+
+Create a metric by passing in a metric store. We'll reference the `amount_base` model we created earlier so we can track taxi spend over time.
+
+```python
+@model(deps=[amount_base, MetricStore], publish=True)
+def amount_metric(b, s):
+    s.metric(
+        tbl=b,
+        by=b.store_and_fwd_flag,
+        ts=b.pickup_at,
+        fill=lambda x: x.mean(),
+        cols={"total_amount": b.total_amount.mean()},
+    )
+    return s
+```
+
+```
+
+```
