@@ -3,21 +3,31 @@ title: "⭐️ Quickstart"
 description: "Setup your analytics stack in 10 minutes"
 ---
 
+import { BigQuery } from "/snippets/snippet-intro";
+
 ## System Requirements
 
 Python version 3.10 or higher
 
 ## What's Vinyl?
 
-Vinyl is Turntable's framework for developing analytics infrastructure.
+Vinyl is Turntable's framework for developing analytics infrastructure. The only thing you need to know is basic python.
 
-Vinyl is cross-dialect, evaluated lazily and integrates with your existing data stack. Vinyl is designed to be a data platform that can be accessed in places like BI tools, AI agents or data products and works the same if you have 10,000 rows of data or 100M.
+Vinyl is cross-dialect and integrates with your existing data stack. Vinyl can be accessed in places like BI tools, AI agents or data products and works the same if you have 10,000 rows of data or 100M.
 
-Vinyl constructs SQL queries under the hood to avoid pulling all of your data onto your machine and it supports data sources from cloud storage like S3, databases like Postgres or data warehouses like Bigquery.
+Vinyl constructs SQL queries under the hood to avoid pulling all of your data onto your machine and it supports data sources from cloud storage services like S3, databases like Postgres or data warehouses like BigQuery. Vinyl also supports reading from dbt projects. [Learn more about our supported connections](/concepts/sources.mdx)
 
+<CardGroup cols={2}>
+  <Card href="/concepts/sources" title="BigQuery" />
+  <Card title="Snowflake" icon="square-2" />
+  <Card title="AWS S3" icon="square-3" />
+  <Card title="Postgres" icon="square-4" />
+  <Card title="dbt Core" icon="/images/dbt.svg" />
+  <Card title="DuckDB" icon="/images/dbt.svg" />
+</CardGroup>
 ## Install Vinyl
 
-First, we have to install the vinyl package
+First, install the vinyl package
 
 ```bash
 pip install vinyl-core
@@ -25,38 +35,55 @@ pip install vinyl-core
 
 ## Create a Project
 
-Navigate to you're preferred path and create a new project. For this quickstart, we recommended using our provided sample data by passing the `--demo` flag.
+Navigate to you're preferred path and create a new project
+
+```bash
+vinyl init my_shop
+```
 
 This creates a Vinyl project for you with the following structure:
 
-```bash
-vinyl init my_shop --demo
+```
+my_shop/
+  |- models/
+  |- data/
+  |- sources/
+  |- resources.py
+  |- pyproject.toml
+
 ```
 
-## Create a Source
+Navigate to your project directory and let's explore:
+
+```bash
+cd my_shop
+```
+
+## Generate Sources
 
 Sources are typed data schemas that help Vinyl understand what data is available. Sources can data warehouses (Snowflake, Bigquery), data lakes (Delta), cloud storage (S3, GCS) or even local files. See all of the [supported connections here](/concepts/sources).
 
-Our demo project contains 3 sample csv from the [Ecuador Grocery Store](https://www.kaggle.com/competitions/store-sales-time-series-forecasting) data under the `data/` folder:
+Our demo project contains 3 sample csvs from the [Ecuador grocery store dataset](https://www.kaggle.com/competitions/store-sales-time-series-forecasting) under the `data/` folder:
 
 - **stores.csv**: A list of 54 grocery stores and their locations
 - **store_num_transactions.csv**: The number of transactions at each store over time (2013-2017)
 - **holiday_events.csv**: holiday dates in Ecuador (2013-2017)
 
-First, create a Resource. A resource serves as your connection to locations where you want to access source data.
+First, create a Resource. A Resource serves as your connection to locations where you want to access source data.
 
-There's a `LocalFilesystem` Resource created for you that helps pull in our local files.
+Inside `my_shop/resources.py` There's a local resource created for you to work with our local demo files.
 
-```python my_project/resources.py
-from vinyl import resource
-from vinyl.connectors import TableFileConnector
+```python my_shop/resources.py
+from vinyl.lib.asset import resource
+from vinyl.lib.connect import FileConnector
+
 
 @resource
 def local_filesystem():
-    return TableFileConnector(path="data")
+    return FileConnector(path=os.path.join(os.path.dirname(__file__), "data"))
 ```
 
-We can now generate source files for our upstream data. Use this Vinyl CLI command to generate source files:
+We can now generate source files for our upstream data. Use this Vinyl CLI command to generate sources:
 
 ```bash
 vinyl sources generate
@@ -68,23 +95,16 @@ The result should be 3 files under `sources/local_filesystem/` that map to each 
 - **holiday_events.py**
 - **store_num_transactions.py**
 
-Sources help validate breaking changes, propagate metadata and power development ergonomics like column-level lineage and column autocomplete. [Federated joins](/concepts/sources) are supported for most connectors (ex: Bigquery joined with Postgres) for data across resources.
+Sources help validate breaking changes, propagate metadata and power development ergonomics like column-level lineage and column autocomplete. [Federated joins](/concepts/sources) are supported for most connectors (ex: BigQuery data joined with Postgres) for data across resources.
 
-Sources can be imported across your vinyl project or used in notebooks for analysis.
-
-Our Stores source looks like this for example:
+Let's a take a look at `stores.py`:
 
 ```python my_store/sources/local_filesystem/stores.py
 from vinyl import source, types as t
 from my_shop.resources import local_filesystem
 
-
 @source(resource=local_filesystem)
 class Stores:
-    _table = "stores"
-    _unique_name = "local_filesystem.Stores"
-    _path = "data/stores.csv"
-
     store_nbr: t.Int64(nullable=True)
     city: t.String(nullable=True)
     state: t.String(nullable=True)
@@ -98,9 +118,9 @@ Now let's do something with this source data.
 
 ## Create a Model
 
-Models are semantic representations of your data. Models can be used in notebooks for analysis, embedded in BI tools, data products or referenced in other parts of your project. Vinyl provides a [wide range of data transforms](/concepts/models) and complex SQL operations out of the box.
+Models are semantic representations of your data. Models can be used in notebooks for analysis, embedded in BI tools or data products and referenced in other parts of your project. Vinyl provides a [wide range of data transforms](/concepts/models) and complex SQL operations out of the box.
 
-We've created some models for you at `models/models.py`. Let's take a look at some of them.
+We've created some models for you at `models/models.py`. Let's take a look at `top_stores`:
 
 ```python models/models.py
 @model(deps=[Stores, StoreNumTransactions])
@@ -121,21 +141,21 @@ def top_stores(stores, txns):
     )
 ```
 
-Models help you build data pipelines in a declarative way. Upstream data is passed in as plain python functions or classes as dependencies in the `@model` annotation. In this example, we pass in the `Stores` source and `StoreNumTransactions` sources from earlier for us to aggregate to find the stores with the most transactions.
+Models help you structure and transform data in a declarative way. Upstream data is passed in as plain python functions or classes as dependencies in the `@model` annotation. In this example, we pass in the `Stores` source and `StoreNumTransactions` sources from earlier so we can aggregate the data to find the stores with the most transactions.
 
-This kind of data work usually involves a lot of brittle SQL and data wrangling in python is often a chore. What makes Vinyl different here is our [pipelined approach](/introduction) to data modeling, a [simple API](/reference) for performing transform operations, and cross-dialect SQL support. You can take the same model code above, change the source from a local file to Snowflake with the same schema and you'll get the same result.
+This kind of data work usually involves a lot of complex SQL. What makes Vinyl different here is our [pipelined approach](/introduction) to data modeling, a [simple API](/reference) for performing transform operations, and cross-dialect SQL support. You can take the same model code above, change the source from a local file to Snowflake with the same schema and you'll get the same result.
 
 Now, let's preview what this looks like using Vinyl's built-in data preview tool.
 
 ```bash
-vinyl models preview top_stores
+vinyl preview model --name top_stores
 ```
 
 ![preview](/images/preview.png)
 
-Vinyl's data preview tool is a powerful way to see your data in action. It's a great way to validate your data and see what your models are doing under the hood.
+Vinyl's interactive data preview tool works in the terminal and comes in handy when you want to preview changes made to your models.
 
-Let's take a look at one more model in our project.
+Let's take a look at another model in our project.
 
 ```python models/models.py
 @model(deps=[StoreNumTransactions, Stores])
@@ -149,68 +169,111 @@ def store_txns(txns, stores):
     return table
 ```
 
-This model doesn't have any aggregation but it does join the `StoreNumTransactions` and `Stores` sources together. This model has the number of transactions per calendar date along with some store information.
+This does a simple join across the two source tables, `StoreNumTransactions` and `Stores`. Let's preview this data using:
 
-If we use `vinyl preview --model store_txns`, the resulting data looks like:
+```bash
+vinyl preview model --name store_txns
+```
 
-![preview_metric](/images/metric_preview.png)
+This model contains the number of transactions per day per store, along with some city and state information for each store.
 
-Time series data is notoriously hard to model. You have to think about time buckets, aggregation windows, missing dates and dimensions. Oftentimes your first guess (weekly sales in the last 30 days) ends up being wrong when someone wants sales data quarterly.
+![preview_metric](/images/aggregation_preview.png)
 
-Luckily, Vinyl has a powerful abstraction for this called Metrics.
+Time series data is notoriously hard to model. You have to think about time buckets, aggregation windows, missing dates and dimensions. Oftentimes your first guess (weekly sales in the last 30 days) ends up being wrong when someone wants sales data by quarter.
+
+Luckily, Vinyl has a powerful abstraction for handling time series data called **Metrics**.
 
 ## Create a Metric
 
-Metrics are a powerful tool in Vinyl that allows for tracking time series data. Metrics auto generate complicated timeseries SQL and can be queried across dimensions and time buckets dynamically.
+Metrics are a powerful feature in Vinyl that allows for tracking time series data. Metrics auto-generate complicated timeseries SQL for you and can be queried across dimensions and time buckets dynamically.
 
-Create a metric by passing in a `MetricStore`. We'll reference the same `store_txns` model from above.
+Create a metric by passing in a `MetricStore` to your function and adding a `@metric` annotation. We'll reference the same `store_txns` model from above.
 
 ```python
-@model(deps=[store_txns, MetricStore], publish=True)
-def average_fare_metric(s, store):
-    store.metric(
-        tbl=s,
-        by=.store_and_fwd_flag,
-        ts=b.pickup_at,
+@metric(deps=[store_txns, MetricStore])
+def sales_metrics(table, metric_store):
+    metric_store.metric(
+        tbl=table,
+        by=[
+            table.store_nbr,
+            table.city,
+            table.state
+        ],
+        ts=table.date.cast("timestamp"),
         cols={
-            "total_amount": b.total_amount.mean()
+            "total_txns": table.transactions.sum(),
+            "average_txns": table.transactions.mean(),
         },
     )
-    return store
+    return metric_store
 ```
 
-Let's preview that our metric has data using the CLI command:
+Let's preview our metric using the CLI command:
 
 ```bash
-vinyl model preview average_fare_metric --30d
+vinyl preview metric \
+    --name sales_metrics \
+    --grain days=7
 ```
+
+![preview_metric](/images/metrics_preview.png)
+
+That's pretty neat! In just a few lines of python, you've generated a complicated SQL query to show weekly transaction data that can be sliced across many dimensions and time grains at query time.
+
+Let's try another time grain. Instead of weekly transactions, let's look at monthly transactions:
+
+```bash
+vinyl preview metric \
+     --name sales_metrics \
+     --grain months=1
+```
+
+![preview_metric](/images/metrics_preview_2.png)
+
+This show us the monthly transactions for each store. To learn more about all of the different time grains and dimensions you can use with metrics, check out the [Metrics documentation](/concepts/models).
 
 ## Deployment
 
-While vinyl is a great data modeling and analysis tool on it's own, it's also designed to be a data platform that can be accessed in places like BI tools, AI agents or data products.
+While Vinyl is a great data modeling and analysis tool on it's own, it's also designed to be accessed in places like BI tools, AI agents or data products.
 
-You can orchestrate and deploy your vinyl project using the CLI. By default, vinyl can run workloads and serve data locally. For production, we recommend [self-hosting](/concepts/deployment) or using [Turntable cloud](/concepts/deployment).
+You can orchestrate and deploy your Vinyl project using the CLI. By default, Vinyl runs workloads and serves data locally. For production use caes, learn more about our [deployment options](/concepts/deployment).
+
+Let's get our project ready to be served by running the `deploy` command:
 
 ```bash
 vinyl project deploy
 ```
 
-Vinyl uses fast OLAP caching to support sub second queries on 10s of millions of rows of data. Try serving models and metrics using the CLI command:
+Vinyl uses the latest query engines and intelligent caching to support sub second queries on 10s of millions of rows of data. Try serving your project using the `serve` command:
 
 ```bash
-vinyl project serve -p 5432
+vinyl project serve
 ```
 
-Once running, you can serve models and metrics via a postgres connector or HTTP API call. You can query your deployed Vinyl project in numerous BI and data tools (latestearn more about [integrations](/concepts/integrations) here).
+![serve](/images/serve.png)
 
-Try using a local postgres client (like psql) to query your deployed models and metrics.
+Once the server starts up, you can serve models and metrics via a Postgres connector or HTTP API call. You can query your deployed Vinyl project in numerous BI and data tools (learn more about [destinations](/concepts/destinations) here).
 
-```
-psql -h 0.0.0.0 -p 5432 -c "select * from average_fare_metric where bucket = 'monthly' limit 10";
-```
+### Querying your Project using Postgres
 
-Or via a HTTP API call:
+Vinyl supports fast sub second queries via its built-in postgres proxy. Connect to your deployed project using a Postgres client like [psql](https://www.timescale.com/blog/how-to-install-psql-on-mac-ubuntu-debian-windows/).
 
 ```bash
-curl -X POST -H "Content-Type: application/json" localhost:3000/model/average_fare_metric -d '{"time_bucket": "monthly", "limit": 10}'
+psql -h 0.0.0.0  -p 5433 \
+    -c "select * from top_stores limit 10";
 ```
+
+### Integrate your Project with an HTTP API
+
+You can also integrate your Vinyl project with other services or data products. Vinyl supports querying models and metrics via an HTTP API.
+
+```bash
+curl -X POST -H "Content-Type: application/json" \
+localhost:8000/metric/sales_metrics?grain=months=1&limit=10
+```
+
+## Next Steps
+
+Want to learn more about Vinyl? Check out our [concepts](/concepts) and [reference](/reference) documentation.
+
+Have a question for the team or want to learn more about running Vinyl in production? Reach out to us at team@turntable.so or join our [Slack community](https://join.slack.com/t/turntable-community/shared_invite/zt-25p0olvhz-Z~c5QWq1jv2YFHQ46mMFDA).

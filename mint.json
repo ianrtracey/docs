@@ -15,6 +15,15 @@
       "to": "#ADB5BD"
     }
   },
+  "primaryTab": {
+    "name": "Guide"
+  },
+  "tabs": [
+    {
+      "name": "API Docs",
+      "url": "api-reference"
+    }
+  ],
   "anchors": [
     {
       "name": "Join our Slack",
@@ -32,8 +41,7 @@
       "group": "Getting Started",
       "pages": [
         "introduction",
-        "quickstart",
-        "ai_agent"
+        "quickstart"
       ]
     },
     {
@@ -44,13 +52,6 @@
         "concepts/deployment",
         "concepts/ai_transforms",
         "concepts/enrichment"
-      ]
-    },
-    {
-      "group": "Tutorials",
-      "pages": [
-        "tutorials/jaffle_shop",
-        "tutorials/nyc_taxi"
       ]
     }
   ],
