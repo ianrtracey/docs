@@ -15,13 +15,10 @@
       "to": "#ADB5BD"
     }
   },
-  "primaryTab": {
-    "name": "Guide"
-  },
   "tabs": [
     {
-      "name": "API Docs",
-      "url": "api-reference"
+      "name": "Reference",
+      "url": "reference"
     }
   ],
   "anchors": [
@@ -52,6 +49,91 @@
         "concepts/deployment",
         "concepts/ai_transforms",
         "concepts/enrichment"
+      ]
+    },
+    {
+      "group": "Connectors",
+      "pages": [
+        "reference/connectors/postgres",
+        "reference/connectors/big_query",
+        "reference/connectors/file"
+      ]
+    },
+    {
+      "group": "Vinyl",
+      "pages": [
+        {
+          "group": "Table",
+          "pages": [
+            "reference/table/aggregate",
+            "reference/table/aggregate_all",
+            "reference/table/chart",
+            "reference/table/copy",
+            "reference/table/count",
+            "reference/table/create_from_schema",
+            "reference/table/distinct",
+            "reference/table/drop",
+            "reference/table/dropna",
+            "reference/table/eda",
+            "reference/table/execute",
+            "reference/table/filter",
+            "reference/table/filter_all",
+            "reference/table/get_name",
+            "reference/table/limit",
+            "reference/table/mutate",
+            "reference/table/mutate_all",
+            "reference/table/pickle",
+            "reference/table/relocate",
+            "reference/table/rename",
+            "reference/table/sample",
+            "reference/table/save",
+            "reference/table/schema",
+            "reference/table/select",
+            "reference/table/select_all",
+            "reference/table/sort",
+            "reference/table/to_sql"
+          ]
+        },
+        {
+          "group": "Column",
+          "pages": [
+            "reference/column/ArrayFunctions",
+            "reference/column/MapFunctions",
+            "reference/column/MathFunctions",
+            "reference/column/RegexFunctions",
+            "reference/column/StringFunctions",
+            "reference/column/StructFunctions",
+            "reference/column/TemporalFunctions",
+            "reference/column/URLFunctions",
+            "reference/column/argmax",
+            "reference/column/argmin",
+            "reference/column/as_scalar",
+            "reference/column/between",
+            "reference/column/cast",
+            "reference/column/coalesce",
+            "reference/column/collect",
+            "reference/column/combine",
+            "reference/column/count",
+            "reference/column/equivalent",
+            "reference/column/first",
+            "reference/column/hash",
+            "reference/column/in_",
+            "reference/column/lag",
+            "reference/column/last",
+            "reference/column/lead",
+            "reference/column/like",
+            "reference/column/match",
+            "reference/column/max",
+            "reference/column/mean",
+            "reference/column/median",
+            "reference/column/min",
+            "reference/column/mode",
+            "reference/column/nth",
+            "reference/column/quantile",
+            "reference/column/sum",
+            "reference/column/type"
+          ]
+        }
       ]
     }
   ],

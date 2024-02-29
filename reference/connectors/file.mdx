@@ -1,0 +1,27 @@
+---
+title: "File"
+description: "Pull source data from files"
+---
+
+## Details
+
+Supports csv, parquet and json files. Can either be a directory or single file.
+
+## Usage
+
+```python
+from vinyl.lib.connect import FileConnector
+from vinyl import resource
+
+@resource
+def local_directory():
+    return FileConnector(path="data")
+
+@resource
+def local_parquet():
+    return FileConnector(path="data/test.parquet")
+
+@resource
+def local_csv():
+    return FileConnector(path="data/test.csv")
+```

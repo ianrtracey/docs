@@ -1,0 +1,18 @@
+---
+title: "sample"
+---
+
+        Sample a fraction of rows from a table. Results may not be idempotent.
+
+        See specific note from Ibis below:
+
+        Sampling is by definition a random operation. Some backends support specifying a seed for repeatable results, but not all backends support that option. And some backends (duckdb, for example) do support specifying a seed but may still not have repeatable results in all cases.
+        In all cases, results are backend-specific. An execution against one backend is unlikely to sample the same rows when executed against a different backend, even with the same seed set.
+        
+
+## Parameters
+<ParamField body="fraction" type="float" required="true" >
+</ParamField>
+
+<ParamField body="method" type="Literal['row', 'block']" required="true" >
+</ParamField>
