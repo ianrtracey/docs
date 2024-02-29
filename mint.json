@@ -50,7 +50,7 @@
       "group": "Tutorials",
       "pages": [
         "tutorials/jaffle_shop",
-        "tutorials/nyc_taxi"
+        "tutorials/nyc_taxi"      
       ]
     }
   ],

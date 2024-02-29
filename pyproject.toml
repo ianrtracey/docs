@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "vinyl-docs"
+version = "0.1.0"
+description = ""
+authors = ["turntable-justin <122627527+turntable-justin@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "vinyl_docs"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+turntable-spoonbill = "^8.0.0"
+quarto = "^0.1.0"
+jupyter = "^1.0.0"
+matplotlib = "^3.8.3"
+plotly = "^5.19.0"
+duckdb = "^0.10.0"
+pins = "^0.8.4"
+gcsfs = "^2024.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
