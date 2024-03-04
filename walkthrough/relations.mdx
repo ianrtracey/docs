@@ -1,0 +1,448 @@
+---
+title: "Relations"
+format: "mintlify-md"
+icon: database
+---
+
+export const quartoRawHtml = [
+`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> # </span>┃<span style="font-weight: bold"> column        </span>┃<span style="font-weight: bold"> type         </span>┃
+┡━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━┩
+│ 0 │ date          │ <span style="color: #008080; text-decoration-color: #008080">timestamp(6)</span> │
+│ 1 │ precipitation │ <span style="color: #808000; text-decoration-color: #808000">float64     </span> │
+│ 2 │ temp_max      │ <span style="color: #808000; text-decoration-color: #808000">float64     </span> │
+│ 3 │ temp_min      │ <span style="color: #808000; text-decoration-color: #808000">float64     </span> │
+│ 4 │ wind          │ <span style="color: #808000; text-decoration-color: #808000">float64     </span> │
+│ 5 │ weather       │ <span style="color: #ffaf00; text-decoration-color: #ffaf00">string      </span> │
+└───┴───────────────┴──────────────┘
+</div>`,
+`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">r0 := DatabaseTable: seattle_weather
+  date          <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">timestamp</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6</span><span style="font-weight: bold">)</span>
+  precipitation float64
+  temp_max      float64
+  temp_min      float64
+  wind          float64
+  weather       string
+Project<span style="font-weight: bold">[</span>r0<span style="font-weight: bold">]</span>
+  <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Multiply</span><span style="font-weight: bold">(</span>wind, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">)</span>: r0.wind * <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>
+</div>`,
+`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━┳━━━━━━━━━━┳━━━━━━━━━┓
+┃<span style="font-weight: bold"> # </span>┃<span style="font-weight: bold"> column   </span>┃<span style="font-weight: bold"> type    </span>┃
+┡━━━╇━━━━━━━━━━╇━━━━━━━━━┩
+│ 0 │ temp_max │ <span style="color: #808000; text-decoration-color: #808000">float64</span> │
+│ 1 │ temp_min │ <span style="color: #808000; text-decoration-color: #808000">float64</span> │
+└───┴──────────┴─────────┘
+</div>`,
+`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">                                 ╭──────────────────────╮     
+                                 │ <span style="font-weight: bold">Project</span>              │     
+         ╭──────────────────────▶│ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">temp_max: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold; font-style: italic">float64</span> │     
+         │                       │ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">temp_min: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold; font-style: italic">float64</span> │     
+         │                       ╰──────────────────────╯     
+         │                                  ▲▲                
+         │                                  ││                
+         │                                  ││                
+         │                                  ││                
+╭─────────────────╮                ╭─────────────────╮        
+│ <span style="font-style: italic">temp_max: </span><span style="font-weight: bold; font-style: italic">Field</span> │                │ <span style="font-style: italic">temp_min: </span><span style="font-weight: bold; font-style: italic">Field</span> │        
+│ <span style="font-style: italic">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">float64</span>   │                │ <span style="font-style: italic">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">float64</span>   │        
+╰─────────────────╯                ╰─────────────────╯        
+         ▲                                  ▲│                
+         │                                  ││                
+         │                                  ││                
+         │                                  ││                
+         │                                  ││                
+         │                  ╭────────────────────────────────╮
+         │                  │ <span style="font-style: italic">seattle_weather: </span><span style="font-weight: bold; font-style: italic">DatabaseTable</span> │
+         │                  │ <span style="font-style: italic">   date: </span><span style="color: #008080; text-decoration-color: #008080; font-style: italic">timestamp(6)</span>          │
+         │                  │ <span style="font-style: italic">   precipitation: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">float64</span>      │
+         ╰──────────────────│ <span style="font-style: italic">   temp_max: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">float64</span>           │
+                            │ <span style="font-style: italic">   temp_min: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">float64</span>           │
+                            │ <span style="font-style: italic">   wind: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">float64</span>               │
+                            │ <span style="font-style: italic">   weather: </span><span style="color: #ffaf00; text-decoration-color: #ffaf00; font-style: italic">string</span>             │
+                            ╰────────────────────────────────╯
+</div>`,
+`<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+`,
+`
+<p>1461 rows × 2 columns</p>
+</div>`,
+`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━┳━━━━━━━━━━┓
+┃<span style="font-weight: bold"> temp_max </span>┃<span style="font-weight: bold"> temp_min </span>┃
+┡━━━━━━━━━━╇━━━━━━━━━━┩
+│ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">float64</span>  │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">float64</span>  │
+├──────────┼──────────┤
+│     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12.8</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5.0</span> │
+│     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.6</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.8</span> │
+│     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11.7</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.2</span> │
+│     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12.2</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5.6</span> │
+│      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.9</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.8</span> │
+│      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4.4</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.2</span> │
+│      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.2</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.8</span> │
+│     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.8</span> │
+│      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">9.4</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5.0</span> │
+│      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.1</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.6</span> │
+│        <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span> │        <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span> │
+└──────────┴──────────┘
+</div>`,
+`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> TimestampTruncate(date, MONTH) </span>┃<span style="font-weight: bold"> temp_max              </span>┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━┩
+│ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">timestamp</span>                      │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">array&lt;float64&gt;</span>        │
+├────────────────────────────────┼───────────────────────┤
+│ <span style="color: #800080; text-decoration-color: #800080">2012-01-01 00:00:00</span>            │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12.8</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.6</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">29</span><span style="font-weight: bold">]</span> │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-02-01 00:00:00</span>            │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.9</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.3</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">27</span><span style="font-weight: bold">]</span>   │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-03-01 00:00:00</span>            │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.7</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">29</span><span style="font-weight: bold">]</span>   │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-04-01 00:00:00</span>            │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.9</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16.7</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28</span><span style="font-weight: bold">]</span>  │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-05-01 00:00:00</span>            │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11.7</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.3</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">29</span><span style="font-weight: bold">]</span> │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-06-01 00:00:00</span>            │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20.0</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.9</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28</span><span style="font-weight: bold">]</span> │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-07-01 00:00:00</span>            │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20.0</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.9</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">29</span><span style="font-weight: bold">]</span> │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-08-01 00:00:00</span>            │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.9</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.3</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">29</span><span style="font-weight: bold">]</span> │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-09-01 00:00:00</span>            │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.7</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.1</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28</span><span style="font-weight: bold">]</span> │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-10-01 00:00:00</span>            │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.3</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17.8</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">29</span><span style="font-weight: bold">]</span> │
+│ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span>                              │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span>                     │
+└────────────────────────────────┴───────────────────────┘
+</div>`,
+`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #66d9ef; text-decoration-color: #66d9ef; background-color: #272822">SELECT</span><span style="background-color: #272822">                                                                                                             </span>
+<span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">  DATE_TRUNC(</span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">'MONTH'</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">, </span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">"t0"</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">.</span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">"date"</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">) </span><span style="color: #66d9ef; text-decoration-color: #66d9ef; background-color: #272822">AS</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822"> </span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">"TimestampTruncate(date, MONTH)"</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">,</span><span style="background-color: #272822">                                            </span>
+<span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">  ARRAY_AGG(</span><span style="color: #66d9ef; text-decoration-color: #66d9ef; background-color: #272822">COALESCE</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">(</span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">"t0"</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">.</span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">"temp_max"</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">, PARSE_JSON(</span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">'null'</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">))) </span><span style="color: #66d9ef; text-decoration-color: #66d9ef; background-color: #272822">AS</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822"> </span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">"temp_max"</span><span style="background-color: #272822">                                           </span>
+<span style="color: #66d9ef; text-decoration-color: #66d9ef; background-color: #272822">FROM</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822"> </span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">"seattle_weather"</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822"> </span><span style="color: #66d9ef; text-decoration-color: #66d9ef; background-color: #272822">AS</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822"> </span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">"t0"</span><span style="background-color: #272822">                                                                                     </span>
+<span style="color: #66d9ef; text-decoration-color: #66d9ef; background-color: #272822">GROUP</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822"> </span><span style="color: #66d9ef; text-decoration-color: #66d9ef; background-color: #272822">BY</span><span style="background-color: #272822">                                                                                                           </span>
+<span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">  </span><span style="color: #ae81ff; text-decoration-color: #ae81ff; background-color: #272822">1</span><span style="background-color: #272822">                                                                                                                </span>
+</div>`,
+`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #66d9ef; text-decoration-color: #66d9ef; background-color: #272822">SELECT</span><span style="background-color: #272822">                                                                                                             </span>
+<span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">  DATE_TRUNC(</span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">'MONTH'</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">, </span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">"t0"</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">.</span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">"date"</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">) </span><span style="color: #66d9ef; text-decoration-color: #66d9ef; background-color: #272822">AS</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822"> </span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">"TimestampTruncate(date, MONTH)"</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">,</span><span style="background-color: #272822">                                            </span>
+<span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">  ARRAY_AGG(</span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">"t0"</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">.</span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">"temp_max"</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">) </span><span style="color: #66d9ef; text-decoration-color: #66d9ef; background-color: #272822">AS</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822"> </span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">"temp_max"</span><span style="background-color: #272822">                                                                         </span>
+<span style="color: #66d9ef; text-decoration-color: #66d9ef; background-color: #272822">FROM</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822"> </span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">"seattle_weather"</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822"> </span><span style="color: #66d9ef; text-decoration-color: #66d9ef; background-color: #272822">AS</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822"> </span><span style="color: #e6db74; text-decoration-color: #e6db74; background-color: #272822">"t0"</span><span style="background-color: #272822">                                                                                     </span>
+<span style="color: #66d9ef; text-decoration-color: #66d9ef; background-color: #272822">GROUP</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822"> </span><span style="color: #66d9ef; text-decoration-color: #66d9ef; background-color: #272822">BY</span><span style="background-color: #272822">                                                                                                           </span>
+<span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">  </span><span style="color: #ae81ff; text-decoration-color: #ae81ff; background-color: #272822">1</span><span style="background-color: #272822">                                                                                                                </span>
+</div>`,
+`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">SELECT
+  <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">DATE_TRUNC</span><span style="font-weight: bold">(</span><span style="color: #008000; text-decoration-color: #008000">'MONTH'</span>, <span style="color: #008000; text-decoration-color: #008000">"t0"</span>.<span style="color: #008000; text-decoration-color: #008000">"date"</span><span style="font-weight: bold">)</span> AS <span style="color: #008000; text-decoration-color: #008000">"TimestampTruncate(date, MONTH)"</span>,
+  <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ARRAY_AGG</span><span style="font-weight: bold">(</span><span style="color: #008000; text-decoration-color: #008000">"t0"</span>.<span style="color: #008000; text-decoration-color: #008000">"temp_max"</span><span style="font-weight: bold">)</span> AS <span style="color: #008000; text-decoration-color: #008000">"temp_max"</span>
+FROM <span style="color: #008000; text-decoration-color: #008000">"seattle_weather"</span> AS <span style="color: #008000; text-decoration-color: #008000">"t0"</span>
+GROUP BY
+  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>
+</div>`
+];
+
+<Note>
+
+This page leverages some basic transform syntax from later parts of the
+walkthrough. Don’t worry too much about it for now: the core of this
+page is to understand how relations work in Vinyl.
+
+</Note>
+
+## Properties
+
+As in SQL, relations are the core data model. But relations in vinyl
+have some unique properties:
+
+### Relations are column aware
+
+Take the `Seattle weather` dataset in vinyl’s examples.
+
+<Card>
+
+```python
+from vinyl.examples import seattle_weather
+
+weather = seattle_weather()
+```
+
+</Card>
+
+`weather` is a Vinytable object, which carry far more information that a
+standard sql table or cte. The schema, for example, can be pulled easily
+without running a query against the database.
+
+<Card>
+
+```python
+print(weather.schema())
+```
+
+<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[0] }} />
+
+</Card>
+
+Columns are attrributes of the class, so the code below returns the
+`wind` column.
+
+```python
+weather.wind
+```
+
+``` text
+<vinyl.lib.column.VinylColumn at 0x28b0cf450>
+```
+
+And, after a <Tooltip tip="more on this in the next section">basic
+transform</Tooltip>
+
+```python
+wind_doubled = weather.select(weather.wind * 2)
+print(wind_doubled)
+```
+
+<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[1] }} />
+
+This means you can access the information at any point in your queries.
+For example,
+
+```python
+temps = weather.select([col for col in weather.columns if col.startswith("temp")])
+print(temps.schema())
+```
+
+<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[2] }} />
+
+will pull all numeric columns from `weather`.
+
+### Relations are lazy
+
+Vinyl keeps track of its syntax lazily, and only compiles when a
+variable is executed or its sql is generated.
+
+By default, vinyl will return a string representation of the query plan
+associated with a variable unless specified otherwise. For example:
+
+```python
+temps
+```
+
+``` text
+r0 := DatabaseTable: seattle_weather
+  date          timestamp(6)
+  precipitation float64
+  temp_max      float64
+  temp_min      float64
+  wind          float64
+  weather       string
+
+Project[r0]
+  temp_max: r0.temp_max
+  temp_min: r0.temp_min
+```
+
+If you’d like to see a graphical representation, use `.visualize()`:
+
+```python
+temps.visualize()
+```
+
+<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[3] }} />
+
+To execute this, you only need to run:
+
+```python
+temps.execute()
+```
+
+<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[4] }} />
+
+|      | temp_max | temp_min |
+|------|----------|----------|
+| 0    | 12.8     | 5.0      |
+| 1    | 10.6     | 2.8      |
+| 2    | 11.7     | 7.2      |
+| 3    | 12.2     | 5.6      |
+| 4    | 8.9      | 2.8      |
+| ...  | ...      | ...      |
+| 1456 | 4.4      | 1.7      |
+| 1457 | 5.0      | 1.7      |
+| 1458 | 7.2      | 0.6      |
+| 1459 | 5.6      | -1.0     |
+| 1460 | 5.6      | -2.1     |
+
+<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[5] }} />
+
+By default, this returns a pandas DataFrame. You can also return a text
+or pyarrow representation by specifying that
+
+```python
+temps.execute("text")
+```
+
+<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[6] }} />
+
+
+```python
+temps.execute("pyarrow")
+```
+
+``` text
+pyarrow.Table
+temp_max: double
+temp_min: double
+----
+temp_max: [[12.8,10.6,11.7,12.2,8.9,...,4.4,5,7.2,5.6,5.6]]
+temp_min: [[5,2.8,7.2,5.6,2.8,...,1.7,1.7,0.6,-1,-2.1]]
+```
+
+You can also save it to various formats (csv, json, etc.) using
+`.save()`
+
+### Relations are selectively mutable
+
+By default, VinylTables are **immutable**. For example, the original
+table ast is printed when run is the same as the original `weather`.
+
+```python
+weather.select(weather.wind * 2)
+weather
+```
+
+``` text
+DatabaseTable: seattle_weather
+  date          timestamp(6)
+  precipitation float64
+  temp_max      float64
+  temp_min      float64
+  wind          float64
+  weather       string
+```
+
+That said, there are two key cases where VinylTables are considered
+mutable. This allows for a more fluent ergonomic syntax, especially when
+you are chaining several transforms together.
+
+The two cases are: 1. Within specially decorated functions (i.e. those
+with `@model` or `@metric` decorator) 2. Context managers
+
+The first case is designed to support
+<Tooltip tip="more on this in the quickstart">pipelines</Tooltip>
+
+```python
+from vinyl import T, model
+
+
+@model(deps=[seattle_weather])
+def weather(w: T) -> T:
+    w.select(w.wind * 2)
+    return w
+
+
+weather()
+```
+
+``` text
+r0 := DatabaseTable: seattle_weather
+  date          timestamp(6)
+  precipitation float64
+  temp_max      float64
+  temp_min      float64
+  wind          float64
+  weather       string
+
+Project[r0]
+  Multiply(wind, 2): r0.wind * 2
+```
+
+The second use case is designed primarily for analysis use cases.
+
+```python
+with seattle_weather() as w:
+    w.select(w.wind * 2)
+
+w
+```
+
+``` text
+r0 := DatabaseTable: seattle_weather
+  date          timestamp(6)
+  precipitation float64
+  temp_max      float64
+  temp_min      float64
+  wind          float64
+  weather       string
+
+Project[r0]
+  Multiply(wind, 2): r0.wind * 2
+```
+
+It can also be used inside vinyl pipeline functions to create a sort of
+“cte”, in the sense that it makes a copy of the original object.
+
+### Relations are dialect independent
+
+Vinyl uses the Ibis library to generate SQL. This means that you can
+write your queries in a dialect agnostic way. For example, the following
+code works in across the dialects currently supported by Vinyl: -
+BigQuery - Snowflake - DuckDB - Postgres
+
+Ibis itself supports almost 20 dialects, so we plan to add more over
+time.
+
+For this table
+
+```python
+with seattle_weather() as w:
+    w.aggregate({"temp_max": w.temp_max.collect()}, by=w.date.dt.floor(months=1))
+
+temp_by_month = w
+temp_by_month.execute("text")
+```
+
+<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[7] }} />
+
+Here’s how vinyl translates the query to each dialect
+
+<Tabs>
+<Tab title="BigQuery">
+
+``` text
+SELECT
+  TIMESTAMP_TRUNC(`t0`.`date`, MONTH) AS `TimestampTruncate_date_ MONTH`,
+  ARRAY_AGG(`t0`.`temp_max` IGNORE NULLS) AS `temp_max`
+FROM `seattle_weather` AS `t0`
+GROUP BY
+  1
+```
+
+</Tab>
+<Tab title="Snowflake">
+<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[8] }} />
+
+</Tab>
+<Tab title="DuckDB">
+<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[9] }} />
+
+</Tab>
+<Tab title="Postgres">
+<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[10] }} />
+
+</Tab>
+</Tabs>
+
+:::
+
+-   Relations:
+    -   column-aware
+    -   lazy
+    -   selectively mutable
+    -   cross-dialect
+-   Transforms:
+    -   Core
+        -   Select
+        -   Derive
+        -   Aggregate
+        -   Filter
+    -   `_all` variants
+    -   Row operations: distinct, limit
+        -   where, having, and qualify -\> filter
+-   Set operators: join, union, differrence
+-   Column operators
+-   Metric: dynamically generated relations
+

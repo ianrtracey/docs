@@ -1,5 +1,13 @@
 project:
-  type: mintlify
+  type: default
+  render:
+    - walkthrough/*.ipynb
+  
+format:
+  mintlify-md
+
+execute:
+  freeze: false
 
 
 

@@ -16,6 +16,10 @@ plotly = "^5.19.0"
 duckdb = "^0.10.0"
 pins = "^0.8.4"
 gcsfs = "^2024.2.0"
+lets-plot = "^4.2.0"
+textual = "^0.52.1"
+jupyter-cache = "^1.0.0"
+watchdog = "^4.0.0"
 
 
 [build-system]

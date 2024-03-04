@@ -53,6 +53,12 @@
         "concepts/ai_transforms",
         "concepts/enrichment"
       ]
+    },
+    {
+      "group": "Walkthrough",
+      "pages": [
+        "walkthrough/relations"
+      ]
     }
   ],
   "footerSocials": {

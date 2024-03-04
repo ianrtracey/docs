@@ -41,22 +41,18 @@ local function tabset(node, filter)
     local content = node.tabs[i].content
     local title = node.tabs[i].title
 
-    tabs.content:insert(jsx(([[<TabItem value="%s">]]):format(pandoc.utils.stringify(title))))
+    tabs.content:insert(jsx(([[<Tab title="%s">]]):format(pandoc.utils.stringify(title))))
     local result = quarto._quarto.ast.walk(content, filter)
     if type(result) == "table" then
       tabs.content:extend(result)
     else
       tabs.content:insert(result)
     end
-    tabs.content:insert(jsx("</TabItem>"))
+    tabs.content:insert(jsx("</Tab>"))
   end
 
   -- end tab and tabset
   tabs.content:insert(jsx("</Tabs>"))
-
-  -- ensure we have required deps
-  addPreamble("import Tabs from '@theme/Tabs';")
-  addPreamble("import TabItem from '@theme/TabItem';")
 
   return tabs
 end
@@ -83,7 +79,7 @@ function Writer(doc, opts)
       end
 
       -- Raw blocks inclding arbirtary HTML like JavaScript are not supported in CSF
-      return ""
+      return pandoc.RawBlock('html', rawBlock.text)
     end,
 
     Callout = function(node)
