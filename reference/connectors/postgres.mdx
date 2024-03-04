@@ -1,0 +1,21 @@
+---
+title: "Postgres"
+description: "Pull source data from Postgres"
+---
+
+## Usage
+
+```python
+from vinyl.lib.connect import PostgresConnector
+from vinyl import resource
+
+@resource
+def postgres():
+    return PostgresConnector(
+        host="myhost.com",
+        port="5432",
+        user='user',
+        password='password',
+        tables=["postgres.public.*"],
+    )
+```

@@ -1,0 +1,18 @@
+---
+title: "BigQuery"
+description: "Pull source data from BigQuery"
+---
+
+## Usage
+
+```python
+from vinyl.lib.connect import BigQueryConnector
+from vinyl import resource
+
+@resource
+def bigquery():
+    return BigQueryConnector(
+        service_account_info=os.getenv("GOOGLE_APPLICATION_CREDENTIALS"),
+        tables=["*"],
+    )
+```

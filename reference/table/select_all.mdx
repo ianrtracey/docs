@@ -1,0 +1,29 @@
+---
+title: "select_all"
+---
+None
+
+## Parameters
+<ParamField body="col_selector" type="column_type_all" required="true" >
+</ParamField>
+
+<ParamField body="f" type="Callable[[Any], Any] | list[Callable[[Any], Any] | None] | None" required="true" >
+</ParamField>
+
+<ParamField body="by" type="column_type | None" required="false" >
+</ParamField>
+
+<ParamField body="sort" type="column_type | None" required="false" >
+</ParamField>
+
+<ParamField body="window_type" type="WindowType" required="false" default="WindowType.rows" >
+</ParamField>
+
+<ParamField body="window_bounds" type="tuple[int | None, int | None]" required="false" default="(None, None)" >
+</ParamField>
+
+<ParamField body="fill" type="fill_type" required="false" >
+</ParamField>
+
+<ParamField body="rename" type="bool" required="false" >
+</ParamField>
