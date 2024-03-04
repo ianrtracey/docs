@@ -25,7 +25,7 @@ if __name__ == "__main__":
     print(f"Watching directory '{root}' for changes...")
     try:
         while True:
-            time.sleep(0.2)
+            time.sleep(1)
     except KeyboardInterrupt:
         observer.stop()
         observer.join()
