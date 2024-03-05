@@ -8,13 +8,9 @@ format: mintlify-md
 
 Turntable has three components:
 
-1.  **Vinyl** - a python framework for building and managing analytics
-    infrastructure.
-2.  **Midi AI (coming soon)** - an AI data analyst assistant that works
-    with Vinyl to help you with basic analysis tasks and surface
-    insights in record time.
-3.  **Turntable Cloud** - managed CPU and GPU compute to help you run
-    intensive data workloads and sub second queries.
+1.  **Vinyl** - a python framework for building and managing analytics infrastructure.
+2.  **Midi AI (coming soon)** - an AI data analyst assistant that works with Vinyl to help you with basic analysis tasks and surface insights in record time.
+3.  **Turntable Cloud** - managed CPU and GPU compute to help you run intensive data workloads and sub second queries.
 
 ## Our Philosophy
 
@@ -23,8 +19,7 @@ We believe that analytics infrastructure should:
 -   Be declarative and code-backed
 -   Embeddable in the latest BI tools and data products
 -   Leverage AI to help surface insights and automate repetitive tasks
--   Be scalable, cost-effective, and use the latest query engines for
-    sub second queries
+-   Be scalable, cost-effective, and use the latest query engines for sub second queries
 
 ## Who is Turntable for?
 
@@ -39,36 +34,31 @@ We believe that analytics infrastructure should:
 ## What makes Vinyl unique?
 
 | Feature              | Description                                                                                                                                                                                                                                                                                                                            |
-|-----------------|-------------------------------------------------------|
-| *Only Python*        | Vinyl is built for Python developers and data scientists. It’s as pythonic as possible, and can integrate with your existing Python codebase. No SQL or Jinja templates required.                                                                                                                                                      |
+|----------------|--------------------------------------------------------|
+| *Only Python*        | Vinyl is built for Python developers and data scientists. It's as pythonic as possible, and can integrate with your existing Python codebase. No SQL or Jinja templates required.                                                                                                                                                      |
 | *Cross-dialect*      | Vinyl supports multiple SQL dialects under the hood and can be used with many data warehouses with the same code. You can use DuckDB at first and switch to Snowflake or BigQuery as you scale, or even preview your data locally.                                                                                                     |
 | *Federated*          | Vinyl can be used to query multiple data sources at once, including data warehouses, data lakes, local files, and even existing DBT projects. Importing data sources is dramatically easier than with existing data modeling frameworks.                                                                                               |
 | *Built for metrics*  | Vinyl includes powerful abstractions for time series operations. Metrics are deeply integrated into the framework and have syntax that closely mirrors basic aggregation. No need to learn javascript or specialized Jinja syntax.                                                                                                     |
 | *Column-aware*       | Vinyl objects carry far more context than just the data they represent, including schema and column lineage information. Users simply annotate their sources, and Vinyl can automatically infer join columns, cascade down documentation, mask PII, and more.                                                                          |
 | *End-to-end*         | Vinyl provides a single framework for data analysis, data transformation, and semantic modeling. You can use Vinyl for almost any data task without relying on another tool or framework.                                                                                                                                              |
-| *Available anywhere* | Vinyl allows you to publish your models and queries to any BI tool – even in your product – using a simple postgres or REST API.                                                                                                                                                                                                       |
-| *Built for AI*       | Vinyl is designed to work with AI. At first, you will be able to use AI transforms seamlessly in your pipeline. In the near future, MIDI will be able to automate analytics tasks. The features described above are good for humans, but also are designed to enable dramatically better AI experiences than today’s Text-to-SQL bots. |
+| *Available anywhere* | Vinyl allows you to publish your models and queries to any BI tool -- even in your product -- using a simple postgres or REST API.                                                                                                                                                                                                     |
+| *Built for AI*       | Vinyl is designed to work with AI. At first, you will be able to use AI transforms seamlessly in your pipeline. In the near future, MIDI will be able to automate analytics tasks. The features described above are good for humans, but also are designed to enable dramatically better AI experiences than today's Text-to-SQL bots. |
 
 ## Who might not be a good fit for Turntable?
 
--   Companies with very large datasets for whom incremental
-    materialization is necessary
+-   Companies with very large datasets for whom incremental materialization is necessary
 
--   Companies were data practitioners can’t use Python and would not
-    want to learn it.
+-   Companies were data practitioners can't use Python and would not want to learn it.
 
 ## Related projects
 
-Vinyl stands on the shoulders on several awesome projects and, we
-couldn’t have built it without them. Here are our most important
-dependencies and inspirations.
+Vinyl stands on the shoulders on several awesome projects and, we couldn't have built it without them. Here are our most important dependencies and inspirations.
 
 | Source                                      | Type        | Founded | Relation to Vinyl                                                                                                                                                                                                  |
-|--------|--------------|--------|-------------------------------------------|
+|-------|-------------|-------|---------------------------------------------|
 | [Ibis](https://ibis-project.org/)           | Dependency  | 2015    | Core dependency in Vinyl. Under the hood, Vinyl code compiles to SQL code.                                                                                                                                         |
 | [DuckDB](https://duckdb.org/)               | Dependency  | 2019    | Default DB engine in Vinyl. Used for all file and many data lake connections.                                                                                                                                      |
 | [SQLglot](https://sqlglot.com/sqlglot.html) | Dependency  | 2021    | Core dependency of Ibis. Ibis code compiles to SQLglot, which in turn compiles to SQL.                                                                                                                             |
 | [dplyr](https://dplyr.tidyverse.org/)       | Inspiration | 2014    | Original pipelined query framework, from the R ecosystem. Inspired Ibis, PRQL, and many others that came after. One of our founders learned dplyr before SQL, and never forgot how ergonomic it was in comparison. |
-| [PRQL](https://prql-lang.org/)              | Inspiration | 2022    | Innovative pipelined query language. Orthogonality of its syntax directly inspired Vinyl’s.                                                                                                                        |
-| [SQLModel](https://sqlmodel.tiangolo.com/)  | Inspiration | 2021    | SQLModel’s relation and field class directly inspired Vinyl’s.                                                                                                                                                     |
-
+| [PRQL](https://prql-lang.org/)              | Inspiration | 2022    | Innovative pipelined query language. Orthogonality of its syntax directly inspired Vinyl's.                                                                                                                        |
+| [SQLModel](https://sqlmodel.tiangolo.com/)  | Inspiration | 2021    | SQLModel's relation and field class directly inspired Vinyl's.                                                                                                                                                     |

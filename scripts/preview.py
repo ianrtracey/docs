@@ -10,7 +10,7 @@ class FileChangeHandler(FileSystemEventHandler):
     def on_modified(self, event):
         if event.is_directory:
             return
-        if event.src_path.endswith(".ipynb"):
+        if event.src_path.endswith(".ipynb") or event.src_path.endswith(".qmd"):
             # avoid recursion by only running when ipynb files are changed
             subprocess.run("python scripts/render.py", shell=True)
 
