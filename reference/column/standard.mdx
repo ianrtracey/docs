@@ -1,0 +1,303 @@
+---
+title: Standard Operations
+---
+## argmax
+Return the value of key when the expression is at its maximum value.
+
+If a `where` condition is specified, method only considers rows meeting the `where` condition.
+<Accordion title="Parameters">
+  <ParamField body="key" type="Value" required={true}>
+</ParamField>
+
+<ParamField body="where" type="BooleanValue | None" required={false}>
+</ParamField>
+</Accordion>
+
+
+## argmin
+Return the value of key when the expression is at its minimum value.
+
+If a `where` condition is specified, method only considers rows meeting the `where` condition.
+<Accordion title="Parameters">
+  <ParamField body="key" type="Value" required={true}>
+</ParamField>
+
+<ParamField body="where" type="BooleanValue | None" required={false}>
+</ParamField>
+</Accordion>
+
+
+## as_scalar
+Convert the expression to a scalar value. Note that the execution of the scalar subquery will fail if the column expression contains more than one value.
+
+
+## between
+Check if this expression is between lower and upper, inclusive.
+<Accordion title="Parameters">
+  <ParamField body="lower" type="Value" required={true}>
+</ParamField>
+
+<ParamField body="upper" type="Value" required={true}>
+</ParamField>
+</Accordion>
+
+
+## cast
+Cast expression to indicated data type. Type inputs can include strings, python type annotations, numpy dtypes, pandas dtypes, and pyarrow dtypes.
+
+If try_ is True, then the cast will return null if the cast fails, otherwise it will raise an error.
+<Accordion title="Parameters">
+  <ParamField body="target_type" type="Any" required={true}>
+</ParamField>
+
+<ParamField body="try_" type="bool" required={false}>
+</ParamField>
+</Accordion>
+
+
+## coalesce
+Return the first non-null value in the expression list.
+<Accordion title="Parameters">
+  <ParamField body="args" type="Value" required={true}>
+</ParamField>
+</Accordion>
+
+
+## collect
+Collect the expression into an array.
+
+If a `where` condition is specified, method only considers rows meeting the `where` condition.
+<Accordion title="Parameters">
+  <ParamField body="where" type="BooleanValue | None" required={false}>
+</ParamField>
+</Accordion>
+
+
+## combine
+Combine the expression into a single string using the specified separator.
+
+If a `where` condition is specified, method only considers rows meeting the `where` condition.
+<Accordion title="Parameters">
+  <ParamField body="sep" type="str" required={false}default=", " >
+</ParamField>
+
+<ParamField body="where" type="string" required={false}>
+</ParamField>
+</Accordion>
+
+
+## count
+Return the number of non-null values in the expression, only including values when the `where` condition is true.
+
+If `distinct` is True, then the number of unique values will be returned instead of the total count.
+
+If `approx` is True and `distinct` is True, method will use approximate count distinct function, which is faster but less accurate. This is only available for count distinct.
+<Accordion title="Parameters">
+  <ParamField body="where" type="BooleanValue | None" required={false}>
+</ParamField>
+
+<ParamField body="distinct" type="bool" required={false}>
+</ParamField>
+
+<ParamField body="approx" type="bool" required={false}>
+</ParamField>
+</Accordion>
+
+
+## epoch_seconds
+Return the number of seconds since the Unix epoch.
+
+
+## equivalent
+Null-aware version of ==. Returns true if both expressions are equal or both are null.
+<Accordion title="Parameters">
+  <ParamField body="other" type="Value" required={true}>
+</ParamField>
+</Accordion>
+
+
+## first
+Return the first value in the expression.
+
+If a `where` condition is specified, method only considers rows meeting the `where` condition.
+<Accordion title="Parameters">
+  <ParamField body="where" type="BooleanValue | None" required={false}>
+</ParamField>
+</Accordion>
+
+
+## hash
+Compute an integer hash value of the expression.
+
+The hashing function used is dependent on the backend, so usage across dialect will likely return a different number.
+
+
+## in_
+Check if this expression is in the provided set of values. Exists in place of the python `in` operator because of its requirement to evaluate to a python boolean.
+<Accordion title="Parameters">
+  <ParamField body="values" type="Value | Sequence[Value]" required={true}>
+</ParamField>
+</Accordion>
+
+
+## lag
+Return the row located at offset rows before the current row. If no row exists at offset, the default value is returned.
+<Accordion title="Parameters">
+  <ParamField body="offset" type="int | IntegerValue | None" required={false}>
+</ParamField>
+
+<ParamField body="default" type="Value | None" required={false}>
+</ParamField>
+</Accordion>
+
+
+## last
+Return the last value in the expression.
+
+If a `where` condition is specified, method only considers rows meeting the `where` condition.
+<Accordion title="Parameters">
+  <ParamField body="where" type="BooleanValue | None" required={false}>
+</ParamField>
+</Accordion>
+
+
+## lead
+Return the row located at offset rows after the current row. If no row exists at offset, the default value is returned.
+<Accordion title="Parameters">
+  <ParamField body="offset" type="int | IntegerValue | None" required={false}>
+</ParamField>
+
+<ParamField body="default" type="Value | None" required={false}>
+</ParamField>
+</Accordion>
+
+
+## like
+This function is modeled after SQL's `LIKE` and `ILIKE` directives. Use `%` as a
+multiple-character wildcard or `_` as a single-character wildcard.
+
+For regular expressions, use `re.search`.
+<Accordion title="Parameters">
+  <ParamField body="patterns" type="str | StringValue | Iterable[str | StringValue]" required={true}>
+</ParamField>
+
+<ParamField body="case_sensitive" type="bool" required={false}default="True" >
+</ParamField>
+</Accordion>
+
+
+## match
+Return a value based on the first matching condition in the expression. The default value is returned if no conditions are met, otherwise null is returned.
+<Accordion title="Parameters">
+  <ParamField body="case_pairs" type="list[tuple[BooleanValue, Value]]" required={true}>
+</ParamField>
+
+<ParamField body="default" type="Value | None" required={false}>
+</ParamField>
+</Accordion>
+
+
+## max
+Return the maximum value of the expression
+
+If a `where` condition is specified, method only considers rows meeting the `where` condition.
+<Accordion title="Parameters">
+  <ParamField body="where" type="BooleanValue | None" required={false}>
+</ParamField>
+</Accordion>
+
+
+## mean
+Return the mean of the expression
+
+If a `where` condition is specified, method only considers rows meeting the `where` condition.
+<Accordion title="Parameters">
+  <ParamField body="where" type="BooleanValue | None" required={false}>
+</ParamField>
+</Accordion>
+
+
+## median
+Return the median value of the expression.
+
+If a `where` condition is specified, method only considers rows meeting the `where` condition.
+
+If `approx` is True, method will use the approximate median function, which is faster but less accurate.
+<Accordion title="Parameters">
+  <ParamField body="where" type="BooleanValue | None" required={false}>
+</ParamField>
+
+<ParamField body="approx" type="bool" required={false}>
+</ParamField>
+</Accordion>
+
+
+## min
+Return the minimum value of the expression
+
+If a `where` condition is specified, method only considers rows meeting the `where` condition.
+<Accordion title="Parameters">
+  <ParamField body="where" type="BooleanValue | None" required={false}>
+</ParamField>
+</Accordion>
+
+
+## mode
+Return the mode value of the expression
+
+If a `where` condition is specified, method only considers rows meeting the `where` condition.
+<Accordion title="Parameters">
+  <ParamField body="where" type="BooleanValue | None" required={false}>
+</ParamField>
+</Accordion>
+
+
+## nth
+Return the nth value of the expression
+<Accordion title="Parameters">
+  <ParamField body="n" type="int | IntegerValue" required={true}>
+</ParamField>
+</Accordion>
+
+
+## quantile
+Return value at the given quantile. If multiple quantiles are specified, then the output will be an array of values.
+
+The output of this method a discrete quantile if the input is an float, otherwise it is a continuous quantile.
+<Accordion title="Parameters">
+  <ParamField body="quantiles" type="float | NumericValue | list[NumericValue | float]" required={true}>
+</ParamField>
+
+<ParamField body="where" type="BooleanValue | None" required={false}>
+</ParamField>
+</Accordion>
+
+
+## strftime
+Format string may depend on the backend, but we try to conform to ANSI strftime.
+<Accordion title="Parameters">
+  <ParamField body="format" type="str | StringValue" required={true}>
+</ParamField>
+</Accordion>
+
+
+## sum
+Return the sum of the expression
+
+If a `where` condition is specified, method only considers rows meeting the `where` condition.
+<Accordion title="Parameters">
+  <ParamField body="where" type="BooleanValue | None" required={false}>
+</ParamField>
+</Accordion>
+
+
+## type
+Return the string name of the datatype of the expression.
+
+If db_type is True, then the string will be the name of the datatype in the specific backend (e.g. duckdb), otherwise it will be cross-dialect data type name from Vinyl.
+<Accordion title="Parameters">
+  <ParamField body="db_type" type="bool" required={false}default="True" >
+</ParamField>
+</Accordion>
+
+
