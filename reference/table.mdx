@@ -3,7 +3,9 @@ title: "Table Operations"
 ---
 
 ## aggregate
+Returns an aggregated table for cols, grouped by `by` and `sort`.
 
+If fill is specified, the table will be interpolated using the specified fill strategy, taking into account direction from the `sort` argument. `fill` can either be a single value or a list of values, one for each column in `cols`.
 
 <Accordion title="Parameters">
   <ParamField body="cols" type="column_type" required="true" >
@@ -22,7 +24,13 @@ title: "Table Operations"
 
 
 ## aggregate_all
+Aggregate_all is a generalized form of `aggregate` that can apply apply the same operation (specified in _f_) to multiple columns. The col_selector field can be a list of column fields, where each element  `select`, and _f_ should be a list of functions of the same length.
 
+If _f_ is a single function, it will be applied to all columns. If _f_ is a list of functions, the functions will be applied to the corresponding columns. If _f_ is shorter than the number of columns, the last function will be applied to all remaining columns.
+
+By, sort, and fill operate as in `aggregate`.
+
+If rename is True, the columns will be renamed to the name of the function that was applied to them. If rename is False, the columns will names to the original column name.
 
 <Accordion title="Parameters">
   <ParamField body="col_selector" type="column_type_all" required="true" >
@@ -47,7 +55,9 @@ title: "Table Operations"
 
 
 ## chart
+Visualize the table using a chart. The geoms argument should be a geom or a list of geoms. The x, y, color, fill, size, alpha, and facet arguments should be column expressions. If a list of columns is passed, the chart will be faceted by the columns in the list.
 
+If coord_flip is True, the x and y axes will be flipped.
 
 <Accordion title="Parameters">
   <ParamField body="geoms" type="geom | list[Any]" required="true" >
@@ -76,12 +86,15 @@ title: "Table Operations"
 
 <ParamField body="coord_flip" type="bool" required="false" >
 </ParamField>
+
+<ParamField body="interactive" type="bool" required="false" default="True" >
+</ParamField>
 </Accordion>
 ---
 
 
 ## copy
-
+None
 
 <Accordion title="Parameters">
   <ParamField body="mutable" type="bool | None" required="false" >
@@ -91,7 +104,7 @@ title: "Table Operations"
 
 
 ## count
-
+Return the count of rows in the table.
 
 <Accordion title="Parameters">
   <ParamField body="where" type="base_boolean_column_type | None" required="false" >
@@ -103,137 +116,8 @@ title: "Table Operations"
 ---
 
 
-## create_from_schema
-
-
-<Accordion title="Parameters">
-  <ParamField body="schema" type="Schema" required="true" >
-</ParamField>
-
-<ParamField body="name" type="str | None" required="false" >
-</ParamField>
-
-<ParamField body="conn" type="string" required="false" >
-</ParamField>
-</Accordion>
----
-
-
-## distinct
-
-
-<Accordion title="Parameters">
-  <ParamField body="on" type="column_type_without_dict | None" required="false" >
-</ParamField>
-
-<ParamField body="keep" type="Literal['first', 'last'] | None" required="false" default="first" >
-</ParamField>
-</Accordion>
----
-
-
-## drop
-
-
-<Accordion title="Parameters">
-  <ParamField body="cols" type="column_type_without_dict" required="true" >
-</ParamField>
-</Accordion>
----
-
-
-## dropna
-
-
-<Accordion title="Parameters">
-  <ParamField body="on" type="column_type_without_dict | None" required="false" >
-</ParamField>
-
-<ParamField body="how" type="Literal['any', 'all']" required="false" default="any" >
-</ParamField>
-</Accordion>
----
-
-
-## eda
-Return summary statistics for each column in the table.
-
-<Accordion title="Parameters">
-  <ParamField body="cols" type="string" required="false" default="typing.Union[str, ibis.expr.types.generic.Value, typing.Callable[..., typing.Any], ibis.selectors.Selector, list[typing.Union[str, ibis.expr.types.generic.Value, typing.Callable[..., typing.Any], ibis.selectors.Selector]], dict[str, typing.Union[str, ibis.expr.types.generic.Value, typing.Callable[..., typing.Any]]], NoneType]" >
-</ParamField>
-
-<ParamField body="topk" type="int" required="false" default="5" >
-</ParamField>
-</Accordion>
----
-
-
-## execute
-
-
-<Accordion title="Parameters">
-  <ParamField body="format" type="Literal['pandas', 'polars', 'pyarrow', 'torch']" required="false" default="pandas" >
-</ParamField>
-
-<ParamField body="twin" type="bool" required="false" >
-</ParamField>
-
-<ParamField body="limit" type="int | None" required="false" default="10000" >
-</ParamField>
-</Accordion>
----
-
-
-## filter
-
-
-<Accordion title="Parameters">
-  <ParamField body="conditions" type="boolean_column_type" required="true" >
-</ParamField>
-</Accordion>
----
-
-
-## filter_all
-
-
-<Accordion title="Parameters">
-  <ParamField body="col_selector" type="column_type_all" required="true" >
-</ParamField>
-
-<ParamField body="condition_f" type="Callable[..., Any] | list[Callable[..., Any] | None] | None" required="true" >
-</ParamField>
-
-<ParamField body="condition_type" type="Literal['and', 'or']" required="false" default="and" >
-</ParamField>
-</Accordion>
----
-
-
-## get_name
-
-
-<Accordion title="Parameters">
-  
-</Accordion>
----
-
-
-## limit
-
-
-<Accordion title="Parameters">
-  <ParamField body="n" type="int | None" required="true" >
-</ParamField>
-
-<ParamField body="offset" type="int" required="false" >
-</ParamField>
-</Accordion>
----
-
-
-## mutate
-
+## define
+Mutate is identical to `select`, except all current columns are included, and the new columns are added to the table. If a new column has the same name as an existing column, the existing column will be replaced.
 
 <Accordion title="Parameters">
   <ParamField body="cols" type="column_type" required="true" >
@@ -257,8 +141,8 @@ Return summary statistics for each column in the table.
 ---
 
 
-## mutate_all
-
+## define_all
+Mutate_all is identical to `select_all`, except all current columns are included, and the new columns are added to the table. If a new column has the same name as an existing column, the existing column will be replaced.
 
 <Accordion title="Parameters">
   <ParamField body="col_selector" type="column_type_all" required="true" >
@@ -288,8 +172,159 @@ Return summary statistics for each column in the table.
 ---
 
 
-## pickle
+## distinct
+Return distinct rows from the table.
 
+If `on` is specified, the distinct rows will be based on the columns in `on`. If it is not, the distinct rows will be based on all columns.
+
+If `keep` is specified, the first or last row will be kept.
+
+<Accordion title="Parameters">
+  <ParamField body="on" type="column_type_without_dict | None" required="false" >
+</ParamField>
+
+<ParamField body="keep" type="Literal['first', 'last'] | None" required="false" default="first" >
+</ParamField>
+</Accordion>
+---
+
+
+## drop
+Remove columns from the table.
+
+<Accordion title="Parameters">
+  <ParamField body="cols" type="column_type_without_dict" required="true" >
+</ParamField>
+</Accordion>
+---
+
+
+## dropna
+Remove rows from the table with missing values.
+
+If `on` is specified, the missing values will be checked for the columns in `on`. If it is not, the missing values will be checked for all columns.
+
+If `how` is "any", the row will be removed if any of the values are missing. If it is "all", the row will be removed if all of the values are missing.
+
+<Accordion title="Parameters">
+  <ParamField body="on" type="column_type_without_dict | None" required="false" >
+</ParamField>
+
+<ParamField body="how" type="Literal['any', 'all']" required="false" default="any" >
+</ParamField>
+</Accordion>
+---
+
+
+## eda
+Return summary statistics for each column in the table.
+
+If cols is specified, the summary statistics will be returned for the columns in cols. If it is not, the summary statistics will be returned for all columns.
+
+<Accordion title="Parameters">
+  <ParamField body="cols" type="column_type | None" required="false" >
+</ParamField>
+
+<ParamField body="topk" type="int" required="false" default="3" >
+</ParamField>
+</Accordion>
+---
+
+
+## execute
+Run the query and return the result in the specified format. If twin is True, the twin connection will be used.
+
+<Accordion title="Parameters">
+  <ParamField body="format" type="Literal['pandas', 'polars', 'pyarrow', 'torch', 'text']" required="false" default="pandas" >
+</ParamField>
+
+<ParamField body="twin" type="bool" required="false" >
+</ParamField>
+
+<ParamField body="limit" type="int | None" required="false" default="10000" >
+</ParamField>
+</Accordion>
+---
+
+
+## filter
+Filter the table based on the conditions specified. This function should be used in place of WHERE, HAVING, and QUALIFY clauses in SQL.
+
+<Accordion title="Parameters">
+  <ParamField body="conditions" type="boolean_column_type" required="true" >
+</ParamField>
+</Accordion>
+---
+
+
+## filter_all
+Similar to other "_all" variants, this is a generalized form of `filter` that can apply the same operation (specified in _condition_f_) to multiple columns.
+
+The col_selector field can be a list of column fields, where each element  `select`, and _condition_f_ should be a list of functions of the same length.
+
+Useful if you want to apply the same filter (e.g. value > 0) to multiple columns.
+
+Conditions are evaluated together using the condition_type argument. If condition_type is "and", all conditions must be met. If condition_type is "or", any condition can be met. If you'd like to use a mix of "and" and "or" conditions, call the `filter` function multiple times.
+
+<Accordion title="Parameters">
+  <ParamField body="col_selector" type="column_type_all" required="true" >
+</ParamField>
+
+<ParamField body="condition_f" type="Callable[..., Any] | list[Callable[..., Any] | None] | None" required="true" >
+</ParamField>
+
+<ParamField body="condition_type" type="Literal['and', 'or']" required="false" default="and" >
+</ParamField>
+</Accordion>
+---
+
+
+## from_file
+Create a VinylTable from a csv, json, or parquet file
+
+<Accordion title="Parameters">
+  <ParamField body="path" type="str" required="true" >
+</ParamField>
+</Accordion>
+---
+
+
+## from_memory
+Create a VinylTable from a pandas, polars, or pyarrow object
+
+<Accordion title="Parameters">
+  <ParamField body="data" type="pd.DataFrame | pl.DataFrame | pa.Table" required="true" >
+</ParamField>
+</Accordion>
+---
+
+
+## get_name
+Return the name of the table.
+
+<Accordion title="Parameters">
+  
+</Accordion>
+---
+
+
+## limit
+Return the first `n` rows of the table, starting at the `offset` row.
+
+Note that the result set may not be idempotent.
+
+<Accordion title="Parameters">
+  <ParamField body="n" type="int | None" required="true" >
+</ParamField>
+
+<ParamField body="offset" type="int" required="false" >
+</ParamField>
+</Accordion>
+---
+
+
+## pickle
+None
 
 <Accordion title="Parameters">
   <ParamField body="path" type="str | Path" required="true" >
@@ -302,7 +337,7 @@ Return summary statistics for each column in the table.
 
 
 ## relocate
-
+Relocate columns before or after other specified columns.
 
 <Accordion title="Parameters">
   <ParamField body="cols" type="column_type_without_dict" required="true" >
@@ -318,7 +353,7 @@ Return summary statistics for each column in the table.
 
 
 ## rename
-
+Rename columns in the table. The rename_dict should be a dictionary with the new column name as the key and the original column name as the value.
 
 <Accordion title="Parameters">
   <ParamField body="rename_dict" type="dict[str, str]" required="true" >
@@ -330,10 +365,10 @@ Return summary statistics for each column in the table.
 ## sample
 Sample a fraction of rows from a table. Results may not be idempotent.
 
-        See specific note from Ibis below:
+See specific note from Ibis below:
 
-        Sampling is by definition a random operation. Some backends support specifying a seed for repeatable results, but not all backends support that option. And some backends (duckdb, for example) do support specifying a seed but may still not have repeatable results in all cases.
-        In all cases, results are backend-specific. An execution against one backend is unlikely to sample the same rows when executed against a different backend, even with the same seed set.
+Sampling is by definition a random operation. Some backends support specifying a seed for repeatable results, but not all backends support that option. And some backends (duckdb, for example) do support specifying a seed but may still not have repeatable results in all cases.
+In all cases, results are backend-specific. An execution against one backend is unlikely to sample the same rows when executed against a different backend, even with the same seed set.
 
 <Accordion title="Parameters">
   <ParamField body="fraction" type="float" required="true" >
@@ -346,7 +381,7 @@ Sample a fraction of rows from a table. Results may not be idempotent.
 
 
 ## save
-
+Run the query and save the result to the specified path in the specified format.
 
 <Accordion title="Parameters">
   <ParamField body="path" type="str | Path" required="true" >
@@ -362,7 +397,7 @@ Sample a fraction of rows from a table. Results may not be idempotent.
 
 
 ## schema
-
+Return the schema of the table.
 
 <Accordion title="Parameters">
   
@@ -371,7 +406,11 @@ Sample a fraction of rows from a table. Results may not be idempotent.
 
 
 ## select
+Computes a new table with the columns in cols. Can be a single column, a list of columns, or a dictionary of columns with their new names as keys. The column values themselves can be specified as strings (the column name), table attributes, one-argument lambda functions, or selectors.
 
+If an aggregated column is passed, this will be treated as a windowed column, using the by field for partitioning, the sort field for ordering, and the window_type and window_bounds fields for the actual window.
+
+Fill can be used optionally to add interpolation to cols. You must either specify one value for each column or a list of values that is the same length as the column list
 
 <Accordion title="Parameters">
   <ParamField body="cols" type="column_type" required="true" >
@@ -396,7 +435,13 @@ Sample a fraction of rows from a table. Results may not be idempotent.
 
 
 ## select_all
+Select_all is a generalized form of `select` that can apply apply the same operation (specified in _f_) to multiple columns. The col_selector field can be a list of column fields, where each element  `select`, and _f_ should be a list of functions of the same length.
 
+If _f_ is a single function, it will be applied to all columns. If _f_ is a list of functions, the functions will be applied to the corresponding columns. If _f_ is shorter than the number of columns, the last function will be applied to all remaining columns.
+
+By, sort, window_type, and window_bounds operate as in `select`.
+
+If rename is True, the columns will be renamed to the name of the function that was applied to them. If rename is False, the columns will names to the original column name.
 
 <Accordion title="Parameters">
   <ParamField body="col_selector" type="column_type_all" required="true" >
@@ -427,7 +472,11 @@ Sample a fraction of rows from a table. Results may not be idempotent.
 
 
 ## sort
+Sort the table by the columns in `by`.
 
+If `by` is not specified, the table will be sorted by all columns.
+
+To sort a column in descending order, place a `-` in front of the column.
 
 <Accordion title="Parameters">
   <ParamField body="by" type="column_type | None" required="false" >
@@ -437,7 +486,9 @@ Sample a fraction of rows from a table. Results may not be idempotent.
 
 
 ## to_sql
+Output the table as a SQL string. The dialect argument can be used to specify the SQL dialect to use.
 
+If optimized is True, the SQL will be optimized using the SQLglot optimizer. If formatted is True, the SQL will be formatted for readability.
 
 <Accordion title="Parameters">
   <ParamField body="dialect" type="string" required="false" default="duckdb" >
@@ -448,6 +499,15 @@ Sample a fraction of rows from a table. Results may not be idempotent.
 
 <ParamField body="formatted" type="string" required="false" default="True" >
 </ParamField>
+</Accordion>
+---
+
+
+## visualize
+Print a visualize representation of the query plan
+
+<Accordion title="Parameters">
+  
 </Accordion>
 ---
 
