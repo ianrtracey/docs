@@ -1,0 +1,253 @@
+---
+title: "String Operations"
+---
+## str.capitalize
+Return a copy of the expression with the first character capitalized and the rest lowercased.
+
+<Accordion title="Parameters">
+    
+    </Accordion>
+
+    
+## str.center
+Return the expression centered in a string of length width. Padding is done using the specified fill character.
+
+<Accordion title="Parameters">
+    <ParamField body="width" type="int | IntegerValue" required="true" >
+</ParamField>
+
+<ParamField body="fillchar" type="str | StringValue | None" required="false" >
+</ParamField>
+    </Accordion>
+
+    
+## str.contains
+Return True if the expression contains the substring and False otherwise.
+
+<Accordion title="Parameters">
+    <ParamField body="substr" type="str | StringValue" required="true" >
+</ParamField>
+    </Accordion>
+
+    
+## str.convert_base
+Convert the expression from one base to another.
+
+<Accordion title="Parameters">
+    <ParamField body="from_base" type="IntegerValue" required="true" >
+</ParamField>
+
+<ParamField body="to_base" type="IntegerValue" required="true" >
+</ParamField>
+    </Accordion>
+
+    
+## str.endswith
+Return True if the expression ends with the specified suffix and False otherwise.
+
+<Accordion title="Parameters">
+    <ParamField body="end" type="str | StringValue" required="true" >
+</ParamField>
+    </Accordion>
+
+    
+## str.find
+Return the position of the first occurrence of substring. Search is limited to the specified start and end positions, if provided. All indexes are 0-based.
+
+<Accordion title="Parameters">
+    <ParamField body="substr" type="str | StringValue" required="true" >
+</ParamField>
+
+<ParamField body="start" type="int | IntegerValue | None" required="false" >
+</ParamField>
+
+<ParamField body="end" type="int | IntegerValue | None" required="false" >
+</ParamField>
+    </Accordion>
+
+    
+## str.find_in_set
+Return the position of the first occurrence of the expression in the list of strings.
+
+<Accordion title="Parameters">
+    <ParamField body="str_list" type="list[str]" required="true" >
+</ParamField>
+    </Accordion>
+
+    
+## str.format
+Return a formatted string using the expression as a format string.
+
+<Accordion title="Parameters">
+    <ParamField body="args" type="Any" required="true" >
+</ParamField>
+
+<ParamField body="kwargs" type="Any" required="true" >
+</ParamField>
+    </Accordion>
+
+    
+## str.hash
+Return the hash of the expression using the specified algorithm.
+
+<Accordion title="Parameters">
+    <ParamField body="algorithm" type="Literal['md5', 'sha1', 'sha256', 'sha512']" required="false" default="sha256" >
+</ParamField>
+
+<ParamField body="return_type" type="Literal['bytes', 'hex']" required="false" default="hex" >
+</ParamField>
+    </Accordion>
+
+    
+## str.join
+Concatenate the elements of the list using the provided separator.
+
+<Accordion title="Parameters">
+    <ParamField body="strings" type="list[str | StringValue]" required="true" >
+</ParamField>
+    </Accordion>
+
+    
+## str.len
+Return the number of non-overlapping occurrences of substring in the expression.
+
+<Accordion title="Parameters">
+    <ParamField body="substr" type="str | StringValue" required="true" >
+</ParamField>
+    </Accordion>
+
+    
+## str.levenshtein
+Return the Levenshtein distance between the expression and the other string.
+
+<Accordion title="Parameters">
+    <ParamField body="other" type="str | StringValue" required="true" >
+</ParamField>
+    </Accordion>
+
+    
+## str.ljust
+Return the expression padded with the provided fill character to the specified length.
+
+<Accordion title="Parameters">
+    <ParamField body="length" type="int | IntegerValue" required="true" >
+</ParamField>
+
+<ParamField body="fillchar" type="str | StringValue | None" required="false" default=" " >
+</ParamField>
+    </Accordion>
+
+    
+## str.lower
+Return a copy of the expression with all characters lowercased.
+
+<Accordion title="Parameters">
+    
+    </Accordion>
+
+    
+## str.lstrip
+Return a copy of the expression with leading whitespace removed.
+
+            Note: doesn't support removing specific characters like the standard library function.
+
+<Accordion title="Parameters">
+    
+    </Accordion>
+
+    
+## str.ord
+Return the unicode code point of the first character of the expression.
+
+<Accordion title="Parameters">
+    
+    </Accordion>
+
+    
+## str.repeat
+Return the expression repeated `n` times.
+
+<Accordion title="Parameters">
+    <ParamField body="n" type="int | IntegerValue" required="true" >
+</ParamField>
+    </Accordion>
+
+    
+## str.replace
+Replace the matches of an exact (non-regex) pattern with a replacement string.
+
+<Accordion title="Parameters">
+    <ParamField body="pattern" type="str | StringValue" required="true" >
+</ParamField>
+
+<ParamField body="replacement" type="str | StringValue" required="true" >
+</ParamField>
+    </Accordion>
+
+    
+## str.reverse
+Return a copy of the expression with the characters reversed.
+
+<Accordion title="Parameters">
+    
+    </Accordion>
+
+    
+## str.rjust
+Return the expression padded with the provided fill character to the specified length.
+
+<Accordion title="Parameters">
+    <ParamField body="length" type="int | IntegerValue" required="true" >
+</ParamField>
+
+<ParamField body="fillchar" type="str | StringValue | None" required="false" default=" " >
+</ParamField>
+    </Accordion>
+
+    
+## str.rstrip
+Return a copy of the expression with trailing whitespace removed.
+
+            Note: doesn't support removing specific characters like the standard library function.
+
+<Accordion title="Parameters">
+    
+    </Accordion>
+
+    
+## str.split
+Split the expression using the specified delimiter.
+
+<Accordion title="Parameters">
+    <ParamField body="delimiter" type="str | StringValue" required="true" >
+</ParamField>
+    </Accordion>
+
+    
+## str.startswith
+Return True if the expression starts with the specified prefix and False otherwise.
+
+<Accordion title="Parameters">
+    <ParamField body="start" type="str | StringValue" required="true" >
+</ParamField>
+    </Accordion>
+
+    
+## str.strip
+Return a copy of the expression with leading and trailing whitespace removed.
+
+<Accordion title="Parameters">
+    
+    </Accordion>
+
+    
+## str.to_strptime
+Parse a string into a timestamp using the specified strptime format.
+
+<Accordion title="Parameters">
+    <ParamField body="format" type="str | StringValue" required="true" >
+</ParamField>
+    </Accordion>
+
+    
+    

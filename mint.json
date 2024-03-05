@@ -69,220 +69,30 @@
       "group": "Vinyl",
       "pages": [
         {
-          "group": "Table",
+          "group": "Table Reference",
           "pages": [
-            "reference/table/aggregate",
-            "reference/table/aggregate_all",
-            "reference/table/chart",
-            "reference/table/copy",
-            "reference/table/count",
-            "reference/table/create_from_schema",
-            "reference/table/distinct",
-            "reference/table/drop",
-            "reference/table/dropna",
-            "reference/table/eda",
-            "reference/table/execute",
-            "reference/table/filter",
-            "reference/table/filter_all",
-            "reference/table/get_name",
-            "reference/table/limit",
-            "reference/table/mutate",
-            "reference/table/mutate_all",
-            "reference/table/pickle",
-            "reference/table/relocate",
-            "reference/table/rename",
-            "reference/table/sample",
-            "reference/table/save",
-            "reference/table/schema",
-            "reference/table/select",
-            "reference/table/select_all",
-            "reference/table/sort",
-            "reference/table/to_sql"
+            "reference/table"
           ]
         },
         {
-          "group": "Column",
+          "group": "Column Reference",
           "pages": [
-            {
-              "group": "array",
-              "pages": [
-                "reference/column/array/array.del_",
-                "reference/column/array/array.filter",
-                "reference/column/array/array.flatten",
-                "reference/column/array/array.index",
-                "reference/column/array/array.insert",
-                "reference/column/array/array.join",
-                "reference/column/array/array.len",
-                "reference/column/array/array.map",
-                "reference/column/array/array.max",
-                "reference/column/array/array.min",
-                "reference/column/array/array.remove",
-                "reference/column/array/array.repeat",
-                "reference/column/array/array.sort",
-                "reference/column/array/array.union",
-                "reference/column/array/array.unique",
-                "reference/column/array/array.unnest",
-                "reference/column/array/array.zip"
-              ]
-            },
-            {
-              "group": "dict",
-              "pages": [
-                "reference/column/dict/dict.contains",
-                "reference/column/dict/dict.get",
-                "reference/column/dict/dict.keys",
-                "reference/column/dict/dict.len",
-                "reference/column/dict/dict.values"
-              ]
-            },
-            {
-              "group": "math",
-              "pages": [
-                "reference/column/math/math.acos",
-                "reference/column/math/math.acosh",
-                "reference/column/math/math.asin",
-                "reference/column/math/math.asinh",
-                "reference/column/math/math.atan",
-                "reference/column/math/math.atan2",
-                "reference/column/math/math.atanh",
-                "reference/column/math/math.cbrt",
-                "reference/column/math/math.ceil",
-                "reference/column/math/math.copysign",
-                "reference/column/math/math.cos",
-                "reference/column/math/math.cosh",
-                "reference/column/math/math.cot",
-                "reference/column/math/math.degrees",
-                "reference/column/math/math.dist",
-                "reference/column/math/math.exp",
-                "reference/column/math/math.exp2",
-                "reference/column/math/math.expm1",
-                "reference/column/math/math.fabs",
-                "reference/column/math/math.floor",
-                "reference/column/math/math.isclose",
-                "reference/column/math/math.isqrt",
-                "reference/column/math/math.ldexp",
-                "reference/column/math/math.log",
-                "reference/column/math/math.log10",
-                "reference/column/math/math.log2",
-                "reference/column/math/math.modf",
-                "reference/column/math/math.norm",
-                "reference/column/math/math.pow",
-                "reference/column/math/math.prod",
-                "reference/column/math/math.radians",
-                "reference/column/math/math.remainder",
-                "reference/column/math/math.round",
-                "reference/column/math/math.sign",
-                "reference/column/math/math.sin",
-                "reference/column/math/math.sinh",
-                "reference/column/math/math.sqrt",
-                "reference/column/math/math.sumprod",
-                "reference/column/math/math.tan",
-                "reference/column/math/math.tanh",
-                "reference/column/math/math.trunc"
-              ]
-            },
-            {
-              "group": "re",
-              "pages": [
-                "reference/column/re/re.extract",
-                "reference/column/re/re.replace",
-                "reference/column/re/re.search",
-                "reference/column/re/re.split",
-                "reference/column/re/re.upper"
-              ]
-            },
-            {
-              "group": "str",
-              "pages": [
-                "reference/column/str/str.capitalize",
-                "reference/column/str/str.center",
-                "reference/column/str/str.contains",
-                "reference/column/str/str.convert_base",
-                "reference/column/str/str.endswith",
-                "reference/column/str/str.find",
-                "reference/column/str/str.find_in_set",
-                "reference/column/str/str.format",
-                "reference/column/str/str.hash",
-                "reference/column/str/str.join",
-                "reference/column/str/str.len",
-                "reference/column/str/str.levenshtein",
-                "reference/column/str/str.ljust",
-                "reference/column/str/str.lower",
-                "reference/column/str/str.lstrip",
-                "reference/column/str/str.ord",
-                "reference/column/str/str.repeat",
-                "reference/column/str/str.replace",
-                "reference/column/str/str.reverse",
-                "reference/column/str/str.rjust",
-                "reference/column/str/str.rstrip",
-                "reference/column/str/str.split",
-                "reference/column/str/str.startswith",
-                "reference/column/str/str.strip",
-                "reference/column/str/str.to_strptime"
-              ]
-            },
-            {
-              "group": "obj",
-              "pages": [
-                "reference/column/obj/obj.destructure",
-                "reference/column/obj/obj.lift"
-              ]
-            },
-            {
-              "group": "dt",
-              "pages": [
-                "reference/column/dt/dt.extract",
-                "reference/column/dt/dt.floor"
-              ]
-            },
-            {
-              "group": "url",
-              "pages": [
-                "reference/column/url/url.authority",
-                "reference/column/url/url.file",
-                "reference/column/url/url.fragment",
-                "reference/column/url/url.host",
-                "reference/column/url/url.path",
-                "reference/column/url/url.protocol",
-                "reference/column/url/url.query",
-                "reference/column/url/url.userinfo"
-              ]
-            },
-            "reference/column/argmax",
-            "reference/column/argmin",
-            "reference/column/as_scalar",
-            "reference/column/between",
-            "reference/column/cast",
-            "reference/column/coalesce",
-            "reference/column/collect",
-            "reference/column/combine",
-            "reference/column/count",
-            "reference/column/equivalent",
-            "reference/column/first",
-            "reference/column/hash",
-            "reference/column/in_",
-            "reference/column/lag",
-            "reference/column/last",
-            "reference/column/lead",
-            "reference/column/like",
-            "reference/column/match",
-            "reference/column/max",
-            "reference/column/mean",
-            "reference/column/median",
-            "reference/column/min",
-            "reference/column/mode",
-            "reference/column/nth",
-            "reference/column/quantile",
-            "reference/column/sum",
-            "reference/column/type"
+            "reference/column/math",
+            "reference/column/re",
+            "reference/column/str",
+            "reference/column/obj",
+            "reference/column/dt",
+            "reference/column/dict",
+            "reference/column/url",
+            "reference/column/array"
           ]
         }
       ]
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/Turntable",
+    "github": "https://github.com/turntable-so",
+    "linkedin": "https://www.linkedin.com/company/92694701/"
   }
 }
