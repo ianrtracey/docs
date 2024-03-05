@@ -69,14 +69,16 @@ Return the position of the first occurrence of the expression in the list of str
 Return a formatted string using the expression as a format string.
 
 Note that only a subset of the python format string syntax is supported.
+```
 *Supported*
 - {0}, {1}, .. {n} for args replacements
 - {key} for kwargs replacements
 
 **Not Supported**
-- conversion flags (e.g. "Harold's a clever {0!s}")
+- conversion flags (e.g. "Harold's a clever {0\!s}")
 - implicit references (e.g. "From {} to {}")
 - positional arguments / attributes (e.g. {0.weight} or {players[0]})
+```
 <Accordion title="Parameters">
   <ParamField body="args" type="Any" required={true}>
 </ParamField>
