@@ -80,7 +80,7 @@ from vinyl.lib.connect import FileConnector
 
 @resource
 def local_filesystem():
-    return FileConnector(path=os.path.join(os.path.dirname(__file__), "data"))
+    return FileConnector(path = "data")
 ```
 
 We can now generate source files for our upstream data. Use this Vinyl CLI command to generate sources:
@@ -123,22 +123,19 @@ Models are semantic representations of your data. Models can be used in notebook
 We've created some models for you at `models/models.py`. Let's take a look at `top_stores`:
 
 ```python models/models.py
+from vinyl import T, M
+
 @model(deps=[Stores, StoreNumTransactions])
-def top_stores(stores, txns):
-    table = stores.join(txns, ["store_nbr"])
-    table.aggregate(
-        cols={
-            "num_transactions": table.transactions.sum()
-        },
-        by=[
-            table.store_nbr,
-            table.city,
-            table.state
-        ],
+def top_stores(stores: T, txns: T) -> T:
+    j = join(store, txns, on = ["store_nbr"])
+    j.aggregate(
+        cols = {"num_transactions": j.transactions.sum()},
+        by = [j.store_nbr, j.city, j.state],
     )
-    return table.sort(
-        by=[table.num_transactions.desc()]
+    j.sort(
+        by =  -j.num_transactions
     )
+    return j
 ```
 
 Models help you structure and transform data in a declarative way. Upstream data is passed in as plain python functions or classes as dependencies in the `@model` annotation. In this example, we pass in the `Stores` source and `StoreNumTransactions` sources from earlier so we can aggregate the data to find the stores with the most transactions.
@@ -159,13 +156,8 @@ Let's take a look at another model in our project.
 
 ```python models/models.py
 @model(deps=[StoreNumTransactions, Stores])
-def store_txns(txns, stores):
-    table = txns.join(
-        stores,
-        [
-            stores.store_nbr == txns.store_nbr,
-        ],
-    )
+def store_txns(txns: T, stores: T) -> T:
+    table = join(stores, txns, on = [stores.store_nbr == txns.store_nbr])
     return table
 ```
 
@@ -191,16 +183,12 @@ Create a metric by passing in a `MetricStore` to your function and adding a `@me
 
 ```python
 @metric(deps=[store_txns, MetricStore])
-def sales_metrics(table, metric_store):
+def sales_metrics(table: T, metric_store: M) -> M:
     metric_store.metric(
-        tbl=table,
-        by=[
-            table.store_nbr,
-            table.city,
-            table.state
-        ],
-        ts=table.date.cast("timestamp"),
-        cols={
+        tbl = table,
+        by = [table.store_nbr, table.city,table.state],
+        ts = table.date.cast("timestamp"),
+        cols = {
             "total_txns": table.transactions.sum(),
             "average_txns": table.transactions.mean(),
         },

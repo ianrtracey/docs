@@ -86,20 +86,20 @@ export const quartoRawHtml = [
 └──────────┴──────────┘
 </div>`,
 `<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃<span style="font-weight: bold"> month               </span>┃<span style="font-weight: bold"> Subtract(wind, avg_wind) </span>┃
+┃<span style="font-weight: bold"> date                </span>┃<span style="font-weight: bold"> Subtract(wind, avg_wind) </span>┃
 ┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-│ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">timestamp</span>           │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">float64</span>                  │
+│ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">timestamp(6)</span>        │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">float64</span>                  │
 ├─────────────────────┼──────────────────────────┤
 │ <span style="color: #800080; text-decoration-color: #800080">2012-01-01 00:00:00</span> │                      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.8</span> │
-│ <span style="color: #800080; text-decoration-color: #800080">2012-01-01 00:00:00</span> │                      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.6</span> │
-│ <span style="color: #800080; text-decoration-color: #800080">2012-01-01 00:00:00</span> │                     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-1.6</span> │
-│ <span style="color: #800080; text-decoration-color: #800080">2012-01-01 00:00:00</span> │                      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.8</span> │
-│ <span style="color: #800080; text-decoration-color: #800080">2012-01-01 00:00:00</span> │                      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.2</span> │
-│ <span style="color: #800080; text-decoration-color: #800080">2012-01-01 00:00:00</span> │                     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-1.7</span> │
-│ <span style="color: #800080; text-decoration-color: #800080">2012-01-01 00:00:00</span> │                     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-1.6</span> │
-│ <span style="color: #800080; text-decoration-color: #800080">2012-01-01 00:00:00</span> │                     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-1.9</span> │
-│ <span style="color: #800080; text-decoration-color: #800080">2012-01-01 00:00:00</span> │                     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-0.5</span> │
-│ <span style="color: #800080; text-decoration-color: #800080">2012-01-01 00:00:00</span> │                     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-0.5</span> │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-01-02 00:00:00</span> │                      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.6</span> │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-01-03 00:00:00</span> │                     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-1.6</span> │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-01-04 00:00:00</span> │                      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.8</span> │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-01-05 00:00:00</span> │                      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.2</span> │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-01-06 00:00:00</span> │                     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-1.7</span> │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-01-07 00:00:00</span> │                     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-1.6</span> │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-01-08 00:00:00</span> │                     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-1.9</span> │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-01-09 00:00:00</span> │                     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-0.5</span> │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-01-10 00:00:00</span> │                     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-0.5</span> │
 │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span>                   │                        <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span> │
 └─────────────────────┴──────────────────────────┘
 </div>`,
@@ -169,9 +169,9 @@ ORDER BY
 │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">string</span>        │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">string</span>       │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">boolean</span>  │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">int64</span> │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">int64</span>     │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">float64</span>   │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">array&lt;string&gt;</span>          │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">array&lt;int64&gt;</span> │
 ├───────────────┼──────────────┼──────────┼───────┼───────────┼───────────┼────────────────────────┼──────────────┤
 │               │              │          │       │           │           │ <span style="font-weight: bold">[</span>                      │              │
-│               │              │          │       │           │           │     <span style="color: #008000; text-decoration-color: #008000">'2012-01-06 </span>       │              │
+│               │              │          │       │           │           │     <span style="color: #008000; text-decoration-color: #008000">'2012-01-11 </span>       │              │
 │ <span style="color: #008000; text-decoration-color: #008000">date         </span> │ <span style="color: #008000; text-decoration-color: #008000">timestamp(6)</span> │ True     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1461</span> │       <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span> │ <span style="color: #008000; text-decoration-color: #008000">00:00:00'</span>,             │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">]</span>       │
-│               │              │          │       │           │           │     <span style="color: #008000; text-decoration-color: #008000">'2012-01-12 </span>       │              │
+│               │              │          │       │           │           │     <span style="color: #008000; text-decoration-color: #008000">'2012-01-28 </span>       │              │
 │               │              │          │       │           │           │ <span style="color: #008000; text-decoration-color: #008000">00:00:00'</span>              │              │
 │               │              │          │       │           │           │ <span style="font-weight: bold">]</span>                      │              │
 │ <span style="color: #008000; text-decoration-color: #008000">precipitation</span> │ <span style="color: #008000; text-decoration-color: #008000">float64     </span> │ True     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1461</span> │       <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span> │ <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'0.0'</span>, <span style="color: #008000; text-decoration-color: #008000">'0.3'</span><span style="font-weight: bold">]</span>         │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">838</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">54</span><span style="font-weight: bold">]</span>    │
@@ -193,112 +193,112 @@ ORDER BY
 text {
    text-rendering: optimizeLegibility;
 }
-#pedmY2L .plot-title {
+#p56dP1X .plot-title {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 16.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pedmY2L .plot-subtitle {
+#p56dP1X .plot-subtitle {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 15.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pedmY2L .plot-caption {
+#p56dP1X .plot-caption {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pedmY2L .legend-title {
+#p56dP1X .legend-title {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 15.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pedmY2L .legend-item {
+#p56dP1X .legend-item {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pedmY2L .axis-title-x {
+#p56dP1X .axis-title-x {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 15.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pedmY2L .axis-text-x {
+#p56dP1X .axis-text-x {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#dAn9CpB .axis-tooltip-text-x {
+#dKiLCBc .axis-tooltip-text-x {
    fill: #303030;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pedmY2L .axis-title-y {
+#p56dP1X .axis-title-y {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 15.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pedmY2L .axis-text-y {
+#p56dP1X .axis-text-y {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#dAn9CpB .axis-tooltip-text-y {
+#dKiLCBc .axis-tooltip-text-y {
    fill: #303030;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pedmY2L .facet-strip-text-x {
+#p56dP1X .facet-strip-text-x {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pedmY2L .facet-strip-text-y {
+#p56dP1X .facet-strip-text-y {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#dAn9CpB .tooltip-text {
+#dKiLCBc .tooltip-text {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#dAn9CpB .tooltip-title {
+#dKiLCBc .tooltip-title {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: bold;
    font-style: normal;   
 }
-#dAn9CpB .tooltip-label {
+#dKiLCBc .tooltip-label {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
@@ -306,7 +306,7 @@ text {
    font-style: normal;   
 }
   </style>
-  <g id="pedmY2L">
+  <g id="p56dP1X">
     <path fill-rule="evenodd" fill="rgb(48,48,48)" fill-opacity="1.0" d="M0.0 0.0 L0.0 400.0 L600.0 400.0 L600.0 0.0 Z">
     </path>
     <g transform="translate(23.0 10.0 ) ">
@@ -447,9 +447,9 @@ text {
           </g>
         </g>
       </g>
-      <g transform="translate(21.961210910936405 0.0 ) " clip-path="url(#cEVcUdJ)" clip-bounds-jfx="[rect (0.0, 0.0), (545.0387890890636, 344.0)]">
+      <g transform="translate(21.961210910936405 0.0 ) " clip-path="url(#cLua6nz)" clip-bounds-jfx="[rect (0.0, 0.0), (545.0387890890636, 344.0)]">
         <defs>
-          <clipPath id="cEVcUdJ">
+          <clipPath id="cLua6nz">
             <rect x="0.0" y="0.0" width="545.0387890890636" height="344.0">
             </rect>
           </clipPath>
@@ -1934,7 +1934,7 @@ text {
     <path fill="rgb(0,0,0)" fill-opacity="0.0" stroke="rgb(187,187,187)" stroke-opacity="1.0" stroke-width="0.0" d="M0.0 0.0 L0.0 400.0 L600.0 400.0 L600.0 0.0 Z">
     </path>
   </g>
-  <g id="dAn9CpB">
+  <g id="dKiLCBc">
   </g>
 </svg>`
 ];
@@ -2272,8 +2272,8 @@ def wind_vs_avg(w: T) -> T:
         )
 
     
-    j = join(w, mw, on= [w.date.dt.floor(months=1) == mw.month])
-    j.select([j.month, j.wind - j.avg_wind])
+    j = join(w, mw, on = [w.date.dt.floor(months=1) == mw.month])
+    j.select([w.date, w.wind - mw.avg_wind])
 
     return j
 
@@ -2361,7 +2361,8 @@ ORDER BY
 ## Creating relations
 
 In the context of a project, relations are created and managed
-automatically using the [source generation process](./concepts/sources).
+automatically using the [source generation
+process](../concepts/sources).
 
 In the context of a notebook or analysis, you can create relations from
 a variety of sources, including: - Pandas DataFrames - Polars
