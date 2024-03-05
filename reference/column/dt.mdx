@@ -1,0 +1,51 @@
+---
+title: "Datetime Operations"
+---
+## dt.extract
+Extract the specified component from the datetime expression.
+
+<Accordion title="Parameters">
+    <ParamField body="unit" type="Literal['year', 'quarter', 'month', 'week_of_year', 'day', 'day_of_year', 'hour', 'minute', 'second', 'microsecond', 'millisecond']" required="true" >
+</ParamField>
+    </Accordion>
+
+    
+## dt.floor
+Round down the datetime expression to the specified unit. If an offset is specified, then the datetime will be rounded down to the nearest unit after the offset.
+
+            If multiple units are specified, these will be combined together to form the unit. E.g. 1 quarter and 1 month will be transformed to 4 months.
+
+<Accordion title="Parameters">
+    <ParamField body="years" type="int | IntegerValue | None" required="false" >
+</ParamField>
+
+<ParamField body="quarters" type="int | IntegerValue | None" required="false" >
+</ParamField>
+
+<ParamField body="months" type="int | IntegerValue | None" required="false" >
+</ParamField>
+
+<ParamField body="weeks" type="int | IntegerValue | None" required="false" >
+</ParamField>
+
+<ParamField body="days" type="int | IntegerValue | None" required="false" >
+</ParamField>
+
+<ParamField body="hours" type="int | IntegerValue | None" required="false" >
+</ParamField>
+
+<ParamField body="minutes" type="int | IntegerValue | None" required="false" >
+</ParamField>
+
+<ParamField body="seconds" type="int | IntegerValue | None" required="false" >
+</ParamField>
+
+<ParamField body="milliseconds" type="int | IntegerValue | None" required="false" >
+</ParamField>
+
+<ParamField body="offset" type="IntervalValue | None" required="false" >
+</ParamField>
+    </Accordion>
+
+    
+    

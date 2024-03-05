@@ -1,0 +1,453 @@
+---
+title: "Table Operations"
+---
+
+## aggregate
+
+
+<Accordion title="Parameters">
+  <ParamField body="cols" type="column_type" required="true" >
+</ParamField>
+
+<ParamField body="by" type="column_type | None" required="false" >
+</ParamField>
+
+<ParamField body="sort" type="column_type | None" required="false" >
+</ParamField>
+
+<ParamField body="fill" type="fill_type" required="false" >
+</ParamField>
+</Accordion>
+---
+
+
+## aggregate_all
+
+
+<Accordion title="Parameters">
+  <ParamField body="col_selector" type="column_type_all" required="true" >
+</ParamField>
+
+<ParamField body="f" type="Callable[[Any], Any] | list[Callable[[Any], Any] | None] | None" required="true" >
+</ParamField>
+
+<ParamField body="by" type="column_type | None" required="false" >
+</ParamField>
+
+<ParamField body="sort" type="column_type | None" required="false" >
+</ParamField>
+
+<ParamField body="fill" type="fill_type" required="false" >
+</ParamField>
+
+<ParamField body="rename" type="bool" required="false" >
+</ParamField>
+</Accordion>
+---
+
+
+## chart
+
+
+<Accordion title="Parameters">
+  <ParamField body="geoms" type="geom | list[Any]" required="true" >
+</ParamField>
+
+<ParamField body="x" type="ir.Value | None" required="true" >
+</ParamField>
+
+<ParamField body="y" type="ir.Value | None" required="false" >
+</ParamField>
+
+<ParamField body="color" type="ir.Value | None" required="false" >
+</ParamField>
+
+<ParamField body="fill" type="ir.Value | None" required="false" >
+</ParamField>
+
+<ParamField body="size" type="ir.Value | None" required="false" >
+</ParamField>
+
+<ParamField body="alpha" type="ir.Value | None" required="false" >
+</ParamField>
+
+<ParamField body="facet" type="ir.Value | list[ir.Value] | None" required="false" >
+</ParamField>
+
+<ParamField body="coord_flip" type="bool" required="false" >
+</ParamField>
+</Accordion>
+---
+
+
+## copy
+
+
+<Accordion title="Parameters">
+  <ParamField body="mutable" type="bool | None" required="false" >
+</ParamField>
+</Accordion>
+---
+
+
+## count
+
+
+<Accordion title="Parameters">
+  <ParamField body="where" type="base_boolean_column_type | None" required="false" >
+</ParamField>
+
+<ParamField body="distinct" type="bool" required="false" >
+</ParamField>
+</Accordion>
+---
+
+
+## create_from_schema
+
+
+<Accordion title="Parameters">
+  <ParamField body="schema" type="Schema" required="true" >
+</ParamField>
+
+<ParamField body="name" type="str | None" required="false" >
+</ParamField>
+
+<ParamField body="conn" type="string" required="false" >
+</ParamField>
+</Accordion>
+---
+
+
+## distinct
+
+
+<Accordion title="Parameters">
+  <ParamField body="on" type="column_type_without_dict | None" required="false" >
+</ParamField>
+
+<ParamField body="keep" type="Literal['first', 'last'] | None" required="false" default="first" >
+</ParamField>
+</Accordion>
+---
+
+
+## drop
+
+
+<Accordion title="Parameters">
+  <ParamField body="cols" type="column_type_without_dict" required="true" >
+</ParamField>
+</Accordion>
+---
+
+
+## dropna
+
+
+<Accordion title="Parameters">
+  <ParamField body="on" type="column_type_without_dict | None" required="false" >
+</ParamField>
+
+<ParamField body="how" type="Literal['any', 'all']" required="false" default="any" >
+</ParamField>
+</Accordion>
+---
+
+
+## eda
+Return summary statistics for each column in the table.
+
+<Accordion title="Parameters">
+  <ParamField body="cols" type="string" required="false" default="typing.Union[str, ibis.expr.types.generic.Value, typing.Callable[..., typing.Any], ibis.selectors.Selector, list[typing.Union[str, ibis.expr.types.generic.Value, typing.Callable[..., typing.Any], ibis.selectors.Selector]], dict[str, typing.Union[str, ibis.expr.types.generic.Value, typing.Callable[..., typing.Any]]], NoneType]" >
+</ParamField>
+
+<ParamField body="topk" type="int" required="false" default="5" >
+</ParamField>
+</Accordion>
+---
+
+
+## execute
+
+
+<Accordion title="Parameters">
+  <ParamField body="format" type="Literal['pandas', 'polars', 'pyarrow', 'torch']" required="false" default="pandas" >
+</ParamField>
+
+<ParamField body="twin" type="bool" required="false" >
+</ParamField>
+
+<ParamField body="limit" type="int | None" required="false" default="10000" >
+</ParamField>
+</Accordion>
+---
+
+
+## filter
+
+
+<Accordion title="Parameters">
+  <ParamField body="conditions" type="boolean_column_type" required="true" >
+</ParamField>
+</Accordion>
+---
+
+
+## filter_all
+
+
+<Accordion title="Parameters">
+  <ParamField body="col_selector" type="column_type_all" required="true" >
+</ParamField>
+
+<ParamField body="condition_f" type="Callable[..., Any] | list[Callable[..., Any] | None] | None" required="true" >
+</ParamField>
+
+<ParamField body="condition_type" type="Literal['and', 'or']" required="false" default="and" >
+</ParamField>
+</Accordion>
+---
+
+
+## get_name
+
+
+<Accordion title="Parameters">
+  
+</Accordion>
+---
+
+
+## limit
+
+
+<Accordion title="Parameters">
+  <ParamField body="n" type="int | None" required="true" >
+</ParamField>
+
+<ParamField body="offset" type="int" required="false" >
+</ParamField>
+</Accordion>
+---
+
+
+## mutate
+
+
+<Accordion title="Parameters">
+  <ParamField body="cols" type="column_type" required="true" >
+</ParamField>
+
+<ParamField body="by" type="column_type | None" required="false" >
+</ParamField>
+
+<ParamField body="sort" type="column_type | None" required="false" >
+</ParamField>
+
+<ParamField body="window_type" type="WindowType" required="false" default="WindowType.rows" >
+</ParamField>
+
+<ParamField body="window_bounds" type="tuple[int | None, int | None]" required="false" default="(None, None)" >
+</ParamField>
+
+<ParamField body="fill" type="fill_type" required="false" >
+</ParamField>
+</Accordion>
+---
+
+
+## mutate_all
+
+
+<Accordion title="Parameters">
+  <ParamField body="col_selector" type="column_type_all" required="true" >
+</ParamField>
+
+<ParamField body="f" type="Callable[..., Any] | list[Callable[..., Any] | None] | None" required="true" >
+</ParamField>
+
+<ParamField body="by" type="column_type | None" required="false" >
+</ParamField>
+
+<ParamField body="sort" type="column_type | None" required="false" >
+</ParamField>
+
+<ParamField body="window_type" type="WindowType" required="false" default="WindowType.rows" >
+</ParamField>
+
+<ParamField body="window_bounds" type="tuple[int | None, int | None]" required="false" default="(None, None)" >
+</ParamField>
+
+<ParamField body="fill" type="fill_type" required="false" >
+</ParamField>
+
+<ParamField body="rename" type="bool" required="false" >
+</ParamField>
+</Accordion>
+---
+
+
+## pickle
+
+
+<Accordion title="Parameters">
+  <ParamField body="path" type="str | Path" required="true" >
+</ParamField>
+
+<ParamField body="tbl_only" type="string" required="false" default="True" >
+</ParamField>
+</Accordion>
+---
+
+
+## relocate
+
+
+<Accordion title="Parameters">
+  <ParamField body="cols" type="column_type_without_dict" required="true" >
+</ParamField>
+
+<ParamField body="before" type="base_column_type | s.Selector | None" required="false" >
+</ParamField>
+
+<ParamField body="after" type="base_column_type | s.Selector | None" required="false" >
+</ParamField>
+</Accordion>
+---
+
+
+## rename
+
+
+<Accordion title="Parameters">
+  <ParamField body="rename_dict" type="dict[str, str]" required="true" >
+</ParamField>
+</Accordion>
+---
+
+
+## sample
+Sample a fraction of rows from a table. Results may not be idempotent.
+
+        See specific note from Ibis below:
+
+        Sampling is by definition a random operation. Some backends support specifying a seed for repeatable results, but not all backends support that option. And some backends (duckdb, for example) do support specifying a seed but may still not have repeatable results in all cases.
+        In all cases, results are backend-specific. An execution against one backend is unlikely to sample the same rows when executed against a different backend, even with the same seed set.
+
+<Accordion title="Parameters">
+  <ParamField body="fraction" type="float" required="true" >
+</ParamField>
+
+<ParamField body="method" type="Literal['row', 'block']" required="true" >
+</ParamField>
+</Accordion>
+---
+
+
+## save
+
+
+<Accordion title="Parameters">
+  <ParamField body="path" type="str | Path" required="true" >
+</ParamField>
+
+<ParamField body="format" type="Literal['csv', 'delta', 'json', 'parquet']" required="false" default="csv" >
+</ParamField>
+
+<ParamField body="limit" type="string" required="false" default="10000" >
+</ParamField>
+</Accordion>
+---
+
+
+## schema
+
+
+<Accordion title="Parameters">
+  
+</Accordion>
+---
+
+
+## select
+
+
+<Accordion title="Parameters">
+  <ParamField body="cols" type="column_type" required="true" >
+</ParamField>
+
+<ParamField body="by" type="column_type | None" required="false" >
+</ParamField>
+
+<ParamField body="sort" type="column_type | None" required="false" >
+</ParamField>
+
+<ParamField body="window_type" type="WindowType" required="false" default="WindowType.rows" >
+</ParamField>
+
+<ParamField body="window_bounds" type="tuple[int | None, int | None]" required="false" default="(None, None)" >
+</ParamField>
+
+<ParamField body="fill" type="fill_type" required="false" >
+</ParamField>
+</Accordion>
+---
+
+
+## select_all
+
+
+<Accordion title="Parameters">
+  <ParamField body="col_selector" type="column_type_all" required="true" >
+</ParamField>
+
+<ParamField body="f" type="Callable[[Any], Any] | list[Callable[[Any], Any] | None] | None" required="true" >
+</ParamField>
+
+<ParamField body="by" type="column_type | None" required="false" >
+</ParamField>
+
+<ParamField body="sort" type="column_type | None" required="false" >
+</ParamField>
+
+<ParamField body="window_type" type="WindowType" required="false" default="WindowType.rows" >
+</ParamField>
+
+<ParamField body="window_bounds" type="tuple[int | None, int | None]" required="false" default="(None, None)" >
+</ParamField>
+
+<ParamField body="fill" type="fill_type" required="false" >
+</ParamField>
+
+<ParamField body="rename" type="bool" required="false" >
+</ParamField>
+</Accordion>
+---
+
+
+## sort
+
+
+<Accordion title="Parameters">
+  <ParamField body="by" type="column_type | None" required="false" >
+</ParamField>
+</Accordion>
+---
+
+
+## to_sql
+
+
+<Accordion title="Parameters">
+  <ParamField body="dialect" type="string" required="false" default="duckdb" >
+</ParamField>
+
+<ParamField body="optimized" type="string" required="false" >
+</ParamField>
+
+<ParamField body="formatted" type="string" required="false" default="True" >
+</ParamField>
+</Accordion>
+---
+
