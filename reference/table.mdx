@@ -8,18 +8,19 @@ Returns an aggregated table for cols, grouped by `by` and `sort`.
 If fill is specified, the table will be interpolated using the specified fill strategy, taking into account direction from the `sort` argument. `fill` can either be a single value or a list of values, one for each column in `cols`.
 
 <Accordion title="Parameters">
-  <ParamField body="cols" type="column_type" required="true" >
+  <ParamField body="cols" type="column_type" required={true}>
 </ParamField>
 
-<ParamField body="by" type="column_type | None" required="false" >
+<ParamField body="by" type="column_type | None" required={false}>
 </ParamField>
 
-<ParamField body="sort" type="column_type | None" required="false" >
+<ParamField body="sort" type="column_type | None" required={false}>
 </ParamField>
 
-<ParamField body="fill" type="fill_type" required="false" >
+<ParamField body="fill" type="fill_type" required={false}>
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -33,24 +34,25 @@ By, sort, and fill operate as in `aggregate`.
 If rename is True, the columns will be renamed to the name of the function that was applied to them. If rename is False, the columns will names to the original column name.
 
 <Accordion title="Parameters">
-  <ParamField body="col_selector" type="column_type_all" required="true" >
+  <ParamField body="col_selector" type="column_type_all" required={true}>
 </ParamField>
 
-<ParamField body="f" type="Callable[[Any], Any] | list[Callable[[Any], Any] | None] | None" required="true" >
+<ParamField body="f" type="Callable[[Any], Any] | list[Callable[[Any], Any] | None] | None" required={true}>
 </ParamField>
 
-<ParamField body="by" type="column_type | None" required="false" >
+<ParamField body="by" type="column_type | None" required={false}>
 </ParamField>
 
-<ParamField body="sort" type="column_type | None" required="false" >
+<ParamField body="sort" type="column_type | None" required={false}>
 </ParamField>
 
-<ParamField body="fill" type="fill_type" required="false" >
+<ParamField body="fill" type="fill_type" required={false}>
 </ParamField>
 
-<ParamField body="rename" type="bool" required="false" >
+<ParamField body="rename" type="bool" required={false}>
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -60,36 +62,37 @@ Visualize the table using a chart. The geoms argument should be a geom or a list
 If coord_flip is True, the x and y axes will be flipped.
 
 <Accordion title="Parameters">
-  <ParamField body="geoms" type="geom | list[Any]" required="true" >
+  <ParamField body="geoms" type="geom | list[Any]" required={true}>
 </ParamField>
 
-<ParamField body="x" type="ir.Value | None" required="true" >
+<ParamField body="x" type="ir.Value | None" required={true}>
 </ParamField>
 
-<ParamField body="y" type="ir.Value | None" required="false" >
+<ParamField body="y" type="ir.Value | None" required={false}>
 </ParamField>
 
-<ParamField body="color" type="ir.Value | None" required="false" >
+<ParamField body="color" type="ir.Value | None" required={false}>
 </ParamField>
 
-<ParamField body="fill" type="ir.Value | None" required="false" >
+<ParamField body="fill" type="ir.Value | None" required={false}>
 </ParamField>
 
-<ParamField body="size" type="ir.Value | None" required="false" >
+<ParamField body="size" type="ir.Value | None" required={false}>
 </ParamField>
 
-<ParamField body="alpha" type="ir.Value | None" required="false" >
+<ParamField body="alpha" type="ir.Value | None" required={false}>
 </ParamField>
 
-<ParamField body="facet" type="ir.Value | list[ir.Value] | None" required="false" >
+<ParamField body="facet" type="ir.Value | list[ir.Value] | None" required={false}>
 </ParamField>
 
-<ParamField body="coord_flip" type="bool" required="false" >
+<ParamField body="coord_flip" type="bool" required={false}>
 </ParamField>
 
-<ParamField body="interactive" type="bool" required="false" default="True" >
+<ParamField body="interactive" type="bool" required={false}default="True" >
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -97,9 +100,10 @@ If coord_flip is True, the x and y axes will be flipped.
 None
 
 <Accordion title="Parameters">
-  <ParamField body="mutable" type="bool | None" required="false" >
+  <ParamField body="mutable" type="bool | None" required={false}>
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -107,12 +111,13 @@ None
 Return the count of rows in the table.
 
 <Accordion title="Parameters">
-  <ParamField body="where" type="base_boolean_column_type | None" required="false" >
+  <ParamField body="where" type="base_boolean_column_type | None" required={false}>
 </ParamField>
 
-<ParamField body="distinct" type="bool" required="false" >
+<ParamField body="distinct" type="bool" required={false}>
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -120,24 +125,25 @@ Return the count of rows in the table.
 Mutate is identical to `select`, except all current columns are included, and the new columns are added to the table. If a new column has the same name as an existing column, the existing column will be replaced.
 
 <Accordion title="Parameters">
-  <ParamField body="cols" type="column_type" required="true" >
+  <ParamField body="cols" type="column_type" required={true}>
 </ParamField>
 
-<ParamField body="by" type="column_type | None" required="false" >
+<ParamField body="by" type="column_type | None" required={false}>
 </ParamField>
 
-<ParamField body="sort" type="column_type | None" required="false" >
+<ParamField body="sort" type="column_type | None" required={false}>
 </ParamField>
 
-<ParamField body="window_type" type="WindowType" required="false" default="WindowType.rows" >
+<ParamField body="window_type" type="WindowType" required={false}default="WindowType.rows" >
 </ParamField>
 
-<ParamField body="window_bounds" type="tuple[int | None, int | None]" required="false" default="(None, None)" >
+<ParamField body="window_bounds" type="tuple[int | None, int | None]" required={false}default="(None, None)" >
 </ParamField>
 
-<ParamField body="fill" type="fill_type" required="false" >
+<ParamField body="fill" type="fill_type" required={false}>
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -145,30 +151,31 @@ Mutate is identical to `select`, except all current columns are included, and th
 Mutate_all is identical to `select_all`, except all current columns are included, and the new columns are added to the table. If a new column has the same name as an existing column, the existing column will be replaced.
 
 <Accordion title="Parameters">
-  <ParamField body="col_selector" type="column_type_all" required="true" >
+  <ParamField body="col_selector" type="column_type_all" required={true}>
 </ParamField>
 
-<ParamField body="f" type="Callable[..., Any] | list[Callable[..., Any] | None] | None" required="true" >
+<ParamField body="f" type="Callable[..., Any] | list[Callable[..., Any] | None] | None" required={true}>
 </ParamField>
 
-<ParamField body="by" type="column_type | None" required="false" >
+<ParamField body="by" type="column_type | None" required={false}>
 </ParamField>
 
-<ParamField body="sort" type="column_type | None" required="false" >
+<ParamField body="sort" type="column_type | None" required={false}>
 </ParamField>
 
-<ParamField body="window_type" type="WindowType" required="false" default="WindowType.rows" >
+<ParamField body="window_type" type="WindowType" required={false}default="WindowType.rows" >
 </ParamField>
 
-<ParamField body="window_bounds" type="tuple[int | None, int | None]" required="false" default="(None, None)" >
+<ParamField body="window_bounds" type="tuple[int | None, int | None]" required={false}default="(None, None)" >
 </ParamField>
 
-<ParamField body="fill" type="fill_type" required="false" >
+<ParamField body="fill" type="fill_type" required={false}>
 </ParamField>
 
-<ParamField body="rename" type="bool" required="false" >
+<ParamField body="rename" type="bool" required={false}>
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -180,12 +187,13 @@ If `on` is specified, the distinct rows will be based on the columns in `on`. If
 If `keep` is specified, the first or last row will be kept.
 
 <Accordion title="Parameters">
-  <ParamField body="on" type="column_type_without_dict | None" required="false" >
+  <ParamField body="on" type="column_type_without_dict | None" required={false}>
 </ParamField>
 
-<ParamField body="keep" type="Literal['first', 'last'] | None" required="false" default="first" >
+<ParamField body="keep" type="Literal['first', 'last'] | None" required={false}default="first" >
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -193,9 +201,10 @@ If `keep` is specified, the first or last row will be kept.
 Remove columns from the table.
 
 <Accordion title="Parameters">
-  <ParamField body="cols" type="column_type_without_dict" required="true" >
+  <ParamField body="cols" type="column_type_without_dict" required={true}>
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -207,12 +216,13 @@ If `on` is specified, the missing values will be checked for the columns in `on`
 If `how` is "any", the row will be removed if any of the values are missing. If it is "all", the row will be removed if all of the values are missing.
 
 <Accordion title="Parameters">
-  <ParamField body="on" type="column_type_without_dict | None" required="false" >
+  <ParamField body="on" type="column_type_without_dict | None" required={false}>
 </ParamField>
 
-<ParamField body="how" type="Literal['any', 'all']" required="false" default="any" >
+<ParamField body="how" type="Literal['any', 'all']" required={false}default="any" >
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -222,12 +232,13 @@ Return summary statistics for each column in the table.
 If cols is specified, the summary statistics will be returned for the columns in cols. If it is not, the summary statistics will be returned for all columns.
 
 <Accordion title="Parameters">
-  <ParamField body="cols" type="column_type | None" required="false" >
+  <ParamField body="cols" type="column_type | None" required={false}>
 </ParamField>
 
-<ParamField body="topk" type="int" required="false" default="3" >
+<ParamField body="topk" type="int" required={false}default="3" >
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -235,15 +246,16 @@ If cols is specified, the summary statistics will be returned for the columns in
 Run the query and return the result in the specified format. If twin is True, the twin connection will be used.
 
 <Accordion title="Parameters">
-  <ParamField body="format" type="Literal['pandas', 'polars', 'pyarrow', 'torch', 'text']" required="false" default="pandas" >
+  <ParamField body="format" type="Literal['pandas', 'polars', 'pyarrow', 'torch', 'text']" required={false}default="pandas" >
 </ParamField>
 
-<ParamField body="twin" type="bool" required="false" >
+<ParamField body="twin" type="bool" required={false}>
 </ParamField>
 
-<ParamField body="limit" type="int | None" required="false" default="10000" >
+<ParamField body="limit" type="int | None" required={false}default="10000" >
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -251,9 +263,10 @@ Run the query and return the result in the specified format. If twin is True, th
 Filter the table based on the conditions specified. This function should be used in place of WHERE, HAVING, and QUALIFY clauses in SQL.
 
 <Accordion title="Parameters">
-  <ParamField body="conditions" type="boolean_column_type" required="true" >
+  <ParamField body="conditions" type="boolean_column_type" required={true}>
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -267,15 +280,16 @@ Useful if you want to apply the same filter (e.g. value > 0) to multiple columns
 Conditions are evaluated together using the condition_type argument. If condition_type is "and", all conditions must be met. If condition_type is "or", any condition can be met. If you'd like to use a mix of "and" and "or" conditions, call the `filter` function multiple times.
 
 <Accordion title="Parameters">
-  <ParamField body="col_selector" type="column_type_all" required="true" >
+  <ParamField body="col_selector" type="column_type_all" required={true}>
 </ParamField>
 
-<ParamField body="condition_f" type="Callable[..., Any] | list[Callable[..., Any] | None] | None" required="true" >
+<ParamField body="condition_f" type="Callable[..., Any] | list[Callable[..., Any] | None] | None" required={true}>
 </ParamField>
 
-<ParamField body="condition_type" type="Literal['and', 'or']" required="false" default="and" >
+<ParamField body="condition_type" type="Literal['and', 'or']" required={false}default="and" >
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -283,9 +297,10 @@ Conditions are evaluated together using the condition_type argument. If conditio
 Create a VinylTable from a csv, json, or parquet file
 
 <Accordion title="Parameters">
-  <ParamField body="path" type="str" required="true" >
+  <ParamField body="path" type="str" required={true}>
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -293,18 +308,17 @@ Create a VinylTable from a csv, json, or parquet file
 Create a VinylTable from a pandas, polars, or pyarrow object
 
 <Accordion title="Parameters">
-  <ParamField body="data" type="pd.DataFrame | pl.DataFrame | pa.Table" required="true" >
+  <ParamField body="data" type="pd.DataFrame | pl.DataFrame | pa.Table" required={true}>
 </ParamField>
 </Accordion>
+
 ---
 
 
 ## get_name
 Return the name of the table.
 
-<Accordion title="Parameters">
-  
-</Accordion>
+
 ---
 
 
@@ -314,12 +328,13 @@ Return the first `n` rows of the table, starting at the `offset` row.
 Note that the result set may not be idempotent.
 
 <Accordion title="Parameters">
-  <ParamField body="n" type="int | None" required="true" >
+  <ParamField body="n" type="int | None" required={true}>
 </ParamField>
 
-<ParamField body="offset" type="int" required="false" >
+<ParamField body="offset" type="int" required={false}>
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -327,12 +342,13 @@ Note that the result set may not be idempotent.
 None
 
 <Accordion title="Parameters">
-  <ParamField body="path" type="str | Path" required="true" >
+  <ParamField body="path" type="str | Path" required={true}>
 </ParamField>
 
-<ParamField body="tbl_only" type="string" required="false" default="True" >
+<ParamField body="tbl_only" type="string" required={false}default="True" >
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -340,15 +356,16 @@ None
 Relocate columns before or after other specified columns.
 
 <Accordion title="Parameters">
-  <ParamField body="cols" type="column_type_without_dict" required="true" >
+  <ParamField body="cols" type="column_type_without_dict" required={true}>
 </ParamField>
 
-<ParamField body="before" type="base_column_type | s.Selector | None" required="false" >
+<ParamField body="before" type="base_column_type | s.Selector | None" required={false}>
 </ParamField>
 
-<ParamField body="after" type="base_column_type | s.Selector | None" required="false" >
+<ParamField body="after" type="base_column_type | s.Selector | None" required={false}>
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -356,9 +373,10 @@ Relocate columns before or after other specified columns.
 Rename columns in the table. The rename_dict should be a dictionary with the new column name as the key and the original column name as the value.
 
 <Accordion title="Parameters">
-  <ParamField body="rename_dict" type="dict[str, str]" required="true" >
+  <ParamField body="rename_dict" type="dict[str, str]" required={true}>
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -371,12 +389,13 @@ Sampling is by definition a random operation. Some backends support specifying a
 In all cases, results are backend-specific. An execution against one backend is unlikely to sample the same rows when executed against a different backend, even with the same seed set.
 
 <Accordion title="Parameters">
-  <ParamField body="fraction" type="float" required="true" >
+  <ParamField body="fraction" type="float" required={true}>
 </ParamField>
 
-<ParamField body="method" type="Literal['row', 'block']" required="true" >
+<ParamField body="method" type="Literal['row', 'block']" required={true}>
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -384,24 +403,23 @@ In all cases, results are backend-specific. An execution against one backend is 
 Run the query and save the result to the specified path in the specified format.
 
 <Accordion title="Parameters">
-  <ParamField body="path" type="str | Path" required="true" >
+  <ParamField body="path" type="str | Path" required={true}>
 </ParamField>
 
-<ParamField body="format" type="Literal['csv', 'delta', 'json', 'parquet']" required="false" default="csv" >
+<ParamField body="format" type="Literal['csv', 'delta', 'json', 'parquet']" required={false}default="csv" >
 </ParamField>
 
-<ParamField body="limit" type="string" required="false" default="10000" >
+<ParamField body="limit" type="string" required={false}default="10000" >
 </ParamField>
 </Accordion>
+
 ---
 
 
 ## schema
 Return the schema of the table.
 
-<Accordion title="Parameters">
-  
-</Accordion>
+
 ---
 
 
@@ -413,24 +431,25 @@ If an aggregated column is passed, this will be treated as a windowed column, us
 Fill can be used optionally to add interpolation to cols. You must either specify one value for each column or a list of values that is the same length as the column list
 
 <Accordion title="Parameters">
-  <ParamField body="cols" type="column_type" required="true" >
+  <ParamField body="cols" type="column_type" required={true}>
 </ParamField>
 
-<ParamField body="by" type="column_type | None" required="false" >
+<ParamField body="by" type="column_type | None" required={false}>
 </ParamField>
 
-<ParamField body="sort" type="column_type | None" required="false" >
+<ParamField body="sort" type="column_type | None" required={false}>
 </ParamField>
 
-<ParamField body="window_type" type="WindowType" required="false" default="WindowType.rows" >
+<ParamField body="window_type" type="WindowType" required={false}default="WindowType.rows" >
 </ParamField>
 
-<ParamField body="window_bounds" type="tuple[int | None, int | None]" required="false" default="(None, None)" >
+<ParamField body="window_bounds" type="tuple[int | None, int | None]" required={false}default="(None, None)" >
 </ParamField>
 
-<ParamField body="fill" type="fill_type" required="false" >
+<ParamField body="fill" type="fill_type" required={false}>
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -444,30 +463,31 @@ By, sort, window_type, and window_bounds operate as in `select`.
 If rename is True, the columns will be renamed to the name of the function that was applied to them. If rename is False, the columns will names to the original column name.
 
 <Accordion title="Parameters">
-  <ParamField body="col_selector" type="column_type_all" required="true" >
+  <ParamField body="col_selector" type="column_type_all" required={true}>
 </ParamField>
 
-<ParamField body="f" type="Callable[[Any], Any] | list[Callable[[Any], Any] | None] | None" required="true" >
+<ParamField body="f" type="Callable[[Any], Any] | list[Callable[[Any], Any] | None] | None" required={true}>
 </ParamField>
 
-<ParamField body="by" type="column_type | None" required="false" >
+<ParamField body="by" type="column_type | None" required={false}>
 </ParamField>
 
-<ParamField body="sort" type="column_type | None" required="false" >
+<ParamField body="sort" type="column_type | None" required={false}>
 </ParamField>
 
-<ParamField body="window_type" type="WindowType" required="false" default="WindowType.rows" >
+<ParamField body="window_type" type="WindowType" required={false}default="WindowType.rows" >
 </ParamField>
 
-<ParamField body="window_bounds" type="tuple[int | None, int | None]" required="false" default="(None, None)" >
+<ParamField body="window_bounds" type="tuple[int | None, int | None]" required={false}default="(None, None)" >
 </ParamField>
 
-<ParamField body="fill" type="fill_type" required="false" >
+<ParamField body="fill" type="fill_type" required={false}>
 </ParamField>
 
-<ParamField body="rename" type="bool" required="false" >
+<ParamField body="rename" type="bool" required={false}>
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -479,9 +499,10 @@ If `by` is not specified, the table will be sorted by all columns.
 To sort a column in descending order, place a `-` in front of the column.
 
 <Accordion title="Parameters">
-  <ParamField body="by" type="column_type | None" required="false" >
+  <ParamField body="by" type="column_type | None" required={false}>
 </ParamField>
 </Accordion>
+
 ---
 
 
@@ -491,23 +512,22 @@ Output the table as a SQL string. The dialect argument can be used to specify th
 If optimized is True, the SQL will be optimized using the SQLglot optimizer. If formatted is True, the SQL will be formatted for readability.
 
 <Accordion title="Parameters">
-  <ParamField body="dialect" type="string" required="false" default="duckdb" >
+  <ParamField body="dialect" type="string" required={false}default="duckdb" >
 </ParamField>
 
-<ParamField body="optimized" type="string" required="false" >
+<ParamField body="optimized" type="string" required={false}>
 </ParamField>
 
-<ParamField body="formatted" type="string" required="false" default="True" >
+<ParamField body="formatted" type="string" required={false}default="True" >
 </ParamField>
 </Accordion>
+
 ---
 
 
 ## visualize
 Print a visualize representation of the query plan
 
-<Accordion title="Parameters">
-  
-</Accordion>
+
 ---
 
