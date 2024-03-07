@@ -83,6 +83,7 @@
         {
           "group": "Column Reference",
           "pages": [
+            "reference/column/standard",
             "reference/column/math",
             "reference/column/re",
             "reference/column/str",

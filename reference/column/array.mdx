@@ -3,160 +3,122 @@ title: "Array Operations"
 ---
 ## array.del_
 Remove the element at the specified index from the array.
-
 <Accordion title="Parameters">
-    <ParamField body="index" type="int | IntegerValue" required="true" >
+  <ParamField body="index" type="int | IntegerValue" required={true}>
 </ParamField>
-    </Accordion>
+</Accordion>
 
     
 ## array.filter
 Return a new array containing only the elements of the original array for which the predicate is true.
-
 <Accordion title="Parameters">
-    <ParamField body="predicate" type="Callable[[Value], bool] | BooleanValue" required="true" >
+  <ParamField body="predicate" type="Callable[[Value], bool] | BooleanValue" required={true}>
 </ParamField>
-    </Accordion>
+</Accordion>
 
     
 ## array.flatten
 Remove one level of nesting from the array.
 
-<Accordion title="Parameters">
-    
-    </Accordion>
-
     
 ## array.index
 Return the position of the first occurrence of the value in the array.
-
 <Accordion title="Parameters">
-    <ParamField body="value" type="Value" required="true" >
+  <ParamField body="value" type="Value" required={true}>
 </ParamField>
-    </Accordion>
+</Accordion>
 
     
 ## array.insert
 Insert the value at the specified index in the array.
-
 <Accordion title="Parameters">
-    <ParamField body="index" type="int | IntegerValue" required="true" >
+  <ParamField body="index" type="int | IntegerValue" required={true}>
 </ParamField>
 
-<ParamField body="value" type="Value" required="true" >
+<ParamField body="value" type="Value" required={true}>
 </ParamField>
-    </Accordion>
+</Accordion>
 
     
 ## array.join
 Concatenate the elements of the array using the provided separator.
-
 <Accordion title="Parameters">
-    <ParamField body="sep" type="str" required="true" >
+  <ParamField body="sep" type="str" required={true}>
 </ParamField>
-    </Accordion>
+</Accordion>
 
     
 ## array.len
 Return the length of the array.
 
-<Accordion title="Parameters">
-    
-    </Accordion>
-
     
 ## array.map
 Apply the function to each element of the array.
 
-            Note: also supports more complex callables like functools.partial and lambdas with closures
-
+Note: also supports more complex callables like functools.partial and lambdas with closures
 <Accordion title="Parameters">
-    <ParamField body="func" type="Callable[[Value], Value]" required="true" >
+  <ParamField body="func" type="Callable[[Value], Value]" required={true}>
 </ParamField>
-    </Accordion>
+</Accordion>
 
     
 ## array.max
 Return the maximum value of the array
 
-<Accordion title="Parameters">
-    
-    </Accordion>
-
     
 ## array.min
 Return the minimum value of the array
 
-<Accordion title="Parameters">
-    
-    </Accordion>
-
     
 ## array.remove
 Return a new array with all occurrences of the value removed. Note that in the python standard library, this method only removes the first occurrence.
-
 <Accordion title="Parameters">
-    <ParamField body="value" type="Value" required="true" >
+  <ParamField body="value" type="Value" required={true}>
 </ParamField>
-    </Accordion>
+</Accordion>
 
     
 ## array.repeat
 Return the array repeated `n` times.
-
 <Accordion title="Parameters">
-    <ParamField body="n" type="int | IntegerValue" required="true" >
+  <ParamField body="n" type="int | IntegerValue" required={true}>
 </ParamField>
-    </Accordion>
+</Accordion>
 
     
 ## array.sort
 Return a new array with the elements sorted.
 
-<Accordion title="Parameters">
-    
-    </Accordion>
-
     
 ## array.union
 Return a new array with the elements of both arrays, with duplicates removed.
-
 <Accordion title="Parameters">
-    <ParamField body="other" type="ArrayColumn" required="true" >
+  <ParamField body="other" type="ArrayColumn" required={true}>
 </ParamField>
-    </Accordion>
+</Accordion>
 
     
 ## array.unique
 Return a new array with the duplicate elements removed.
 
-<Accordion title="Parameters">
-    
-    </Accordion>
-
     
 ## array.unnest
 Unnest the array into a new table.
 
-            Note: Rows with empty arrays are dropped in the output.
-
-<Accordion title="Parameters">
-    
-    </Accordion>
+Note: Rows with empty arrays are dropped in the output.
 
     
 ## array.zip
 Return a new array with the elements of the original array and the other arrays zipped together.
 
-            The combined map will have f1, f2, f3, etc. as the keys.
-
+The combined map will have f1, f2, f3, etc. as the keys.
 <Accordion title="Parameters">
-    <ParamField body="other" type="ArrayValue" required="true" >
+  <ParamField body="other" type="ArrayValue" required={true}>
 </ParamField>
 
-<ParamField body="others" type="ArrayValue" required="true" >
+<ParamField body="others" type="ArrayValue" required={true}>
 </ParamField>
-    </Accordion>
+</Accordion>
 
     
     

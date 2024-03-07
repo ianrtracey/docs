@@ -4,53 +4,45 @@ title: "Regex Operations"
 ## re.extract
 Return the specified match at index from a regex pattern.
 
-            The behavior of this function follows the behavior of Python’s match objects: when index is zero and there’s a match, return the entire match, otherwise return the content of the index-th match group.
-
+The behavior of this function follows the behavior of Python’s match objects: when index is zero and there’s a match, return the entire match, otherwise return the content of the index-th match group.
 <Accordion title="Parameters">
-    <ParamField body="pattern" type="str | StringValue" required="true" >
+  <ParamField body="pattern" type="str | StringValue" required={true}>
 </ParamField>
 
-<ParamField body="index" type="int | IntegerValue" required="true" >
+<ParamField body="index" type="int | IntegerValue" required={true}>
 </ParamField>
-    </Accordion>
+</Accordion>
 
     
 ## re.replace
 Replace the matches of a regex pattern with a replacement string.
-
 <Accordion title="Parameters">
-    <ParamField body="pattern" type="str | StringValue" required="true" >
+  <ParamField body="pattern" type="str | StringValue" required={true}>
 </ParamField>
 
-<ParamField body="replacement" type="str | StringValue" required="true" >
+<ParamField body="replacement" type="str | StringValue" required={true}>
 </ParamField>
-    </Accordion>
+</Accordion>
 
     
 ## re.search
 Returns True if the regex pattern matches a string and False otherwise.
-
 <Accordion title="Parameters">
-    <ParamField body="pattern" type="str | StringValue" required="true" >
+  <ParamField body="pattern" type="str | StringValue" required={true}>
 </ParamField>
-    </Accordion>
+</Accordion>
 
     
 ## re.split
 Split the expression using a regex pattern.
-
 <Accordion title="Parameters">
-    <ParamField body="pattern" type="str | StringValue" required="true" >
+  <ParamField body="pattern" type="str | StringValue" required={true}>
 </ParamField>
-    </Accordion>
+</Accordion>
 
     
 ## re.upper
 Return a copy of the expression with all characters uppercased.
-
-<Accordion title="Parameters">
-    
-    </Accordion>
 
     
     
