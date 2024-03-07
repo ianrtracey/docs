@@ -34,7 +34,7 @@ We believe that analytics infrastructure should:
 ## What makes Vinyl unique?
 
 | Feature              | Description                                                                                                                                                                                                                                                                                                                            |
-|----------------|--------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | *Only Python*        | Vinyl is built for Python developers and data scientists. It's as pythonic as possible, and can integrate with your existing Python codebase. No SQL or Jinja templates required.                                                                                                                                                      |
 | *Cross-dialect*      | Vinyl supports multiple SQL dialects under the hood and can be used with many data warehouses with the same code. You can use DuckDB at first and switch to Snowflake or BigQuery as you scale, or even preview your data locally.                                                                                                     |
 | *Federated*          | Vinyl can be used to query multiple data sources at once, including data warehouses, data lakes, local files, and even existing DBT projects. Importing data sources is dramatically easier than with existing data modeling frameworks.                                                                                               |
@@ -55,7 +55,7 @@ We believe that analytics infrastructure should:
 Vinyl stands on the shoulders on several awesome projects and, we couldn't have built it without them. Here are our most important dependencies and inspirations.
 
 | Source                                      | Type        | Founded | Relation to Vinyl                                                                                                                                                                                                  |
-|-------|-------------|-------|---------------------------------------------|
+|------------|------------|------------|-------------------------------------|
 | [Ibis](https://ibis-project.org/)           | Dependency  | 2015    | Core dependency in Vinyl. Under the hood, Vinyl code compiles to Ibis code.                                                                                                                                        |
 | [DuckDB](https://duckdb.org/)               | Dependency  | 2019    | Default DB engine in Vinyl. Used for all file and many data lake connections.                                                                                                                                      |
 | [SQLglot](https://sqlglot.com/sqlglot.html) | Dependency  | 2021    | Core dependency of Ibis. Ibis code compiles to SQLglot code, which in turn compiles to SQL.                                                                                                                        |

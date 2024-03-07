@@ -52,6 +52,12 @@
       ]
     },
     {
+      "group": "Showcase",
+      "pages": [
+        "showcase/syntax"
+      ]
+    },
+    {
       "group": "Walkthrough",
       "pages": [
         "walkthrough/relations"
