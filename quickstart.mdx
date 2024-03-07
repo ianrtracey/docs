@@ -15,15 +15,39 @@ Vinyl is Turntable's framework for developing analytics infrastructure. The only
 
 Vinyl is cross-dialect and integrates with your existing data stack. Vinyl can be accessed in places like BI tools, AI agents or data products and works the same if you have 10,000 rows of data or 100M.
 
-Vinyl constructs SQL queries under the hood to avoid pulling all of your data onto your machine and it supports data sources from cloud storage services like S3, databases like Postgres or data warehouses like BigQuery. Vinyl also supports reading from dbt projects. [Learn more about our supported connections](/concepts/sources.mdx)
+Vinyl constructs SQL queries under the hood to avoid pulling all of your data onto your machine and it supports data sources from cloud storage services like S3, databases like Postgres or data warehouses like BigQuery. Vinyl also supports reading from dbt projects. [Learn more about our supported connections](/sources)
 
-<CardGroup cols={2}>
-  <Card href="/concepts/sources" title="BigQuery" />
-  <Card title="Snowflake" icon="square-2" />
-  <Card title="AWS S3" icon="square-3" />
-  <Card title="Postgres" icon="square-4" />
-  <Card title="dbt Core" icon="/images/dbt.svg" />
-  <Card title="DuckDB" icon="/images/dbt.svg" />
+<CardGroup cols={3}>
+  <Card>
+    <div className="mt-4">
+      <img noZoom src="/logo/third_party/snowflake.png" />
+    </div>
+  </Card>
+  <Card>
+    <div cl>
+      <img src="/logo/third_party/bigquery.png" />
+    </div>
+  </Card>
+  <Card>
+    <div className="mt-2">
+      <img src="/logo/third_party/dbt-core.svg" />
+    </div>
+  </Card>
+  <Card>
+    <div className="flex justify-center mt-4">
+      <img height="100" width="100" src="/logo/third_party/duckdb.png" />
+    </div>
+  </Card>
+  <Card>
+    <div>
+      <img src="/logo/third_party/postgres.png" />
+    </div>
+  </Card>
+  <Card>
+    <div className="mt-6">
+      <img src="/logo/third_party/s3.png" />
+    </div>
+  </Card>
 </CardGroup>
 ## Install Vinyl
 
