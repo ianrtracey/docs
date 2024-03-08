@@ -1,11 +1,10 @@
 ---
-title: "Relations"
+title: "How Relations Work"
 format: "mintlify-md"
-icon: database
 ---
 
 export const quartoRawHtml = [
-`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┓
+  `<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┓
 ┃<span style="font-weight: bold"> # </span>┃<span style="font-weight: bold"> column        </span>┃<span style="font-weight: bold"> type         </span>┃
 ┡━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━┩
 │ 0 │ date          │ <span style="color: #008080; text-decoration-color: #008080">timestamp(6)</span> │
@@ -16,14 +15,14 @@ export const quartoRawHtml = [
 │ 5 │ weather       │ <span style="color: #ffaf00; text-decoration-color: #ffaf00">string      </span> │
 └───┴───────────────┴──────────────┘
 </div>`,
-`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━┳━━━━━━━━━━┳━━━━━━━━━┓
+  `<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━┳━━━━━━━━━━┳━━━━━━━━━┓
 ┃<span style="font-weight: bold"> # </span>┃<span style="font-weight: bold"> column   </span>┃<span style="font-weight: bold"> type    </span>┃
 ┡━━━╇━━━━━━━━━━╇━━━━━━━━━┩
 │ 0 │ temp_max │ <span style="color: #808000; text-decoration-color: #808000">float64</span> │
 │ 1 │ temp_min │ <span style="color: #808000; text-decoration-color: #808000">float64</span> │
 └───┴──────────┴─────────┘
 </div>`,
-`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">                                 ╭──────────────────────╮     
+  `<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">                                 ╭──────────────────────╮     
                                  │ <span style="font-weight: bold">Project</span>              │     
          ╭──────────────────────▶│ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">temp_max: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold; font-style: italic">float64</span> │     
          │                       │ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">temp_min: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold; font-style: italic">float64</span> │     
@@ -51,7 +50,7 @@ export const quartoRawHtml = [
                             │ <span style="font-style: italic">   weather: </span><span style="color: #ffaf00; text-decoration-color: #ffaf00; font-style: italic">string</span>             │
                             ╰────────────────────────────────╯
 </div>`,
-`<div>
+  `<div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -64,10 +63,10 @@ export const quartoRawHtml = [
     }
 </style>
 `,
-`
+  `
 <p>1461 rows × 2 columns</p>
 </div>`,
-`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━┳━━━━━━━━━━┓
+  `<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━┳━━━━━━━━━━┓
 ┃<span style="font-weight: bold"> temp_max </span>┃<span style="font-weight: bold"> temp_min </span>┃
 ┡━━━━━━━━━━╇━━━━━━━━━━┩
 │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">float64</span>  │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">float64</span>  │
@@ -85,7 +84,7 @@ export const quartoRawHtml = [
 │        <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span> │        <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span> │
 └──────────┴──────────┘
 </div>`,
-`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+  `<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃<span style="font-weight: bold"> date                </span>┃<span style="font-weight: bold"> Subtract(wind, avg_wind) </span>┃
 ┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━┩
 │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">timestamp(6)</span>        │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">float64</span>                  │
@@ -436,7 +435,7 @@ export const quartoRawHtml = [
 │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span>                   │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span>              │
 └─────────────────────┴────────────────┘
 </div>`,
-`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">SELECT
+  `<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">SELECT
   <span style="color: #008000; text-decoration-color: #008000">"t1"</span>.<span style="color: #008000; text-decoration-color: #008000">"month"</span>,
   <span style="color: #008000; text-decoration-color: #008000">"t1"</span>.<span style="color: #008000; text-decoration-color: #008000">"temp_max"</span>
 FROM <span style="font-weight: bold">(</span>
@@ -450,7 +449,7 @@ FROM <span style="font-weight: bold">(</span>
 ORDER BY
   <span style="color: #008000; text-decoration-color: #008000">"t1"</span>.<span style="color: #008000; text-decoration-color: #008000">"month"</span> ASC
 </div>`,
-`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">SELECT
+  `<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">SELECT
   <span style="color: #008000; text-decoration-color: #008000">"t1"</span>.<span style="color: #008000; text-decoration-color: #008000">"month"</span>,
   <span style="color: #008000; text-decoration-color: #008000">"t1"</span>.<span style="color: #008000; text-decoration-color: #008000">"temp_max"</span>
 FROM <span style="font-weight: bold">(</span>
@@ -464,7 +463,7 @@ FROM <span style="font-weight: bold">(</span>
 ORDER BY
   <span style="color: #008000; text-decoration-color: #008000">"t1"</span>.<span style="color: #008000; text-decoration-color: #008000">"month"</span> ASC
 </div>`,
-`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">SELECT
+  `<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">SELECT
   <span style="color: #008000; text-decoration-color: #008000">"t1"</span>.<span style="color: #008000; text-decoration-color: #008000">"month"</span>,
   <span style="color: #008000; text-decoration-color: #008000">"t1"</span>.<span style="color: #008000; text-decoration-color: #008000">"temp_max"</span>
 FROM <span style="font-weight: bold">(</span>
@@ -491,7 +490,7 @@ ORDER BY
 │ <span style="color: #008000; text-decoration-color: #008000">weather      </span> │ <span style="color: #008000; text-decoration-color: #008000">string      </span> │ True     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1461</span> │       <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span> │ <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'sun'</span>, <span style="color: #008000; text-decoration-color: #008000">'fog'</span><span style="font-weight: bold">]</span>                                 │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">714</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">411</span><span style="font-weight: bold">]</span>   │
 └───────────────┴──────────────┴──────────┴───────┴───────────┴───────────┴────────────────────────────────────────────────┴──────────────┘
 </div>`,
-`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="plt-container" width="600.0" height="400.0">
+  `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="plt-container" width="600.0" height="400.0">
   <style type="text/css">
   .plt-container {
    font-family: Lucida Grande, sans-serif;
@@ -2246,7 +2245,7 @@ text {
   </g>
   <g id="dfIbNlE">
   </g>
-</svg>`
+</svg>`,
 ];
 
 <Note>
@@ -2295,7 +2294,7 @@ Columns are attrributes of the class, so the code below returns the
 weather.wind
 ```
 
-``` text
+```text
 r0 := DatabaseTable: seattle_weather
   date          timestamp(6)
   precipitation float64
@@ -2318,7 +2317,7 @@ wind_doubled = weather.select(weather.wind * 2)
 wind_doubled
 ```
 
-``` text
+```text
 r0 := DatabaseTable: seattle_weather
   date          timestamp(6)
   precipitation float64
@@ -2363,7 +2362,7 @@ associated with a table unless specified otherwise. For example:
 temps
 ```
 
-``` text
+```text
 r0 := DatabaseTable: seattle_weather
   date          timestamp(6)
   precipitation float64
@@ -2402,7 +2401,7 @@ temps.execute()
 <div dangerouslySetInnerHTML={{ __html: quartoRawHtml[3] }} />
 
 |      | temp_max | temp_min |
-|------|----------|----------|
+| ---- | -------- | -------- |
 | 0    | 12.8     | 5.0      |
 | 1    | 10.6     | 2.8      |
 | 2    | 11.7     | 7.2      |
@@ -2438,7 +2437,7 @@ temps.execute("text")
 temps.execute("pyarrow")
 ```
 
-``` text
+```text
 pyarrow.Table
 temp_max: double
 temp_min: double
@@ -2464,7 +2463,7 @@ weather.select(weather.wind * 2)
 weather
 ```
 
-``` text
+```text
 DatabaseTable: seattle_weather
   date          timestamp(6)
   precipitation float64
@@ -2484,6 +2483,7 @@ The two cases are: 1. Within specially decorated functions (i.e. those
 with `@model` or `@metric` decorator) 2. Context managers
 
 The first case is designed to support
+
 <Tooltip tip="more on this in the quickstart">pipelines</Tooltip>:
 
 <Card>
@@ -2501,7 +2501,7 @@ def wind(w: T) -> T:
 wind()
 ```
 
-``` text
+```text
 r0 := DatabaseTable: seattle_weather
   date          timestamp(6)
   precipitation float64
@@ -2528,7 +2528,7 @@ with seattle_weather() as w:
 w
 ```
 
-``` text
+```text
 r0 := DatabaseTable: seattle_weather
   date          timestamp(6)
   precipitation float64
@@ -2577,11 +2577,11 @@ from vinyl import T, model, join
 def wind_vs_avg(w: T) -> T:
     with w as mw:
         mw.aggregate(
-            cols = {"avg_wind": mw.wind.mean()}, 
+            cols = {"avg_wind": mw.wind.mean()},
             by = {"month": mw.date.dt.floor(months=1)}
         )
 
-    
+
     j = join(w, mw, on = [w.date.dt.floor(months=1) == mw.month])
     j.select([w.date, w.wind - mw.avg_wind])
 
@@ -2600,10 +2600,10 @@ Vinyl uses the Ibis library to generate SQL. This means that you can
 write your queries in a dialect agnostic way. For example, the following
 code works in across the dialects currently supported by Vinyl:
 
--   BigQuery
--   Snowflake
--   DuckDB
--   Postgres
+- BigQuery
+- Snowflake
+- DuckDB
+- Postgres
 
 Ibis itself supports almost 20 dialects, so we plan to add more over
 time.
@@ -2616,7 +2616,7 @@ each day by month:
 ```python
 with seattle_weather() as w:
     w.aggregate(
-        cols = {"temp_max": w.temp_max.collect()}, 
+        cols = {"temp_max": w.temp_max.collect()},
         sort = {"month": w.date.dt.floor(months=1)}
     )
 
@@ -2635,7 +2635,7 @@ Here’s how vinyl translates the query to each dialect:
 <Tabs>
 <Tab title="BigQuery">
 
-``` text
+```text
 SELECT
   `t1`.`month`,
   `t1`.`temp_max`
@@ -2693,7 +2693,7 @@ df = pd.DataFrame(data=d)
 VinylTable.from_memory(df)
 ```
 
-``` text
+```text
 InMemoryTable
   data:
     PandasDataFrameProxy:
@@ -2712,7 +2712,7 @@ And for file-based sources, use `VinylTable.from_file`:
 VinylTable.from_file("data/barley.parquet")
 ```
 
-``` text
+```text
 DatabaseTable: barley
   yield   float64
   variety string
@@ -2727,12 +2727,12 @@ DatabaseTable: barley
 In the properties section action, you’ve already seen some of the most
 common ways to visualize relations:
 
--   `print()` to view the AST
--   `.schema()` to view the schema
--   `.visualize()` to view the query plan
--   `.execute()` to run the query and view it as text, pyarrow, or
-    pandas objects
--   `.to_sql()` to view the SQL-equivalent
+- `print()` to view the AST
+- `.schema()` to view the schema
+- `.visualize()` to view the query plan
+- `.execute()` to run the query and view it as text, pyarrow, or
+  pandas objects
+- `.to_sql()` to view the SQL-equivalent
 
 In addition to these, there are a few other key methods to know: -
 `.eda()` provides a quick exploratory data analysis of the relation,
@@ -3126,4 +3126,3 @@ Charts made with Vinyl are interactive by default, but we turn that
 feature off so our docs site can render them properly.
 
 </Tip>
-
