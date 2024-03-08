@@ -25,17 +25,23 @@ Vinyl constructs SQL queries under the hood to avoid pulling all of your data on
   <Card title="dbt Core" icon="/images/dbt.svg" />
   <Card title="DuckDB" icon="/images/dbt.svg" />
 </CardGroup>
-## Install Vinyl
+## Create a project
 
-First, install the vinyl package
+First, in a new directory, create a poetry project with Vinyl as a dependency.
+
 
 ```bash
-pip install vinyl
+poetry init -n --python ">=3.10, <3.12" --dependency vinyl --dev-dependency ipykernel && poetry install && poetry shell
 ```
 
-## Create a Project
+<Note> 
+If you have an existing poetry project, run `poetry add vinyl && poetry add -G dev ipykernel` and make sure you're in a poetry shell for the next step.
+</Note>
 
-Navigate to you're preferred path and create a new project
+<Info> For now, Vinyl projects must also be poetry projects. We're working on adding support for other package managers.</Info>
+
+
+Now, create a vinyl project with whatever name you'd like. We'll use `my_shop` for this example.
 
 ```bash
 vinyl init my_shop
@@ -49,15 +55,11 @@ my_shop/
   |- data/
   |- sources/
   |- resources.py
-  |- pyproject.toml
-
 ```
 
-Navigate to your project directory and let's explore:
-
-```bash
-cd my_shop
-```
+<Tip> 
+For the best experience using Vinyl, make sure to change your Python interpreter to your poetry environment's python. This will provide full autocomplete, syntax highlighting, and renaming capabilities.
+</Tip>
 
 ## Generate Sources
 
@@ -100,11 +102,19 @@ Sources help validate breaking changes, propagate metadata and power development
 Let's a take a look at `stores.py`:
 
 ```python my_store/sources/local_filesystem/stores.py
-from vinyl import source, types as t
-from my_shop.resources import local_filesystem
+from vinyl import Field, source # noqa F401
+from vinyl import types as t # noqa F401
+
+from my_shop.resources import local_filesystem # noqa F401
+
 
 @source(resource=local_filesystem)
 class Stores:
+    _table = "stores"
+    _unique_name = "local_filesystem.Stores"
+    _path = "data/stores.csv"
+    _row_count = 54
+
     store_nbr: t.Int64(nullable=True)
     city: t.String(nullable=True)
     state: t.String(nullable=True)
@@ -112,7 +122,7 @@ class Stores:
     cluster: t.Int64(nullable=True)
 ```
 
-In just a few lines of python and a `@source` annotation, we get a typed schema, column level lineage support, powerful autocomplete and query validation across many different SQL dialects and resource types.
+In just a few lines of python and a `@source` annotation, we get a typed schema, column-level lineage support, powerful autocomplete and query validation across many different SQL dialects and resource types.
 
 Now let's do something with this source data.
 
@@ -123,7 +133,7 @@ Models are semantic representations of your data. Models can be used in notebook
 We've created some models for you at `models/models.py`. Let's take a look at `top_stores`:
 
 ```python models/models.py
-from vinyl import T, M
+from vinyl import M, T, join, metric, model
 
 @model(deps=[Stores, StoreNumTransactions])
 def top_stores(stores: T, txns: T) -> T:

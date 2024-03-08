@@ -4,7 +4,7 @@ description: "Display inline code and code blocks"
 icon: "cube"
 ---
 
-## What are Models
+## Models
 
 Models are the backbone of a vinyl project. Models are cleaned representations of your source data. Models can either be virtualized or backed by a table (common in data warehouses). Models can be published for use in the semantic layer or used internally for analysis.
 
@@ -36,19 +36,20 @@ Vinyl is built on [Ibis](https://ibis-project.org/), a powerful and performant d
 Let's write a quick model to get the stores with the most transactions. Vinyl helps write data transforms for analytics use cases (like aggregations) quickly with only a few lines of code.
 
 ```python my_project/models.py
-from vinyl import model
+from vinyl import M, T, join, metric, model
 from my_project.sources.flower_shops import FlowerShops
 from my_project.sources.transactions import Transactions
 
+from vinyl
+
 @model(deps=[FlowerShops, Transactions])
 def top_shops(shops, txns):
-    st = shops.join(txns, ["store_nbr"])
+    st = join(shops, txns, on = ["store_nbr"])
     st.aggregate(
         cols={"num_transactions": st.transactions.sum()},
         by=[st.store_nbr, st.city]
     )
-    st.sort(by=[st.num_transactions.desc()])
-
+    st.sort(-st.num_transactions)
     return st
 ```
 
@@ -66,18 +67,16 @@ Models can also be written and used outside of context of a Vinyl project (like 
 from my_project.sources.flower_shops import FlowerShops
 from my_project.sources.transactions import Transactions
 
-stores = Stores()
-
-stores_txns = stores.join(StoreNumTransactions(), ["store_nbr"])
+stores_txns = join(Stores(), StoreNumTransactions(), on = ["store_nbr"])
 
 with stores_txns as st:
     st.aggregate(
-        cols={"num_transactions": st.transactions.sum()},
-        by=[st.store_nbr, st.city]
+        cols = {"num_transactions": st.transactions.sum()},
+        by = [st.store_nbr, st.city]
     )
-    st.sort(by=[st.num_transactions.desc()])
+    st.sort(by= -st.num_transactions)
 
-result = st.execute('pandas')
+result = st.execute()
 ```
 
 ## Metrics
@@ -92,18 +91,17 @@ from my_project.sources.flower_shops import FlowerShops
 from my_project.sources.transactions import Transactions
 
 
-@model(deps=[FlowerShops, Transactions, MetricStore])
-def shop_sales(shops, txns, metric_store):
+@model(deps=[FlowerShops, Transactions])
+def shop_sales(shops: T, txns: T) -> M:
     st = shops.join(txns, ["store_nbr"])
-    metric_store.metric(
-        tbl=st,
+    met = st.metric(
         by=[st.store_nbr, st.city],
         ts=st.purchased_at,
         cols={
             "sales": st.transactions.sum()
         }
     )
-    return metric_store
+    return met
 ```
 
 Our new metric `shop_sales` can now be used throughout our Vinyl project. The Metrics layer allows for dynamic queries across dimensions and time buckets. Metrics also provide useful features like fill options and trailing windows.
@@ -111,12 +109,12 @@ Our new metric `shop_sales` can now be used throughout our Vinyl project. The Me
 If we want to get the sales across each shop location over the past trailing 3 months, we can query it like:
 
 ```python
-
-sales_metric = metric_store.select([
-    metric_store.ts.truncate('M'),
-    metric_store.store_nbr,
-    metric_store.city,
-    metric_store.sales
+s = shop_sales()
+sales_metric = s.select([
+    s.ts.floor(month=1),
+    s.store_nbr,
+    s.city,
+    s.sales
 ], trailing=[None, 3])
 
 sales_metric.execute()
@@ -137,11 +135,12 @@ sales_metric.execute()
 If we want to change the time grain to weeks and look at the last 2 weeks, it's as easy as changing the metric select to:
 
 ```python
-sales_metric = metric_store.select([
-    metric_store.ts.truncate('W'),
-    metric_store.store_nbr,
-    metric_store.city,
-    metric_store.sales
+s = shop_sales()
+sales_metric = s.select([
+    s.ts.floor(weeks=1),
+    s.store_nbr,
+    s.city,
+    s.sales
 ], trailing=[None, 2])
 
 sales_metric.execute()
@@ -159,13 +158,13 @@ sales_metric.execute()
 We can wrap this metric as a model in our project:
 
 ```python
-@model(deps=[MetricStore])
-def shop_sales_last_30_days(metric_store):
-    sales_metric = metric_store.select([
-        metric_store.ts.truncate('D'),
-        metric_store.store_nbr,
-        metric_store.city,
-        metric_store.sales
+@model(deps=[shop_sales])
+def shop_sales_last_30_days(s: M) -> T:
+    sales_metric = s.select([
+        s.ts.truncate(days=1),
+        s.store_nbr,
+        s.city,
+        s.sales
     ], trailing=[None, 30])
 
     return sales_metric

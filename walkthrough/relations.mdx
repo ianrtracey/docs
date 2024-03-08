@@ -103,23 +103,338 @@ export const quartoRawHtml = [
 │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span>                   │                        <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span> │
 └─────────────────────┴──────────────────────────┘
 </div>`,
-`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┓
-┃<span style="font-weight: bold"> month               </span>┃<span style="font-weight: bold"> temp_max              </span>┃
-┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━┩
-│ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">timestamp</span>           │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">array&lt;float64&gt;</span>        │
-├─────────────────────┼───────────────────────┤
-│ <span style="color: #800080; text-decoration-color: #800080">2012-01-01 00:00:00</span> │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12.8</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.6</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">29</span><span style="font-weight: bold">]</span> │
-│ <span style="color: #800080; text-decoration-color: #800080">2012-02-01 00:00:00</span> │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.9</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.3</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">27</span><span style="font-weight: bold">]</span>   │
-│ <span style="color: #800080; text-decoration-color: #800080">2012-03-01 00:00:00</span> │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.7</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">29</span><span style="font-weight: bold">]</span>   │
-│ <span style="color: #800080; text-decoration-color: #800080">2012-04-01 00:00:00</span> │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.9</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16.7</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28</span><span style="font-weight: bold">]</span>  │
-│ <span style="color: #800080; text-decoration-color: #800080">2012-05-01 00:00:00</span> │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11.7</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.3</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">29</span><span style="font-weight: bold">]</span> │
-│ <span style="color: #800080; text-decoration-color: #800080">2012-06-01 00:00:00</span> │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20.0</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.9</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28</span><span style="font-weight: bold">]</span> │
-│ <span style="color: #800080; text-decoration-color: #800080">2012-07-01 00:00:00</span> │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20.0</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.9</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">29</span><span style="font-weight: bold">]</span> │
-│ <span style="color: #800080; text-decoration-color: #800080">2012-08-01 00:00:00</span> │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.9</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.3</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">29</span><span style="font-weight: bold">]</span> │
-│ <span style="color: #800080; text-decoration-color: #800080">2012-09-01 00:00:00</span> │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.7</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.1</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28</span><span style="font-weight: bold">]</span> │
-│ <span style="color: #800080; text-decoration-color: #800080">2012-10-01 00:00:00</span> │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.3</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17.8</span>, <span style="color: #808000; text-decoration-color: #808000">...</span> +<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">29</span><span style="font-weight: bold">]</span> │
-│ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span>                   │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span>                     │
-└─────────────────────┴───────────────────────┘
+`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> month               </span>┃<span style="font-weight: bold"> temp_max       </span>┃
+┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━┩
+│ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">timestamp</span>           │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">array&lt;float64&gt;</span> │
+├─────────────────────┼────────────────┤
+│                     │ <span style="font-weight: bold">[</span>              │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.9</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4.4</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.2</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">9.4</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.1</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.1</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.1</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5.0</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4.4</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.1</span>,       │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-01-01 00:00:00</span> │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3.3</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">-1.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.2</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.3</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.7</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.3</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.9</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.9</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.7</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.7</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">9.4</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.3</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">9.4</span>        │
+│                     │ <span style="font-weight: bold">]</span>              │
+│                     │ <span style="font-weight: bold">[</span>              │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.9</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.3</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">14.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.9</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.3</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.2</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.7</span>,       │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-02-01 00:00:00</span> │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.2</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.2</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.7</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.7</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.8</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.3</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.7</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.2</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5.0</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.7</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.7</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5.0</span>        │
+│                     │ <span style="font-weight: bold">]</span>              │
+│                     │ <span style="font-weight: bold">[</span>              │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.1</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.7</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.8</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.7</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.9</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">9.4</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.2</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6.7</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.3</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5.6</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.8</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11.1</span>,      │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-03-01 00:00:00</span> │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.9</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5.0</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.2</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.8</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.9</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">14.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">9.4</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>       │
+│                     │ <span style="font-weight: bold">]</span>              │
+│                     │ <span style="font-weight: bold">[</span>              │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8.9</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">9.4</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15.6</span>,      │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-04-01 00:00:00</span> │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12.8</span>       │
+│                     │ <span style="font-weight: bold">]</span>              │
+│                     │ <span style="font-weight: bold">[</span>              │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">14.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">24.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">26.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">24.4</span>,      │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-05-01 00:00:00</span> │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">14.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">14.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17.8</span>       │
+│                     │ <span style="font-weight: bold">]</span>              │
+│                     │ <span style="font-weight: bold">[</span>              │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17.2</span>,      │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-06-01 00:00:00</span> │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">24.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20.0</span>       │
+│                     │ <span style="font-weight: bold">]</span>              │
+│                     │ <span style="font-weight: bold">[</span>              │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">24.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">26.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">27.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.9</span>,      │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-07-01 00:00:00</span> │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">26.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">26.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.8</span>       │
+│                     │ <span style="font-weight: bold">]</span>              │
+│                     │ <span style="font-weight: bold">[</span>              │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">27.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">33.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">33.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">24.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">30.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">30.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">31.1</span>,      │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-08-01 00:00:00</span> │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">26.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.2</span>       │
+│                     │ <span style="font-weight: bold">]</span>              │
+│                     │ <span style="font-weight: bold">[</span>              │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">24.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">26.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">27.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">26.1</span>,      │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-09-01 00:00:00</span> │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">24.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">27.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">27.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.1</span>       │
+│                     │ <span style="font-weight: bold">]</span>              │
+│                     │ <span style="font-weight: bold">[</span>              │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.3</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">21.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12.2</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13.9</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17.2</span>,      │
+│ <span style="color: #800080; text-decoration-color: #800080">2012-10-01 00:00:00</span> │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">14.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17.8</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.8</span>,       │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11.7</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11.1</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">14.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">14.4</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15.6</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15.0</span>,      │
+│                     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15.6</span>       │
+│                     │ <span style="font-weight: bold">]</span>              │
+│ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span>                   │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span>              │
+└─────────────────────┴────────────────┘
 </div>`,
 `<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">SELECT
   <span style="color: #008000; text-decoration-color: #008000">"t1"</span>.<span style="color: #008000; text-decoration-color: #008000">"month"</span>,
@@ -163,23 +478,18 @@ FROM <span style="font-weight: bold">(</span>
 ORDER BY
   <span style="color: #008000; text-decoration-color: #008000">"t1"</span>.<span style="color: #008000; text-decoration-color: #008000">"month"</span> ASC
 </div>`,
-`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┓
-┃<span style="font-weight: bold"> name          </span>┃<span style="font-weight: bold"> type         </span>┃<span style="font-weight: bold"> nullable </span>┃<span style="font-weight: bold"> nulls </span>┃<span style="font-weight: bold"> non_nulls </span>┃<span style="font-weight: bold"> null_frac </span>┃<span style="font-weight: bold"> values                 </span>┃<span style="font-weight: bold"> counts       </span>┃
-┡━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━┩
-│ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">string</span>        │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">string</span>       │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">boolean</span>  │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">int64</span> │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">int64</span>     │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">float64</span>   │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">array&lt;string&gt;</span>          │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">array&lt;int64&gt;</span> │
-├───────────────┼──────────────┼──────────┼───────┼───────────┼───────────┼────────────────────────┼──────────────┤
-│               │              │          │       │           │           │ <span style="font-weight: bold">[</span>                      │              │
-│               │              │          │       │           │           │     <span style="color: #008000; text-decoration-color: #008000">'2012-01-01 </span>       │              │
-│ <span style="color: #008000; text-decoration-color: #008000">date         </span> │ <span style="color: #008000; text-decoration-color: #008000">timestamp(6)</span> │ True     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1461</span> │       <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span> │ <span style="color: #008000; text-decoration-color: #008000">00:00:00'</span>,             │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">]</span>       │
-│               │              │          │       │           │           │     <span style="color: #008000; text-decoration-color: #008000">'2012-01-03 </span>       │              │
-│               │              │          │       │           │           │ <span style="color: #008000; text-decoration-color: #008000">00:00:00'</span>              │              │
-│               │              │          │       │           │           │ <span style="font-weight: bold">]</span>                      │              │
-│ <span style="color: #008000; text-decoration-color: #008000">precipitation</span> │ <span style="color: #008000; text-decoration-color: #008000">float64     </span> │ True     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1461</span> │       <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span> │ <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'0.0'</span>, <span style="color: #008000; text-decoration-color: #008000">'0.3'</span><span style="font-weight: bold">]</span>         │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">838</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">54</span><span style="font-weight: bold">]</span>    │
-│ <span style="color: #008000; text-decoration-color: #008000">temp_max     </span> │ <span style="color: #008000; text-decoration-color: #008000">float64     </span> │ True     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1461</span> │       <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span> │ <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'11.1'</span>, <span style="color: #008000; text-decoration-color: #008000">'14.4'</span><span style="font-weight: bold">]</span>       │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">58</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">49</span><span style="font-weight: bold">]</span>     │
-│ <span style="color: #008000; text-decoration-color: #008000">temp_min     </span> │ <span style="color: #008000; text-decoration-color: #008000">float64     </span> │ True     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1461</span> │       <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span> │ <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'6.1'</span>, <span style="color: #008000; text-decoration-color: #008000">'10.0'</span><span style="font-weight: bold">]</span>        │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">66</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span><span style="font-weight: bold">]</span>     │
-│ <span style="color: #008000; text-decoration-color: #008000">wind         </span> │ <span style="color: #008000; text-decoration-color: #008000">float64     </span> │ True     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1461</span> │       <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span> │ <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'2.6'</span>, <span style="color: #008000; text-decoration-color: #008000">'3.0'</span><span style="font-weight: bold">]</span>         │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">76</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">65</span><span style="font-weight: bold">]</span>     │
-│ <span style="color: #008000; text-decoration-color: #008000">weather      </span> │ <span style="color: #008000; text-decoration-color: #008000">string      </span> │ True     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1461</span> │       <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span> │ <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'sun'</span>, <span style="color: #008000; text-decoration-color: #008000">'fog'</span><span style="font-weight: bold">]</span>         │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">714</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">411</span><span style="font-weight: bold">]</span>   │
-└───────────────┴──────────────┴──────────┴───────┴───────────┴───────────┴────────────────────────┴──────────────┘
+`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> name          </span>┃<span style="font-weight: bold"> type         </span>┃<span style="font-weight: bold"> nullable </span>┃<span style="font-weight: bold"> nulls </span>┃<span style="font-weight: bold"> non_nulls </span>┃<span style="font-weight: bold"> null_frac </span>┃<span style="font-weight: bold"> values                                         </span>┃<span style="font-weight: bold"> counts       </span>┃
+┡━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━┩
+│ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">string</span>        │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">string</span>       │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">boolean</span>  │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">int64</span> │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">int64</span>     │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">float64</span>   │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">array&lt;string&gt;</span>                                  │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">array&lt;int64&gt;</span> │
+├───────────────┼──────────────┼──────────┼───────┼───────────┼───────────┼────────────────────────────────────────────────┼──────────────┤
+│ <span style="color: #008000; text-decoration-color: #008000">date         </span> │ <span style="color: #008000; text-decoration-color: #008000">timestamp(6)</span> │ True     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1461</span> │       <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span> │ <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'2012-01-05 00:00:00'</span>, <span style="color: #008000; text-decoration-color: #008000">'2012-01-23 00:00:00'</span><span style="font-weight: bold">]</span> │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">]</span>       │
+│ <span style="color: #008000; text-decoration-color: #008000">precipitation</span> │ <span style="color: #008000; text-decoration-color: #008000">float64     </span> │ True     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1461</span> │       <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span> │ <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'0.0'</span>, <span style="color: #008000; text-decoration-color: #008000">'0.3'</span><span style="font-weight: bold">]</span>                                 │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">838</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">54</span><span style="font-weight: bold">]</span>    │
+│ <span style="color: #008000; text-decoration-color: #008000">temp_max     </span> │ <span style="color: #008000; text-decoration-color: #008000">float64     </span> │ True     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1461</span> │       <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span> │ <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'11.1'</span>, <span style="color: #008000; text-decoration-color: #008000">'14.4'</span><span style="font-weight: bold">]</span>                               │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">58</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">49</span><span style="font-weight: bold">]</span>     │
+│ <span style="color: #008000; text-decoration-color: #008000">temp_min     </span> │ <span style="color: #008000; text-decoration-color: #008000">float64     </span> │ True     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1461</span> │       <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span> │ <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'6.1'</span>, <span style="color: #008000; text-decoration-color: #008000">'10.0'</span><span style="font-weight: bold">]</span>                                │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">66</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span><span style="font-weight: bold">]</span>     │
+│ <span style="color: #008000; text-decoration-color: #008000">wind         </span> │ <span style="color: #008000; text-decoration-color: #008000">float64     </span> │ True     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1461</span> │       <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span> │ <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'2.6'</span>, <span style="color: #008000; text-decoration-color: #008000">'3.0'</span><span style="font-weight: bold">]</span>                                 │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">76</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">65</span><span style="font-weight: bold">]</span>     │
+│ <span style="color: #008000; text-decoration-color: #008000">weather      </span> │ <span style="color: #008000; text-decoration-color: #008000">string      </span> │ True     │     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span> │      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1461</span> │       <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span> │ <span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'sun'</span>, <span style="color: #008000; text-decoration-color: #008000">'fog'</span><span style="font-weight: bold">]</span>                                 │ <span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">714</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">411</span><span style="font-weight: bold">]</span>   │
+└───────────────┴──────────────┴──────────┴───────┴───────────┴───────────┴────────────────────────────────────────────────┴──────────────┘
 </div>`,
 `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="plt-container" width="600.0" height="400.0">
   <style type="text/css">
@@ -193,112 +503,112 @@ ORDER BY
 text {
    text-rendering: optimizeLegibility;
 }
-#pVcR9Hn .plot-title {
+#pFwDaDo .plot-title {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 16.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pVcR9Hn .plot-subtitle {
+#pFwDaDo .plot-subtitle {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 15.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pVcR9Hn .plot-caption {
+#pFwDaDo .plot-caption {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pVcR9Hn .legend-title {
+#pFwDaDo .legend-title {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 15.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pVcR9Hn .legend-item {
+#pFwDaDo .legend-item {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pVcR9Hn .axis-title-x {
+#pFwDaDo .axis-title-x {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 15.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pVcR9Hn .axis-text-x {
+#pFwDaDo .axis-text-x {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#dLDzc04 .axis-tooltip-text-x {
+#dfIbNlE .axis-tooltip-text-x {
    fill: #303030;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pVcR9Hn .axis-title-y {
+#pFwDaDo .axis-title-y {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 15.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pVcR9Hn .axis-text-y {
+#pFwDaDo .axis-text-y {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#dLDzc04 .axis-tooltip-text-y {
+#dfIbNlE .axis-tooltip-text-y {
    fill: #303030;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pVcR9Hn .facet-strip-text-x {
+#pFwDaDo .facet-strip-text-x {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#pVcR9Hn .facet-strip-text-y {
+#pFwDaDo .facet-strip-text-y {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#dLDzc04 .tooltip-text {
+#dfIbNlE .tooltip-text {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: normal;
    font-style: normal;   
 }
-#dLDzc04 .tooltip-title {
+#dfIbNlE .tooltip-title {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
    font-weight: bold;
    font-style: normal;   
 }
-#dLDzc04 .tooltip-label {
+#dfIbNlE .tooltip-label {
    fill: #bbbbbb;
    font-family: Lucida Grande, sans-serif;
    font-size: 13.0px;
@@ -306,7 +616,7 @@ text {
    font-style: normal;   
 }
   </style>
-  <g id="pVcR9Hn">
+  <g id="pFwDaDo">
     <path fill-rule="evenodd" fill="rgb(48,48,48)" fill-opacity="1.0" d="M0.0 0.0 L0.0 400.0 L600.0 400.0 L600.0 0.0 Z">
     </path>
     <g transform="translate(23.0 10.0 ) ">
@@ -447,9 +757,9 @@ text {
           </g>
         </g>
       </g>
-      <g transform="translate(21.961210910936405 0.0 ) " clip-path="url(#chQEn32)" clip-bounds-jfx="[rect (0.0, 0.0), (545.0387890890636, 344.0)]">
+      <g transform="translate(21.961210910936405 0.0 ) " clip-path="url(#cC8Lj64)" clip-bounds-jfx="[rect (0.0, 0.0), (545.0387890890636, 344.0)]">
         <defs>
-          <clipPath id="chQEn32">
+          <clipPath id="cC8Lj64">
             <rect x="0.0" y="0.0" width="545.0387890890636" height="344.0">
             </rect>
           </clipPath>
@@ -1934,7 +2244,7 @@ text {
     <path fill="rgb(0,0,0)" fill-opacity="0.0" stroke="rgb(187,187,187)" stroke-opacity="1.0" stroke-width="0.0" d="M0.0 0.0 L0.0 400.0 L600.0 400.0 L600.0 0.0 Z">
     </path>
   </g>
-  <g id="dLDzc04">
+  <g id="dfIbNlE">
   </g>
 </svg>`
 ];
@@ -2439,6 +2749,360 @@ weather.eda(topk=2)
 
 <div dangerouslySetInnerHTML={{ __html: quartoRawHtml[11] }} />
 
+``` text
+r0 := DatabaseTable: seattle_weather
+  date          timestamp(6)
+  precipitation float64
+  temp_max      float64
+  temp_min      float64
+  wind          float64
+  weather       string
+
+r1 := Aggregate[r0]
+  groups:
+    weather: r0.weather
+  metrics:
+    Count(weather): Count(r0.weather)
+
+r2 := Aggregate[r0]
+  groups:
+    wind: r0.wind
+  metrics:
+    Count(wind): Count(r0.wind)
+
+r3 := Aggregate[r0]
+  groups:
+    temp_min: r0.temp_min
+  metrics:
+    Count(temp_min): Count(r0.temp_min)
+
+r4 := Aggregate[r0]
+  groups:
+    temp_max: r0.temp_max
+  metrics:
+    Count(temp_max): Count(r0.temp_max)
+
+r5 := Aggregate[r0]
+  groups:
+    date: r0.date
+  metrics:
+    Count(date): Count(r0.date)
+
+r6 := Aggregate[r0]
+  groups:
+    precipitation: r0.precipitation
+  metrics:
+    Count(precipitation): Count(r0.precipitation)
+
+r7 := Project[r0]
+  isna: SearchedCase(cases=[IsNull(r0.weather)], results=[1], default=0)
+
+r8 := Project[r0]
+  isna: SearchedCase(cases=[IsNull(r0.wind)], results=[1], default=0)
+
+r9 := Project[r0]
+  isna: SearchedCase(cases=[IsNull(r0.temp_min)], results=[1], default=0)
+
+r10 := Project[r0]
+  isna: SearchedCase(cases=[IsNull(r0.temp_max)], results=[1], default=0)
+
+r11 := Project[r0]
+  isna: SearchedCase(cases=[IsNull(r0.date)], results=[1], default=0)
+
+r12 := Project[r0]
+  isna: SearchedCase(cases=[IsNull(r0.precipitation)], results=[1], default=0)
+
+r13 := Sort[r1]
+  desc r1['Count(weather)']
+
+r14 := Sort[r2]
+  desc r2['Count(wind)']
+
+r15 := Sort[r3]
+  desc r3['Count(temp_min)']
+
+r16 := Sort[r4]
+  desc r4['Count(temp_max)']
+
+r17 := Sort[r5]
+  desc r5['Count(date)']
+
+r18 := Sort[r6]
+  desc r6['Count(precipitation)']
+
+r19 := Limit[r13, n=2]
+
+r20 := Limit[r14, n=2]
+
+r21 := Limit[r15, n=2]
+
+r22 := Limit[r16, n=2]
+
+r23 := Limit[r17, n=2]
+
+r24 := Limit[r18, n=2]
+
+r25 := Aggregate[r7]
+  metrics:
+    pos:       5
+    name:      'weather'
+    type:      'string'
+    nullable:  True
+    nulls:     Sum(r7.isna)
+    non_nulls: Sum(1 - r7.isna)
+    null_frac: Mean(r7.isna)
+
+r26 := Aggregate[r8]
+  metrics:
+    pos:       4
+    name:      'wind'
+    type:      'float64'
+    nullable:  True
+    nulls:     Sum(r8.isna)
+    non_nulls: Sum(1 - r8.isna)
+    null_frac: Mean(r8.isna)
+
+r27 := Aggregate[r9]
+  metrics:
+    pos:       3
+    name:      'temp_min'
+    type:      'float64'
+    nullable:  True
+    nulls:     Sum(r9.isna)
+    non_nulls: Sum(1 - r9.isna)
+    null_frac: Mean(r9.isna)
+
+r28 := Aggregate[r10]
+  metrics:
+    pos:       2
+    name:      'temp_max'
+    type:      'float64'
+    nullable:  True
+    nulls:     Sum(r10.isna)
+    non_nulls: Sum(1 - r10.isna)
+    null_frac: Mean(r10.isna)
+
+r29 := Aggregate[r11]
+  metrics:
+    pos:       0
+    name:      'date'
+    type:      'timestamp(6)'
+    nullable:  True
+    nulls:     Sum(r11.isna)
+    non_nulls: Sum(1 - r11.isna)
+    null_frac: Mean(r11.isna)
+
+r30 := Aggregate[r12]
+  metrics:
+    pos:       1
+    name:      'precipitation'
+    type:      'float64'
+    nullable:  True
+    nulls:     Sum(r12.isna)
+    non_nulls: Sum(1 - r12.isna)
+    null_frac: Mean(r12.isna)
+
+r31 := Aggregate[r19]
+  metrics:
+    values: ArrayCollect(r19.weather)
+    counts: ArrayCollect(r19['Count(weather)'])
+    pos:    5
+
+r32 := Aggregate[r20]
+  metrics:
+    values: ArrayCollect(Cast(r20.wind, to=string))
+    counts: ArrayCollect(r20['Count(wind)'])
+    pos:    4
+
+r33 := Aggregate[r21]
+  metrics:
+    values: ArrayCollect(Cast(r21.temp_min, to=string))
+    counts: ArrayCollect(r21['Count(temp_min)'])
+    pos:    3
+
+r34 := Aggregate[r22]
+  metrics:
+    values: ArrayCollect(Cast(r22.temp_max, to=string))
+    counts: ArrayCollect(r22['Count(temp_max)'])
+    pos:    2
+
+r35 := Aggregate[r23]
+  metrics:
+    values: ArrayCollect(Cast(r23.date, to=string))
+    counts: ArrayCollect(r23['Count(date)'])
+    pos:    0
+
+r36 := Aggregate[r24]
+  metrics:
+    values: ArrayCollect(Cast(r24.precipitation, to=string))
+    counts: ArrayCollect(r24['Count(precipitation)'])
+    pos:    1
+
+r37 := JoinChain[r25]
+  JoinLink[inner, r31]
+    r25.pos == r31.pos
+  values:
+    pos:       r25.pos
+    name:      r25.name
+    type:      r25.type
+    nullable:  r25.nullable
+    nulls:     r25.nulls
+    non_nulls: r25.non_nulls
+    null_frac: r25.null_frac
+    values:    r31.values
+    counts:    r31.counts
+
+r38 := JoinChain[r26]
+  JoinLink[inner, r32]
+    r26.pos == r32.pos
+  values:
+    pos:       r26.pos
+    name:      r26.name
+    type:      r26.type
+    nullable:  r26.nullable
+    nulls:     r26.nulls
+    non_nulls: r26.non_nulls
+    null_frac: r26.null_frac
+    values:    r32.values
+    counts:    r32.counts
+
+r39 := JoinChain[r27]
+  JoinLink[inner, r33]
+    r27.pos == r33.pos
+  values:
+    pos:       r27.pos
+    name:      r27.name
+    type:      r27.type
+    nullable:  r27.nullable
+    nulls:     r27.nulls
+    non_nulls: r27.non_nulls
+    null_frac: r27.null_frac
+    values:    r33.values
+    counts:    r33.counts
+
+r40 := JoinChain[r28]
+  JoinLink[inner, r34]
+    r28.pos == r34.pos
+  values:
+    pos:       r28.pos
+    name:      r28.name
+    type:      r28.type
+    nullable:  r28.nullable
+    nulls:     r28.nulls
+    non_nulls: r28.non_nulls
+    null_frac: r28.null_frac
+    values:    r34.values
+    counts:    r34.counts
+
+r41 := JoinChain[r29]
+  JoinLink[inner, r35]
+    r29.pos == r35.pos
+  values:
+    pos:       r29.pos
+    name:      r29.name
+    type:      r29.type
+    nullable:  r29.nullable
+    nulls:     r29.nulls
+    non_nulls: r29.non_nulls
+    null_frac: r29.null_frac
+    values:    r35.values
+    counts:    r35.counts
+
+r42 := JoinChain[r30]
+  JoinLink[inner, r36]
+    r30.pos == r36.pos
+  values:
+    pos:       r30.pos
+    name:      r30.name
+    type:      r30.type
+    nullable:  r30.nullable
+    nulls:     r30.nulls
+    non_nulls: r30.non_nulls
+    null_frac: r30.null_frac
+    values:    r36.values
+    counts:    r36.counts
+
+r43 := Project[r37]
+  name:      r37.name
+  type:      r37.type
+  nullable:  r37.nullable
+  nulls:     r37.nulls
+  non_nulls: r37.non_nulls
+  null_frac: r37.null_frac
+  values:    r37.values
+  counts:    r37.counts
+
+r44 := Project[r38]
+  name:      r38.name
+  type:      r38.type
+  nullable:  r38.nullable
+  nulls:     r38.nulls
+  non_nulls: r38.non_nulls
+  null_frac: r38.null_frac
+  values:    r38.values
+  counts:    r38.counts
+
+r45 := Project[r39]
+  name:      r39.name
+  type:      r39.type
+  nullable:  r39.nullable
+  nulls:     r39.nulls
+  non_nulls: r39.non_nulls
+  null_frac: r39.null_frac
+  values:    r39.values
+  counts:    r39.counts
+
+r46 := Project[r40]
+  name:      r40.name
+  type:      r40.type
+  nullable:  r40.nullable
+  nulls:     r40.nulls
+  non_nulls: r40.non_nulls
+  null_frac: r40.null_frac
+  values:    r40.values
+  counts:    r40.counts
+
+r47 := Project[r41]
+  name:      r41.name
+  type:      r41.type
+  nullable:  r41.nullable
+  nulls:     r41.nulls
+  non_nulls: r41.non_nulls
+  null_frac: r41.null_frac
+  values:    r41.values
+  counts:    r41.counts
+
+r48 := Project[r42]
+  name:      r42.name
+  type:      r42.type
+  nullable:  r42.nullable
+  nulls:     r42.nulls
+  non_nulls: r42.non_nulls
+  null_frac: r42.null_frac
+  values:    r42.values
+  counts:    r42.counts
+
+r49 := Union[r47, r48, distinct=False]
+
+r50 := Union[r49, r46, distinct=False]
+
+r51 := Union[r50, r45, distinct=False]
+
+r52 := Union[r51, r44, distinct=False]
+
+r53 := Union[r52, r43, distinct=False]
+
+Project[r53]
+  name:      r53.name
+  type:      r53.type
+  nullable:  r53.nullable
+  nulls:     r53.nulls
+  non_nulls: r53.non_nulls
+  null_frac: r53.null_frac
+  values:    r53.values
+  counts:    r53.counts
+```
+
 </Card>
 
 Charting relies on the awesome [lets-plot
@@ -2447,7 +3111,7 @@ library](https://lets-plot.org/) from JetBrains
 <Card>
 
 ```python
-from vinyl import geom
+from vinyl.chart import geom
 
 weather.chart(geom.scatter, x=weather.date, y=weather.temp_max, interactive = False)
 ```
