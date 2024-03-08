@@ -38,16 +38,13 @@
       "group": "Getting Started",
       "pages": [
         "introduction",
-        "quickstart",
-        "showcase/syntax",
-        "walkthrough/relations"
+        "quickstart"
       ]
     },
     {
-      "group": "Integrations",
+      "group": "Showcase",
       "pages": [
-        "sources",
-        "destinations"
+        "showcase/syntax"
       ]
     },
     {
@@ -58,6 +55,19 @@
         "concepts/deployment",
         "concepts/ai_transforms",
         "concepts/enrichment"
+      ]
+    },
+    {
+      "group": "Walkthrough",
+      "pages": [
+        "walkthrough/relations"
+      ]
+    },
+    {
+      "group": "Integrations",
+      "pages": [
+        "sources",
+        "destinations"
       ]
     },
     {

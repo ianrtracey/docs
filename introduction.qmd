@@ -2,6 +2,7 @@
 title: Introduction
 description: "Turntable is AI-powered analytics infrastructure to ingest, model and manage your metrics and insights."
 format: mintlify-md
+icon: hourglass-start
 ---
 
 ## Overview
