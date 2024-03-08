@@ -8,7 +8,8 @@ import { BigQuery } from "/snippets/snippet-intro";
 
 ## System Requirements
 
-Python version 3.10 or higher
+- Python version 3.10 or 3.11
+- Mac (ARM or x64), Windows (x64), or Linux (x64)
 
 ## What's Vinyl?
 
@@ -220,13 +221,12 @@ Create a metric by passing in a `MetricStore` to your function and adding a `@me
 @metric(deps=[store_txns, MetricStore])
 def sales_metrics(table: T, metric_store: M) -> M:
     metric_store.metric(
-        tbl = table,
-        by = [table.store_nbr, table.city,table.state],
-        ts = table.date.cast("timestamp"),
         cols = {
             "total_txns": table.transactions.sum(),
             "average_txns": table.transactions.mean(),
         },
+        ts = table.date.cast("timestamp"),
+        by = [table.store_nbr, table.city,table.state],
     )
     return metric_store
 ```
