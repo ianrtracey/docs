@@ -346,104 +346,104 @@ ORDER BY
 │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span>          │              <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span> │
 └────────────┴────────────────┘
 </div>`,
-`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">                                                                                                          ╭────────────────────────────╮                                           
-                                                                                                          │ <span style="font-weight: bold">Sort</span>                       │                                           
-                                                                                                          │ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">Date: </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold; font-style: italic">date</span>              │                                           
-                                                                                                          │ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">CO2_normalized: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold; font-style: italic">float64</span> │                                           
-                                                                                                          ╰────────────────────────────╯                                           
-                                                                                                          ▲              ▲                                                         
-                                                                                                          │              │                                                         
-                                                                                                          │              │                                                         
-                                                                                                   ╭────────────╮        │                                                         
-                                                                                                   │ <span style="font-weight: bold">SortKey</span>    │        │                                                         
-                                                                                                   │ <span style="font-weight: bold">   :: </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">date</span> │        │                                                         
-                                                                                                   ╰────────────╯        │                                                         
-                                                                                                          ▲              │                                                         
-                                                                                                          │              │                                                         
-                                                                                                          │              │                                                         
-                                                                                                          │              │                                                         
-                                                                                                   ╭─────────────╮       │                                                         
-                                                                                                   │ <span style="font-style: italic">Date: </span><span style="font-weight: bold; font-style: italic">Field</span> │       │                                                         
-                                                                                                   │ <span style="font-style: italic">   :: </span><span style="color: #008080; text-decoration-color: #008080; font-style: italic">date</span>  │       │                                                         
-                                                                                                   ╰─────────────╯       │                                                         
-                                                                                                          ▲              │                                                         
-                                                                                                          │              │                                                         
-                                                                                                          ╰──────╮       │                                                         
-                                                                                                                 │       │                                                         
-                                                                                                                 ╰───────│                                                         
-                                                                                                          ╭────────────────────────────╮                                           
-                                                                                                          │ <span style="font-weight: bold">Project</span>                    │                                           
-                                                                                    ╭────────────────────▶│ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">Date: </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold; font-style: italic">date</span>              │                                           
-                                                                                    │                     │ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">CO2_normalized: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold; font-style: italic">float64</span> │                                           
-                                                                                    │                     ╰────────────────────────────╯                                           
-                                                                                    │                                   ▲▲                                                         
-                                                                                    │                                   ││                                                         
-                                                                                    │                                   ││                                                         
-                                                                             ╭─────────────╮                ╭───────────────────────╮                                              
-                                                                             │ <span style="font-style: italic">Date: </span><span style="font-weight: bold; font-style: italic">Field</span> │                │ <span style="font-style: italic">CO2_normalized: </span><span style="font-weight: bold; font-style: italic">Field</span> │                                              
-                                                                             │ <span style="font-style: italic">   :: </span><span style="color: #008080; text-decoration-color: #008080; font-style: italic">date</span>  │                │ <span style="font-style: italic">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">float64</span>         │                                              
-                                                                             ╰─────────────╯                ╰───────────────────────╯                                              
-                                                                                    ▲                                   ▲│                                                         
-                                                                                    │                                   ││                                                         
-                                                                                    │                                   ││                                                         
-                                                                                    ╰───────────────────────────────────╮│                                                         
-                                                                                                                        ││                                                         
-                                                                                                        ╭──────────────────────────────╮                                           
-                                                                                                        │ <span style="font-weight: bold">Project</span>                      │                                           
-                                                                                                        │ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">ExtractMonth(Date): </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold; font-style: italic">int32</span> │                                           
-                                          ╭────────────────────────────────────────────────────────────▶│ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">CO2: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold; font-style: italic">float64</span>              │◀─────────────────────────────────╮        
-                                          │                                                             │ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">Date: </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold; font-style: italic">date</span>                │                                  │        
-                                          │                                                             │ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">CO2_normalized: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold; font-style: italic">float64</span>   │                                  │        
-                                          │                                                             ╰──────────────────────────────╯                                  │        
-                                          │                                                                  ▲          ▲                                                 │        
-                                          │                                                      ╭───────────│──────────│                                                 │        
-                                          │                                                      │           │          │                                                 │        
-                                          │                       ╭───────────────╮              │           │          │                                                 │        
-                                          │                       │ <span style="font-weight: bold">Subtract</span>      │              │           │          │                                                 │        
-                                          │                       │ <span style="font-weight: bold">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold">float64</span> │──────────────╯           │          │                                                 │        
-                                          │                       ╰───────────────╯                          │          │                                                 │        
-                                          │                               ▲                                  │          │                                                 │        
-                                          │                               ╰───────────╮                      │          │                                                 │        
-                                          │                               │           │                      │          │                                                 │        
-                                          │                               │           │                      │          │                                                 │        
-                                          │                      ╭────────────────╮   ╰──────────────────────│──────────│─╮                                               │        
-                                          │                      │ <span style="font-weight: bold">WindowFunction</span> │                          │          │ │                                               │        
-                                          │                      │ <span style="font-weight: bold">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold">float64</span>  │◀─────────────────────────│──────────│─│───────────────╮                               │        
-                                          │                      ╰────────────────╯                          │          │ │               │                               │        
-                                          │                               ▲                                  │          │ │               │                               │        
-                                          │                               │                                  │          │ │               │                               │        
-                                          │                               │                      ╭───────────╯          │ │               │                               │        
-                                          │                               │                      │                      │ │               │                               │        
-╭─────────────────╮                       │                               │                      │                      │ │       ╭───────────────╮                       │        
-│ <span style="font-weight: bold">RowsWindowFrame</span> │                       │                               │                      │                      │ │       │ <span style="font-weight: bold">Mean</span>          │                       │        
-│ <span style="font-weight: bold">   :: ∅</span>         │───────────────────────│───────────────────────────────╯                      │                      ╰╮│       │ <span style="font-weight: bold">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold">float64</span> │                       │        
-╰─────────────────╯                       │                                                      │                       ││       ╰───────────────╯                       │        
-         ▲───────╮                        │                                                      │                       ││               ▲                               │        
-         │       │                        │                                                      │                       ││               │                               │        
-         │       ╰───────╮                │                                                      │                       ││               ╰───────────────────────────────│        
-         │               │                │                                                      │                       ││                                               │        
-         │               │        ╭──────────────╮                                               │                       ││                                       ╭───────────────╮
-         │               │        │ <span style="font-weight: bold">ExtractMonth</span> │                                               │                       ││                                       │ <span style="font-style: italic">CO2: </span><span style="font-weight: bold; font-style: italic">Field</span>    │
-         │               ╰────────│ <span style="font-weight: bold">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold">int32</span>  │                                               │                       │╰───────────────────────────────────────│ <span style="font-style: italic">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">float64</span> │
-         │                        ╰──────────────╯                                               │                       │                                        ╰───────────────╯
-         │                                ▲                                                      │                       │                                                ▲        
-         │                                │                                                      │                       │                                                │        
-         ╰────────────────────────────────│──────────────────────╮                               │                       │                                                │        
-                                          │                      │                               │                       │                                                │        
-                                          │                      │ ╭─────────────╮               │                       │                                                │        
-                                          │                      │ │ <span style="font-style: italic">Date: </span><span style="font-weight: bold; font-style: italic">Field</span> │               │                       │                                                │        
-                                          ╰────────────────────────│ <span style="font-style: italic">   :: </span><span style="color: #008080; text-decoration-color: #008080; font-style: italic">date</span>  │───────────────╯                       │                                                │        
-                                                                 │ ╰─────────────╯                                       │                                                │        
-                                                                 ╰────────▲──────────────────╮                           │                                                │        
-                                                                          │                  │                           │                                                │        
-                                                                          │                  │                           │                                                │        
-                                                                          │                  │                           │                                                │        
-                                                                          │                  ╰───────────────────────────│                                                │        
-                                                                          │                            ╭──────────────────────────────────╮                               │        
-                                                                          │                            │ <span style="font-style: italic">co2_concentration​: </span><span style="font-weight: bold; font-style: italic">DatabaseTable</span> │                               │        
-                                                                          ╰────────────────────────────│ <span style="font-style: italic">   CO2: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">float64</span>                  │───────────────────────────────╯        
-                                                                                                       │ <span style="font-style: italic">   Date: </span><span style="color: #008080; text-decoration-color: #008080; font-style: italic">date</span>                    │                                        
-                                                                                                       ╰──────────────────────────────────╯                                        
+`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">                                                                         ╭────────────────────────────╮          
+                                                                         │ <span style="font-weight: bold">Sort</span>                       │          
+                                                                         │ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">Date: </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold; font-style: italic">date</span>              │          
+                                                                         │ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">CO2_normalized: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold; font-style: italic">float64</span> │          
+                                                                         ╰────────────────────────────╯          
+                                                                         ▲              ▲                        
+                                                                         │              │                        
+                                                                         │              │                        
+                                                                  ╭────────────╮        │                        
+                                                                  │ <span style="font-weight: bold">SortKey</span>    │        │                        
+                                                                  │ <span style="font-weight: bold">   :: </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">date</span> │        │                        
+                                                                  ╰────────────╯        │                        
+                                                                         ▲              │                        
+                                                                         │              │                        
+                                                                         │              │                        
+                                                                         │              │                        
+                                                                  ╭─────────────╮       │                        
+                                                                  │ <span style="font-style: italic">Date: </span><span style="font-weight: bold; font-style: italic">Field</span> │       │                        
+                                                                  │ <span style="font-style: italic">   :: </span><span style="color: #008080; text-decoration-color: #008080; font-style: italic">date</span>  │       │                        
+                                                                  ╰─────────────╯       │                        
+                                                                         ▲              │                        
+                                                                         │              │                        
+                                                                         ╰──────╮       │                        
+                                                                                │       │                        
+                                                                                ╰───────│                        
+                                                                         ╭────────────────────────────╮          
+                                                                         │ <span style="font-weight: bold">Project</span>                    │          
+                                                   ╭────────────────────▶│ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">Date: </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold; font-style: italic">date</span>              │          
+                                                   │                     │ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">CO2_normalized: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold; font-style: italic">float64</span> │          
+                                                   │                     ╰────────────────────────────╯          
+                                                   │                                   ▲▲                        
+                                                   │                                   ││                        
+                                                   │                                   ││                        
+                                            ╭─────────────╮                ╭───────────────────────╮             
+                                            │ <span style="font-style: italic">Date: </span><span style="font-weight: bold; font-style: italic">Field</span> │                │ <span style="font-style: italic">CO2_normalized: </span><span style="font-weight: bold; font-style: italic">Field</span> │             
+                                            │ <span style="font-style: italic">   :: </span><span style="color: #008080; text-decoration-color: #008080; font-style: italic">date</span>  │                │ <span style="font-style: italic">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">float64</span>         │             
+                                            ╰─────────────╯                ╰───────────────────────╯             
+                                                   ▲                                   ▲│                        
+                                                   │                                   ││                        
+                                                   │                                   ││                        
+                                                   ╰───────────────────────────────────╮│                        
+                                                                                       ││                        
+                                                                       ╭──────────────────────────────╮          
+                                                                       │ <span style="font-weight: bold">Project</span>                      │          
+                                                                       │ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">ExtractMonth(Date): </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold; font-style: italic">int32</span> │          
+                                                         ╭────────────▶│ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">CO2: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold; font-style: italic">float64</span>              │◀─╮       
+                                                         │             │ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">Date: </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold; font-style: italic">date</span>                │  │       
+                                                         │             │ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">CO2_normalized: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold; font-style: italic">float64</span>   │  │       
+                                                         │             ╰──────────────────────────────╯  │       
+                                                         │                             ▲ ▲               │       
+                                                         │      ╭──────────────────────│ │               │       
+                                                         │      │                      │ │               │       
+                                 ╭───────────────╮       │      │                      │ │               │       
+                                 │ <span style="font-weight: bold">Subtract</span>      │       │      │                      │ │               │       
+                        ╭───────▶│ <span style="font-weight: bold">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold">float64</span> │───────│──────╯                      │ │               │       
+                        │        ╰───────────────╯       │                             │ │               │       
+                        │                ▲               │                             │ │               │       
+                        │                │               │                             │ │               │       
+                        │                │               │                             │ │               │       
+                        │                │               │                             │ │               │       
+               ╭────────────────╮        │               │                             │ │               │       
+               │ <span style="font-weight: bold">WindowFunction</span> │        │               │                             │ │               │       
+               │ <span style="font-weight: bold">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold">float64</span>  │        │               │                             │ │               │       
+               ╰────────────────╯        │               │                             │ │               │       
+                        ▲───╮            │               │                             │ │               │       
+                        │   │            │               │                             │ │               │       
+                        │   ╰────────────╰───────────╮   │                             │ │               │       
+                        │                │           │   │                             │ │               │       
+╭───────────────╮       │       ╭─────────────────╮  │   │                             │ │               │       
+│ <span style="font-weight: bold">Mean</span>          │       │       │ <span style="font-weight: bold">RowsWindowFrame</span> │  │   │                             │ │               │       
+│ <span style="font-weight: bold">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold">float64</span> │───────╯       │ <span style="font-weight: bold">   :: ∅</span>         │◀─│───│───────╮                     ╰╮│               │       
+╰───────────────╯               ╰─────────────────╯  │   │       │                      ││               │       
+        ▲                                ▲           │   │       │                      ││               │       
+        │                                │           │   │       │                      ││               │       
+        │                                │           │   │       ╰───────────╮          ││               │       
+        │                                │           ╰───│                   │          ││               │       
+        │                                │       ╭───────────────╮           │   ╭──────────────╮        │       
+        │                                │       │ <span style="font-style: italic">CO2: </span><span style="font-weight: bold; font-style: italic">Field</span>    │           │   │ <span style="font-weight: bold">ExtractMonth</span> │        │       
+        ╰────────────────────────────────────────│ <span style="font-style: italic">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">float64</span> │           ╰───│ <span style="font-weight: bold">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold">int32</span>  │        │       
+                                         │       ╰───────────────╯               ╰──────────────╯        │       
+                                         │               ▲                              │▲               │       
+                                         │               │                              ││               │       
+                                         ╰───────────────│──────╮                       ││               │       
+                                                         │      │                       ││               │       
+                                                         │      │                       ││        ╭─────────────╮
+                                                         │      │                       ││        │ <span style="font-style: italic">Date: </span><span style="font-weight: bold; font-style: italic">Field</span> │
+                                                         │      │                       │╰────────│ <span style="font-style: italic">   :: </span><span style="color: #008080; text-decoration-color: #008080; font-style: italic">date</span>  │
+                                                         │      │                       │         ╰─────────────╯
+                                                         │      ╰───────────╮           │                ▲       
+                                                         │                  │           │                │       
+                                                         │                  │           │       ╭────────╯       
+                                                         │                  │           │       │                
+                                                         │                  ╰───────────│───────╯                
+                                                         │            ╭──────────────────────────────────╮       
+                                                         │            │ <span style="font-style: italic">co2_concentration​: </span><span style="font-weight: bold; font-style: italic">DatabaseTable</span> │       
+                                                         ╰────────────│ <span style="font-style: italic">   CO2: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">float64</span>                  │       
+                                                                      │ <span style="font-style: italic">   Date: </span><span style="color: #008080; text-decoration-color: #008080; font-style: italic">date</span>                    │       
+                                                                      ╰──────────────────────────────────╯       
 </div>`,
 `<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">SELECT
   *
@@ -507,9 +507,9 @@ WHERE
 │ <span style="font-style: italic">day: </span><span style="font-weight: bold; font-style: italic">Field</span>   │                               │ <span style="font-style: italic">id: </span><span style="font-weight: bold; font-style: italic">Field</span>   │                                │ <span style="font-weight: bold">Subtract</span>    │        │  │             │                                                            │                    
 │ <span style="font-style: italic">   :: </span><span style="color: #ffaf00; text-decoration-color: #ffaf00; font-style: italic">string</span> │                               │ <span style="font-style: italic">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">int64</span> │                                │ <span style="font-weight: bold">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold">int64</span> │────────╯  │             │                                                            │                    
 ╰──────────────╯                               ╰─────────────╯                                ╰─────────────╯           │             │                                                            │                    
-        ▲                                             ▲                                              ▲──────────────────│─────────────│────╮                                                       │                    
-        │                                             │                                              │                  │             │    │                                                       │                    
-        │                                             │                                              │                  │             │    │                                                       │                    
+        ▲                                             ▲                                              ▲                  │             │                                                            │                    
+        │                                             │                                              │                  │             │                                                            │                    
+        │                                             │                                              ╰──────────────────│─────────────│────╮                                                       │                    
         │                                             │                                              │                  │             │    │                                                       │                    
         │                                             │                                       ╭─────────────╮           │             │    │                             ╭─────────────╮           │                    
         │                                             │                                       │ <span style="font-weight: bold">StructField</span> │           │             │    │                             │ <span style="font-weight: bold">StructField</span> │           │                    
@@ -520,7 +520,7 @@ WHERE
         │                                             │                                              │                  │             │                                         │                  │                    
         │                                             ╰───────────────────────────────────────╮      │                  │             │                                         │                  │                    
         │                                                                                     │     ╭───────────────────────────────────────╮                                  ╭───────────────────────────────────────╮
-        │                                                                                     │     │ <span style="font-style: italic">actual: </span><span style="font-weight: bold; font-style: italic">Field</span>                         │                                  │ <span style="font-style: italic">normal: </span><span style="font-weight: bold; font-style: italic">Field</span>                         │
+        │                                                                                     │     │ <span style="font-style: italic">normal: </span><span style="font-weight: bold; font-style: italic">Field</span>                         │                                  │ <span style="font-style: italic">actual: </span><span style="font-weight: bold; font-style: italic">Field</span>                         │
         │                                                                                     │     │ <span style="font-style: italic">   :: </span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-style: italic">struct&lt;high: int64, low: int64&gt;</span> │                                  │ <span style="font-style: italic">   :: </span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-style: italic">struct&lt;high: int64, low: int64&gt;</span> │
         │                                                                                     │     ╰───────────────────────────────────────╯                                  ╰───────────────────────────────────────╯
         │                                                                                     │                         ▲             │                                                            ▲                    
@@ -579,6 +579,79 @@ FROM <span style="font-weight: bold">(</span>
 │                  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">931</span> │                  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span> │           <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">9</span> │           <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span> │       <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">800415</span> │                   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span> │ <span style="color: #008000; text-decoration-color: #008000">On-budget        </span> │ <span style="color: #008000; text-decoration-color: #008000">0     </span> │  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1971</span> │ <span style="color: #008000; text-decoration-color: #008000">0     </span> │
 │                    <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span> │                  <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span> │           <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span> │           <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span> │            <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span> │                    <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span> │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span>                 │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span>      │     <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span> │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span>      │
 └──────────────────────┴────────────────────┴─────────────┴─────────────┴──────────────┴──────────────────────┴───────────────────┴────────┴───────┴────────┘
+</div>`,
+`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">SELECT
+  <span style="color: #008000; text-decoration-color: #008000">"t0"</span>.<span style="color: #008000; text-decoration-color: #008000">"variety"</span>,
+  <span style="color: #008000; text-decoration-color: #008000">"t0"</span>.<span style="color: #008000; text-decoration-color: #008000">"site"</span>,
+  <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">FIRST</span><span style="font-weight: bold">(</span><span style="color: #008000; text-decoration-color: #008000">"t0"</span>.<span style="color: #008000; text-decoration-color: #008000">"yield"</span><span style="font-weight: bold">)</span> <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">FILTER</span><span style="font-weight: bold">(</span>WHERE
+    <span style="color: #008000; text-decoration-color: #008000">"t0"</span>.<span style="color: #008000; text-decoration-color: #008000">"year"</span> = <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">CAST</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1931</span> AS SMALLINT<span style="font-weight: bold">))</span> AS <span style="color: #008000; text-decoration-color: #008000">"1931"</span>,
+  <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">FIRST</span><span style="font-weight: bold">(</span><span style="color: #008000; text-decoration-color: #008000">"t0"</span>.<span style="color: #008000; text-decoration-color: #008000">"yield"</span><span style="font-weight: bold">)</span> <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">FILTER</span><span style="font-weight: bold">(</span>WHERE
+    <span style="color: #008000; text-decoration-color: #008000">"t0"</span>.<span style="color: #008000; text-decoration-color: #008000">"year"</span> = <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">CAST</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1932</span> AS SMALLINT<span style="font-weight: bold">))</span> AS <span style="color: #008000; text-decoration-color: #008000">"1932"</span>
+FROM <span style="color: #008000; text-decoration-color: #008000">"barley"</span> AS <span style="color: #008000; text-decoration-color: #008000">"t0"</span>
+GROUP BY
+  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>,
+  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>
+</div>`,
+`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┓
+┃<span style="font-weight: bold"> variety   </span>┃<span style="font-weight: bold"> site            </span>┃<span style="font-weight: bold"> 1931     </span>┃<span style="font-weight: bold"> 1932     </span>┃
+┡━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━┩
+│ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">string</span>    │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">string</span>          │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">float64</span>  │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">float64</span>  │
+├───────────┼─────────────────┼──────────┼──────────┤
+│ <span style="color: #008000; text-decoration-color: #008000">Glabron  </span> │ <span style="color: #008000; text-decoration-color: #008000">Grand Rapids   </span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">29.13333</span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">14.43333</span> │
+│ <span style="color: #008000; text-decoration-color: #008000">Svansota </span> │ <span style="color: #008000; text-decoration-color: #008000">Grand Rapids   </span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">29.66667</span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16.63333</span> │
+│ <span style="color: #008000; text-decoration-color: #008000">Velvet   </span> │ <span style="color: #008000; text-decoration-color: #008000">Duluth         </span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">26.30000</span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">22.46667</span> │
+│ <span style="color: #008000; text-decoration-color: #008000">No. 457  </span> │ <span style="color: #008000; text-decoration-color: #008000">Grand Rapids   </span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32.16667</span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19.46667</span> │
+│ <span style="color: #008000; text-decoration-color: #008000">No. 462  </span> │ <span style="color: #008000; text-decoration-color: #008000">Grand Rapids   </span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">24.93334</span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19.90000</span> │
+│ <span style="color: #008000; text-decoration-color: #008000">No. 475  </span> │ <span style="color: #008000; text-decoration-color: #008000">Waseca         </span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">46.76667</span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">41.26667</span> │
+│ <span style="color: #008000; text-decoration-color: #008000">No. 475  </span> │ <span style="color: #008000; text-decoration-color: #008000">Crookston      </span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">44.10000</span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32.13333</span> │
+│ <span style="color: #008000; text-decoration-color: #008000">Manchuria</span> │ <span style="color: #008000; text-decoration-color: #008000">University Farm</span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">27.00000</span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">26.90000</span> │
+│ <span style="color: #008000; text-decoration-color: #008000">Glabron  </span> │ <span style="color: #008000; text-decoration-color: #008000">Morris         </span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28.76667</span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.13333</span> │
+│ <span style="color: #008000; text-decoration-color: #008000">Svansota </span> │ <span style="color: #008000; text-decoration-color: #008000">Morris         </span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25.76667</span> │ <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.03333</span> │
+│ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span>         │ <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span>               │        <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span> │        <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">…</span> │
+└───────────┴─────────────────┴──────────┴──────────┘
+</div>`,
+`<div style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">                                                                                           ╭────────────────────╮                                                            
+                                                                                           │ <span style="font-weight: bold">Aggregate</span>          │                                                            
+                                                                                           │ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">variety: </span><span style="color: #ffaf00; text-decoration-color: #ffaf00; font-weight: bold; font-style: italic">string</span> │                                                            
+         ╭────────────────────────────────────────────────────────────────────────────────▶│ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">site: </span><span style="color: #ffaf00; text-decoration-color: #ffaf00; font-weight: bold; font-style: italic">string</span>    │◀────────────────────╮                                      
+         │                                                                                 │ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">1931: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold; font-style: italic">float64</span>   │                     │                                      
+         │                                                                                 │ <span style="font-weight: bold">   </span><span style="font-weight: bold; font-style: italic">1932: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold; font-style: italic">float64</span>   │                     │                                      
+         │                                                                                 ╰────────────────────╯                     │                                      
+         │                                                                                            ▲                               │                                      
+         │                                                             ╭──────────────────────────────│                               │                                      
+         │                                                             │                              │                               │                                      
+╭────────────────╮              ╭──────────────╮                       │                      ╭───────────────╮               ╭───────────────╮                              
+│ <span style="font-style: italic">variety: </span><span style="font-weight: bold; font-style: italic">Field</span> │              │ <span style="font-style: italic">site: </span><span style="font-weight: bold; font-style: italic">Field</span>  │                       │                      │ <span style="font-weight: bold">First</span>         │               │ <span style="font-weight: bold">First</span>         │                              
+│ <span style="font-style: italic">   :: </span><span style="color: #ffaf00; text-decoration-color: #ffaf00; font-style: italic">string</span>   │              │ <span style="font-style: italic">   :: </span><span style="color: #ffaf00; text-decoration-color: #ffaf00; font-style: italic">string</span> │───────────────────────╯               ╭─────▶│ <span style="font-weight: bold">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold">float64</span> │◀──────╮       │ <span style="font-weight: bold">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold">float64</span> │◀──────╮                      
+╰────────────────╯              ╰──────────────╯                                       │      ╰───────────────╯       │       ╰───────────────╯       │                      
+         ▲                              ▲                                              │              │               │               ▲               │                      
+         │                              │                                              │              │               │               │               │                      
+         │                              │                                              │              │               │               │               │                      
+         │                              │                                              │              │               │               │               │                      
+         │                              │                                      ╭───────────────╮      │       ╭───────────────╮       │       ╭───────────────╮              
+         │                              │                                      │ <span style="font-weight: bold">Equals</span>        │      │       │ <span style="font-style: italic">yield: </span><span style="font-weight: bold; font-style: italic">Field</span>  │       │       │ <span style="font-weight: bold">Equals</span>        │              
+         │                              │                               ╭─────▶│ <span style="font-weight: bold">   :: </span><span style="color: #af00ff; text-decoration-color: #af00ff; font-weight: bold">boolean</span> │      │       │ <span style="font-style: italic">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">float64</span> │───────╯       │ <span style="font-weight: bold">   :: </span><span style="color: #af00ff; text-decoration-color: #af00ff; font-weight: bold">boolean</span> │◀────╮        
+         │                              │                               │      ╰───────────────╯      │       ╰───────────────╯               ╰───────────────╯     │        
+         │                              │                               │              ▲              │               ▲                               ▲             │        
+         │                              │                               │              │              │               │                               │             │        
+         │                              │                               │              │              │               │                               │             │        
+         │                              ╰─────────────────────────────────────────────╮│              │               │                               │             │        
+         │                                                      ╭───────────────╮     ││       ╭─────────────╮        │                               │     ╭───────────────╮
+         │                                                      │ <span style="font-style: italic">1931: </span><span style="font-weight: bold; font-style: italic">Literal</span> │     ││       │ <span style="font-style: italic">year: </span><span style="font-weight: bold; font-style: italic">Field</span> │        │                               │     │ <span style="font-style: italic">1932: </span><span style="font-weight: bold; font-style: italic">Literal</span> │
+         │                                                      │ <span style="font-style: italic">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">int16</span>   │     │╰───────│ <span style="font-style: italic">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">int64</span> │────────│───────────────────────────────╯     │ <span style="font-style: italic">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">int16</span>   │
+         │                                                      ╰───────────────╯     │        ╰─────────────╯        │                                     ╰───────────────╯
+         │                                                                            │               ▲               │                                                      
+         │                                                                            │               │               │                                                      
+         │                                                                            │               │               │                                                      
+         │                                                                            │               │               │                                                      
+         │                                                                            │               │               │                                                      
+         │                                                                            ╰───╭───────────────────────╮   │                                                      
+         │                                                                                │ <span style="font-style: italic">barley: </span><span style="font-weight: bold; font-style: italic">DatabaseTable</span> │   │                                                      
+         │                                                                                │ <span style="font-style: italic">   yield: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">float64</span>     │   │                                                      
+         ╰────────────────────────────────────────────────────────────────────────────────│ <span style="font-style: italic">   variety: </span><span style="color: #ffaf00; text-decoration-color: #ffaf00; font-style: italic">string</span>    │───╯                                                      
+                                                                                          │ <span style="font-style: italic">   year: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">int64</span>        │                                                          
+                                                                                          │ <span style="font-style: italic">   site: </span><span style="color: #ffaf00; text-decoration-color: #ffaf00; font-style: italic">string</span>       │                                                          
+                                                                                          ╰───────────────────────╯                                                          
 </div>`
 ];
 
@@ -857,8 +930,8 @@ import re
 with budget as b:
     b.unpivot(
         [col for col in b.columns if re.match(r"\d{4}", col)], 
-        names_to = "year", 
-        names_transform = int, 
+        colnames_to = "year", 
+        colnames_transform = int, 
         values_to= "budget"
     )
 ```
@@ -972,6 +1045,50 @@ Project[r1]
 <Tab title="AST graph">
 
 Too large to show
+
+</Tab>
+</Tabs>
+
+```python
+with barley as b:
+    b.pivot(colnames_from="year", values_from="yield")
+```
+
+<Tabs>
+<Tab title="SQL">
+<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[17] }} />
+
+</Tab>
+<Tab title="Result">
+<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[18] }} />
+
+</Tab>
+<Tab title="AST">
+
+``` text
+r0 := DatabaseTable: barley
+  yield   float64
+  variety string
+  year    int64
+  site    string
+
+Aggregate[r0]
+  groups:
+    variety: r0.variety
+    site:    r0.site
+  metrics:
+    1931: First(r0.yield, where=r0.year == 1931)
+    1932: First(r0.yield, where=r0.year == 1932)
+```
+
+</Tab>
+<Tab title="AST graph">
+
+```python
+b.visualize()
+```
+
+<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[19] }} />
 
 </Tab>
 </Tabs>
