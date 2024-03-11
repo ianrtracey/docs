@@ -51,10 +51,13 @@ Vinyl constructs SQL queries under the hood to avoid pulling all of your data on
     </div>
   </Card>
 </CardGroup>
-## Create a project
+## Setup your Environment
+
+```bash
+pip install poetry
+```
 
 First, in a new directory, create a poetry project with Vinyl as a dependency.
-
 
 ```bash
 poetry init -n --python ">=3.10, <3.12" --dependency vinyl --dev-dependency "vinyl[dev]" && poetry install && poetry shell
@@ -64,8 +67,17 @@ poetry init -n --python ">=3.10, <3.12" --dependency vinyl --dev-dependency "vin
 If you have an existing poetry project, run `poetry add "vinyl[dev]"` and make sure you're in a poetry shell for the next step.
 </Note>
 
-<Info> For now, Vinyl projects must also be poetry projects. We're working on adding support for other package managers.</Info>
+<Info>
+  {" "}
+  For now, Vinyl projects must also be poetry projects. We're working on adding support
+  for other package managers.
+</Info>
 
+## Create a Project
+
+```bash
+vinyl login
+```
 
 Now, create a vinyl project with whatever name you'd like. We'll use `my_shop` for this example.
 
@@ -83,8 +95,10 @@ my_shop/
   |- resources.py
 ```
 
-<Tip> 
-For the best experience using Vinyl, make sure to change your Python interpreter to your poetry environment's python. This will provide full autocomplete, syntax highlighting, and renaming capabilities.
+<Tip>
+  For the best experience using Vinyl, make sure to change your Python
+  interpreter to your poetry environment's python. This will provide full
+  autocomplete, syntax highlighting, and renaming capabilities.
 </Tip>
 
 ## Generate Sources
