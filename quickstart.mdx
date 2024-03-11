@@ -63,8 +63,9 @@ First, in a new directory, create a poetry project with Vinyl as a dependency.
 poetry init -n --python ">=3.10, <3.12" --dependency vinyl --dev-dependency "vinyl[dev]" && poetry install && poetry shell
 ```
 
-<Note> 
-If you have an existing poetry project, run `poetry add "vinyl[dev]"` and make sure you're in a poetry shell for the next step.
+<Note>
+  If you have an existing poetry project, run `poetry add "vinyl[dev]"` and make
+  sure you're in a poetry shell for the next step.
 </Note>
 
 <Info>
@@ -305,8 +306,8 @@ psql -h 0.0.0.0  -p 5433 \
 You can also integrate your Vinyl project with other services or data products. Vinyl supports querying models and metrics via an HTTP API.
 
 ```bash
-curl -X POST -H "Content-Type: application/json" \
-localhost:8000/metric/sales_metrics?grain=months=1&limit=10
+curl -H "Content-Type: application/json" \
+'http://localhost:8000/metrics/sales_metrics?grain=months=1&limit=10'
 ```
 
 ## Next Steps
