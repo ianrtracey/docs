@@ -51,7 +51,11 @@ Vinyl constructs SQL queries under the hood to avoid pulling all of your data on
     </div>
   </Card>
 </CardGroup>
-## Create a project
+## Setup your Environment
+
+```bash
+pip install poetry
+```
 
 First, in a new directory, create a poetry project with Vinyl as a dependency.
 
@@ -69,6 +73,8 @@ poetry init -n --python ">=3.10, <3.12" --dependency vinyl --dev-dependency ipyk
   For now, Vinyl projects must also be poetry projects. We're working on adding support
   for other package managers.
 </Info>
+
+## Create a Project
 
 ```bash
 vinyl login
