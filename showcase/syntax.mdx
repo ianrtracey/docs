@@ -507,9 +507,9 @@ WHERE
 │ <span style="font-style: italic">day: </span><span style="font-weight: bold; font-style: italic">Field</span>   │                               │ <span style="font-style: italic">id: </span><span style="font-weight: bold; font-style: italic">Field</span>   │                                │ <span style="font-weight: bold">Subtract</span>    │        │  │             │                                                            │                    
 │ <span style="font-style: italic">   :: </span><span style="color: #ffaf00; text-decoration-color: #ffaf00; font-style: italic">string</span> │                               │ <span style="font-style: italic">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-style: italic">int64</span> │                                │ <span style="font-weight: bold">   :: </span><span style="color: #808000; text-decoration-color: #808000; font-weight: bold">int64</span> │────────╯  │             │                                                            │                    
 ╰──────────────╯                               ╰─────────────╯                                ╰─────────────╯           │             │                                                            │                    
-        ▲                                             ▲                                              ▲                  │             │                                                            │                    
-        │                                             │                                              │                  │             │                                                            │                    
-        │                                             │                                              ╰──────────────────│─────────────│────╮                                                       │                    
+        ▲                                             ▲                                              ▲──────────────────│─────────────│────╮                                                       │                    
+        │                                             │                                              │                  │             │    │                                                       │                    
+        │                                             │                                              │                  │             │    │                                                       │                    
         │                                             │                                              │                  │             │    │                                                       │                    
         │                                             │                                       ╭─────────────╮           │             │    │                             ╭─────────────╮           │                    
         │                                             │                                       │ <span style="font-weight: bold">StructField</span> │           │             │    │                             │ <span style="font-weight: bold">StructField</span> │           │                    
@@ -520,7 +520,7 @@ WHERE
         │                                             │                                              │                  │             │                                         │                  │                    
         │                                             ╰───────────────────────────────────────╮      │                  │             │                                         │                  │                    
         │                                                                                     │     ╭───────────────────────────────────────╮                                  ╭───────────────────────────────────────╮
-        │                                                                                     │     │ <span style="font-style: italic">normal: </span><span style="font-weight: bold; font-style: italic">Field</span>                         │                                  │ <span style="font-style: italic">actual: </span><span style="font-weight: bold; font-style: italic">Field</span>                         │
+        │                                                                                     │     │ <span style="font-style: italic">actual: </span><span style="font-weight: bold; font-style: italic">Field</span>                         │                                  │ <span style="font-style: italic">normal: </span><span style="font-weight: bold; font-style: italic">Field</span>                         │
         │                                                                                     │     │ <span style="font-style: italic">   :: </span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-style: italic">struct&lt;high: int64, low: int64&gt;</span> │                                  │ <span style="font-style: italic">   :: </span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-style: italic">struct&lt;high: int64, low: int64&gt;</span> │
         │                                                                                     │     ╰───────────────────────────────────────╯                                  ╰───────────────────────────────────────╯
         │                                                                                     │                         ▲             │                                                            ▲                    
@@ -711,7 +711,7 @@ Limit[r2, n=10]
 <Accordion title="Null handling">
 
 ```python
-from vinyl.constructors import coalesce
+from vinyl.operations import coalesce
 
 with birdstrikes as b:
     b.filter(b.Effect__Amount_of_damage == None)
