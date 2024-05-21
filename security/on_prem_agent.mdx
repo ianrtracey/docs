@@ -1,0 +1,58 @@
+---
+title: "On Premise Agent"
+description: "Deploy Turntable inside of your infrastucture"
+icon: "lock"
+---
+
+<Note>
+  This feature is currently in private beta. Please reach out to us on Slack if
+  you're interested in trying it out
+</Note>
+
+## Overview
+
+Turntable is building a best-in-class data modeling and reporting platform for companies with many disparate data sources. Oftentimes, our customers have sophisticated data operations in regulated industries like healthcare or finance which require more creative integration mechanisms than traditional cloud-based software.
+
+## Architecture
+
+The Turntable Agent is a customer-deployed service that runs inside of your cloud to handle sensitive workloads, query proxying, and data caching. The rest of the product (UI, metadata store, search, queue, etc) will reside in Turntable's infrastructure. This hybrid deployment setup allows us to sustain a high pace of product velocity for customers while satisfying strict security requirements.
+
+Here's a rough sketch of how it works
+![preview](/images/agent_architecture.png)
+
+In this proposed architecture, our agent will have 4 major components:
+
+1. A server (ex: FastAPI) - this will handle tasks like proxying queries, saving credentials, etc
+2. A data cache - this powers upcoming features like Turntable’s Notebook
+3. A credentials cache - where we store encrypted secrets and authentication details to read from customer data sources
+4. A Hatchet worker - We currently use [Hatchet](https://hatchet.run/) as a distributed worker queue.
+
+## Local Installation
+
+This script automates the setup of Docker (if not installed) and Minikube, configures Kubernetes, and deploys the agent along with its dependencies.
+
+Ensure you have administrative access and internet connectivity.
+Run the installation script:
+
+```
+curl -s https://raw.githubusercontent.com/turntable/agent/main/docker/v2.compose.yaml | \
+TURNTABLE_AGENT_KEY="<KEY>" \
+TURNTABLE_AGENT_HOST_URL="http://localhost:8080" \
+TURNTABLE_AGENT_DATA_DOMAIN="app.tuntable.com" \
+TURNTABLE_DOCKER_AGENT_TAG="v1.8.0" \
+docker compose -p turntable -f - up
+```
+
+We also support deployments on **AWS ESC Fargate, AKS, CloudRun, AWS EC2, and Google Kubernetes Engine (GKE)**
+
+## Security Model
+
+**Encryption**: All sensitive data, including credentials, are encrypted using keys managed within the client's environment. This ensures that even if data is intercepted, it cannot be read.
+
+**No External Data Transfer**: The architecture is designed so that no sensitive data needs to leave the client's environment. All processing and data management occur locally within the client's cloud or on-premises setup.
+
+**SQL Injection Protection**: The system sanitizes and validates all incoming SQL queries to prevent SQL injection, a common attack where malicious SQL statements are inserted into an entry field.
+
+## Updates
+
+We regularly deploy updates via Docker container changes on a regular (often daily basis). Most of the time our users wont notice service interruptions.

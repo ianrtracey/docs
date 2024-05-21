@@ -64,6 +64,12 @@
       ]
     },
     {
+      "group": "Security",
+      "pages": [
+        "security/on_prem_agent"
+      ]
+    },
+    {
       "group": "Integrations",
       "pages": [
         "sources",
