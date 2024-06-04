@@ -6,16 +6,31 @@
     "light": "/logo_light.png",
     "dark": "/logo_dark.png"
   },
+  "feedback": {
+    "thumbsRating": true
+  },
   "colors": {
-    "primary": "#6C757D",
-    "light": "#E5E5E5",
-    "dark": "#0D9373",
+    "primary": "#ff996d",
+    "light": "#ff996d",
+    "dark": "#ff996d",
     "anchors": {
-      "from": "#6C757D",
-      "to": "#ADB5BD"
+      "from": "#ff996d",
+      "to": "#9c40ff"
     }
   },
+  "topbarCtaButton": {
+    "name": "Get Started",
+    "url": "https://www.turntable.so/get-started"
+  },
   "tabs": [
+    {
+      "name": "Extension",
+      "url": "extension"
+    },
+    {
+      "name": "CLI",
+      "url": "vinyl"
+    },
     {
       "name": "Reference",
       "url": "reference"
@@ -35,45 +50,45 @@
   ],
   "navigation": [
     {
-      "group": "Getting Started",
-      "pages": [
-        "introduction",
-        "quickstart"
-      ]
-    },
-    {
-      "group": "Showcase",
-      "pages": [
-        "showcase/syntax"
-      ]
-    },
-    {
-      "group": "Basic Concepts",
-      "pages": [
-        "concepts/sources",
-        "concepts/models",
-        "concepts/deployment",
-        "concepts/ai_transforms",
-        "concepts/enrichment"
-      ]
-    },
-    {
-      "group": "Walkthrough",
-      "pages": [
-        "walkthrough/relations"
-      ]
-    },
-    {
       "group": "Security",
       "pages": [
         "security/on_prem_agent"
       ]
     },
     {
+      "group": "Getting Started",
+      "pages": [
+        "vinyl/introduction",
+        "vinyl/quickstart"
+      ]
+    },
+    {
+      "group": "Showcase",
+      "pages": [
+        "vinyl/showcase/syntax"
+      ]
+    },
+    {
+      "group": "Basic Concepts",
+      "pages": [
+        "vinyl/concepts/sources",
+        "vinyl/concepts/models",
+        "vinyl/concepts/deployment",
+        "vinyl/concepts/ai_transforms",
+        "vinyl/concepts/enrichment"
+      ]
+    },
+    {
+      "group": "Walkthrough",
+      "pages": [
+        "vinyl/walkthrough/relations"
+      ]
+    },
+    {
       "group": "Integrations",
       "pages": [
-        "sources",
-        "destinations"
+        "vinyl/sources",
+        "vinyl/destinations"
       ]
     },
     {
@@ -85,7 +100,7 @@
       ]
     },
     {
-      "group": "Vinyl",
+      "group": "Reference",
       "pages": [
         {
           "group": "Table Reference",
@@ -107,6 +122,35 @@
             "reference/column/array"
           ]
         }
+      ]
+    },
+    {
+      "group": "Getting started",
+      "pages": [
+        "extension/getting-started/prerequisites",
+        "extension/getting-started/installation",
+        "extension/getting-started/troubleshooting"
+      ]
+    },
+    {
+      "group": "Column-level lineage",
+      "pages": [
+        "extension/column-level-lineage/introduction",
+        "extension/column-level-lineage/interactions"
+      ]
+    },
+    {
+      "group": "Docs composer",
+      "pages": [
+        "extension/docs-composer/generating",
+        "extension/docs-composer/viewing-and-editing"
+      ]
+    },
+    {
+      "group": "FAQ",
+      "pages": [
+        "extension/FAQ",
+        "extension/security-and-privacy"
       ]
     }
   ],

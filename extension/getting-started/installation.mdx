@@ -1,0 +1,83 @@
+---
+title: Installing and configuring the extension
+icon: "download"
+---
+
+
+
+## Installing the extension
+
+
+### 1. Before proceeding, open a DBT project in VSCode
+
+
+This is an important step. Otherwise, the install process is likely to fail.
+
+
+<Warning>
+
+We don’t currently support using multiple projects in the same VSCode window, although we are working on it. To get around this limitation open a single project and then proceed. If you need to switch projects, open a new window with just that project.
+
+</Warning>
+
+
+
+
+### 2. Install the extension from the VSCode marketplace
+
+Once you reach our page on the marketplace, press the `Install` button. You’ll be directed to the install page within VSCode. Simply press the `Install` button on this page to install the extension.
+
+
+<Warning>
+
+Once you install the extension, you’ll likely be prompted to reload your window via a notification. If you are, it is important that you do this.
+
+</Warning>
+
+
+
+
+## Prepare for onboarding
+
+
+### 3. Locate required information
+
+
+To successfully onboard onto the extension, you’ll need to have a few pieces of information ready. Please gather the below before proceeding
+
+
+| Information                                                    | Currently supported                                                                          | Plan to support in the near future       |
+| -------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| Python interpreter path                                        | 3.9, 3.10, and 3.11.                                                                         | 3.12                                     |
+| The dbt version your project uses                              | 1.3, 1.4, 1.5, and 1.6. Note that dbt 1.3 does not work on Python 3.11                       | 1.7                                      |
+| The dbt adapter you use                                        | Snowflake, Bigquery, Databricks, Redshift, and Postgres                                      | DuckDB                                   |
+| The location of the folder where your `profiles.yml` is stored | Default location (e.g. `~/.dbt` or in your project directory), plus any absolute folder path | All valid paths currently supported      |
+| Environmental variables required by your project               | Specifying variables individually                                                            | Using a `.env` file to specify variables |
+
+
+## Configuring the extension
+
+
+### 4. Log in for the first time
+
+
+When you open the extension for the first time, you’ll be be redirected to an authentication page in your browser. Please use the same authentication method (i.e. email or OAuth) you used to download the file in step 1.
+
+
+### 5. Follow the onboarding flow
+
+
+By default, the onboarding runs in the background on refresh. You’ll see updates on this in the status bar (at the very bottom of the VSCode window. If this is your first time installing the extension, this process will almost certainly fail, at which point you’ll receive a notification to open settings. Click on the notification, and follow the steps in the Turntable settings menu.
+
+
+<Tip>
+
+If you ever want to return to the turntable settings menu, click command/control + shift + p to open the VSCode command palette. Once open, type `Turntable settings` and choose the first option.
+
+</Tip>
+
+
+
+
+As prompted, provide the information you found in step 3 above.
+

@@ -1,0 +1,42 @@
+---
+title: Troubleshooting
+icon: "wrench"
+---
+
+
+
+If you run into any issues, we are available to help resolve them Monday - Saturday 9 am to 9 pm US Eastern time. You can get in touch with us via the “chat with us” button at the bottom right of this page and in our VSCode settings page. We are also available via [our slack community](https://turntable-community.slack.com/join/shared_invite/zt-20pktj1vq-tXLUeQJYgA_lj849JXcRSQ#/shared-invite/email).
+
+
+Here are some common issues and potential ways to address them
+
+<AccordionGroup>
+<Accordion title="Before onboarding">
+
+
+| Issue                                                                    | Steps to try                                                            |
+| ------------------------------------------------------------------------ | ----------------------------------------------------------------------- |
+| All Turntable views are blank and can’t open turntable settings or login | Restart VSCode, and open a new window with exactly 1 dbt project in it. |
+</Accordion>
+
+
+<Accordion title="During onboarding">
+
+
+| Issue                                          | Steps to try                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Onboarding fails in the `Runtime` step         | - Make sure you have a Python interpreter set with version 3.9 - 3.11, or 3.9-10 for dbt 1.3<br/>- Confirm you have installed the [appropriate build tools ](/fcd3551f-98d4-4961-a11c-a2ea736da404#8a27b4f8255b4130b0aba702d9c7bc5a)for your operating system<br/>- Make sure you have set the dbt core version and adapter in the `Environment` step                                                                     |
+| Onboarding fails during the `dbt Project` step | - Make sure you’ve added your profile _directory_ (if custom), not the path to the `profiles.yml` _file_<br/>- Confirm you’ve added all environmental variables required by your project<br/>- Inspect the logs for the dbt step. These are almost always the errors printed directly from the dbt core cli. Sometimes the issue can be resolved by making a change to the project (e.g. if a model fails to compile) |
+</Accordion>
+
+
+<Accordion title="After onboarding">
+
+
+| Issue                                                        | Steps to try                                                                                                                                                                                                                                                                                                                  |
+| ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| All Turntable views are blank or missing and you use Windows | - Disable Restricted UNC access by doing the following;<br/>     - press command/control + shift + p to access the command pallette<br/>     - type settings and press enter to access VSCode settings UI.<br/>     - search for “Restrict UNC”<br/>     - uncheck the box for `Restrict UNCAccess`<br/>     - restart VSCode |
+| Lineage only shows up partially or seems incomplete          | - See [this page](/0793389f-bbd9-49fb-9fbf-3cb8a80be351#7063381fd63c4b3087f3cc20c76b94e4) for more information on the limitations of lineage and what to try.                                                                                                                                                                     |
+</Accordion>
+</AccordionGroup>
+

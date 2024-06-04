@@ -1,0 +1,61 @@
+---
+title: Viewing and editing documentation
+icon: "eye"
+---
+
+
+
+## Viewing documentation
+
+
+To view documentation, simply navigate to a model within your project. The extension pane will automatically change to show the relevant model and column descriptions.
+
+
+<Accordion title="Walkthrough">
+
+<iframe 
+    background= "black"
+    width= "100%"
+    height= "350px"
+    allowTransparency="true"
+    src="https://demo.arcade.software/nn6CFy3jeQCh3Q1y9ho4?embed"
+    allowFullScreen
+
+/>
+</Accordion>
+
+
+<Note>
+
+On startup, you may see a loading screen for a few seconds. Our extension needs both the `catalog.json` and `manifest.json` to work, so it needs to create these files by instructing your machine to run dbt commands.
+
+</Note>
+
+
+
+
+## Editing documentation
+
+To edit documentation, make changes to the model and column description fields in the extension pane, and then press `Save`. Your updates will be automatically saved to the correct YAML file, or a new one will be created if necessary. After saving, you will see a notification in the bottom right of your screen indicating that the changes have been applied and allowing you to view them. Click the `View Changes` button to open a diff view of the updated YAML file.
+
+
+<Accordion title="Walkthrough">
+
+<iframe 
+    background= "black"
+    width= "100%"
+    height= "350px"
+    allowTransparency="true"
+    src="https://demo.arcade.software/ldHch6P7TQlQ19n3k319?embed"
+    allowFullScreen
+
+/>
+</Accordion>
+
+<Warning>
+
+If you edit a model, you must materialize your changes (i.e. run `dbt run`) and then press the **↻** button at the top of the extension to update your columns.
+
+</Warning>
+
+

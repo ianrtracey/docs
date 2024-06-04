@@ -1,0 +1,168 @@
+---
+title: Security and Privacy
+icon: "shield"
+---
+
+
+
+Learn how Turntable protects your data and privacy. If you notice a security or privacy issue or have additional questions, please contact [team@turntable.so](mailto:team@turntable.so) or click the `chat with us` button below.
+
+
+## Security
+
+
+<AccordionGroup>
+<Accordion title="How is my data encrypted?">
+
+
+Data at rest is encrypted with the AES-256 algorithm (managed by our cloud provider). Data is transferred via HTTPS (encrypted with SSL). Backup data is stored in an encrypted S3 bucket (managed by our cloud provider).
+</Accordion>
+
+
+<Accordion title = "Who is your cloud service provider and what region are your instances located in?">
+
+
+Turntable’s products is hosted on AWS. Our instances are located in the "us" (United States) region. 
+</Accordion>
+
+
+<Accordion title = "Do you have a bug bounty program?">
+
+
+We do not have an official bug bounty program at this time. If you have found a bug pertaining to security exploits or vulnerabilities, or if you have any more questions about this, please contact us at [team@turntable.so](mailto:team@turntable.so).
+</Accordion>
+
+
+<Accordion title="Who are your data sub-processors?">
+
+
+We work with companies and tools to store, analyze, and transmit data on behalf of our users. These companies have been vetted for best-in-class security practices.
+
+
+| Sub-processor                                      | Purpose                                    |
+| -------------------------------------------------- | ------------------------------------------ |
+| [Airbyte](https://airbyte.com/)                    | Analytics                                  |
+| [Anthropic](https://www.anthropic.com/)            | AI                                         |
+| [BetterStack](https://betterstack.com/logs)        | Error Tracking                             |
+| [Checkr](https://checkr.com/)                      | Internal Processes                         |
+| [Clerk](https://clerk.com/)                        | Authentication                             |
+| [Clerky](https://www.clerky.com/)                  | Internal Processes                         |
+| [DBT](https://www.getdbt.com/)                     | Analytics                                  |
+| [Fivetran](https://www.fivetran.com/)              | Analytics                                  |
+| [GitHub](https://github.com/)                      | Issue Tracking                             |
+| [Google Cloud Platform](https://cloud.google.com/) | Cloud Hosting                              |
+| [Hubspot](https://www.hubspot.com/)                | Internal Processes                         |
+| [Linear](http://www.linear.app/)                   | Issue Tracking                             |
+| [Notion](http://www.notion.com/)                   | Internal Processes                         |
+| [OpenAI](http://www.openai.com/)                   | AI                                         |
+| [Posthog](http://www.posthog.com/)                 | Analytics, Session recordings              |
+| [Rippling](https://www.rippling.com/)              | Internal Processes                         |
+| [Sentry](http://www.sentry.io/)                    | Error Tracking                             |
+| [Slack](http://www.slack.com/)                     | Customer Communication, Internal Processes |
+| [Stripe](http://www.stripe.com/)                   | Payments                                   |
+| [Supabase](http://www.supabase.com/)               | Cloud Hosting                              |
+| [Vanta](http://www.vanta.com/)                     | Internal Processes                         |
+| [Zoom](http://www.zoom.us/)                        | Internal Processes                         |
+</Accordion>
+
+
+<Accordion title="Does Turntable regularly do external security audits?">
+
+
+Not yet. We follow security best practices and we've planned to have them audited externally as part of the SOC 2 certification.
+</Accordion>
+
+
+<Accordion title="What are your practices for handling and reacting to security incidents?">
+
+
+We have systems and processes in place to review security issues as soon as possible. To share a security concern, reach out to [team@turntable.so](mailto:team@turntable.so).
+</Accordion>
+</AccordionGroup>
+
+
+## Privacy
+
+<AccordionGroup>
+
+<Accordion title="What data do you collect by default?">
+
+
+Our general approach is to collect as **little data as possible** to provide you with our service. For the VSCode extension, we do not collect or store your data warehouse credentials or your data. We are able to do this while still providing our services by instructing your computer to run dbt commands locally.
+
+
+Here is exactly what we collect, who we send it to, and why:
+
+
+| What we process                                                            | Who we send it to                       | Why we collect it                                     | What we do to protect your data                                                          |
+| -------------------------------------------------------------------------- | --------------------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| - Model metadata (e.g. column names)<br/>- Model code (e.g. dbt sql files) | [OpenAI](https://openai.com/)           | Generate model descriptions                           | - In process of opting out of telemetry                                                  |
+| - Model metadata (e.g. column names)<br/>- Model code (e.g. dbt sql files) | [Anthropic](https://www.anthropic.com/) | Generate column descriptions                          | - In process of opting out of telemetry                                                  |
+| - Usage data                                                               | Turntable (Internal)                    | To provide feedback that helps us improve the product | - Extensive internal security measures <br/>- Actively working towards SOC II compliance |
+</Accordion>
+
+
+<Accordion title="Can I opt out of telemetry?">
+
+
+We respect the general [VS Code telemetry setting](https://code.visualstudio.com/docs/getstarted/telemetry), but if you want to specifically opt out of Turntable’s telemetry:
+
+- Press control + shift + p and type `settings` to reach the VSCode settings UI. Search for `turntable telemetry` and uncheck the box that you see.
+</Accordion>
+
+
+<Accordion title="Can I opt out of sending my data to OpenAI and Anthropic?">
+
+
+Yes. Press control + shift + p and type `settings` to reach the VSCode settings UI. Search for `turntable ai` and uncheck the box that you see.
+</Accordion>
+
+
+<Accordion title="Can I prevent any data from leaving my machine">
+
+
+Yes, opt out of telemetry and opt out of docs AI per instructions above! All other operations run locally on your machine.
+</Accordion>
+
+
+<Accordion title="Can Turntable delete my data?">
+
+None of your data is edited or deleted without your interaction. If you would like to delete your records, drop us a line in your company Slack Connect channel, at [team@turntable.so](mailto:team@turntable.so).
+</Accordion>
+
+
+<Accordion title="What is your privacy policy and terms of service?">
+
+
+Here is our [privacy policy](https://www.turntable.so/privacy) and [terms of service](https://www.turntable.so/terms).
+</Accordion>
+
+</AccordionGroup>
+
+## Enterprise
+
+<AccordionGroup>
+
+<Accordion title="Do you provide enterprise capabilities like SSO/SAML and admin roles?">
+
+
+Not yet. We’d like to offer this in the future.
+</Accordion>
+
+
+<Accordion title="Is Turntable SOC 2 certified?">
+
+
+Not yet, but we are actively working towards [SOC 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) certification. Please contact us at [team@turntable.so](mailto:team@turntable.so) if your organization requires System and Organization Controls (SOC) reports from Turntable.
+</Accordion>
+
+
+<Accordion title="Do you have a GDPR Data Processing Agreement (DPA)?">
+
+
+Not yet. We are actively investigating if we need this. Please contact us at [team@turntable.so](mailto:team@turntable.so) if this is a concern for your organization.
+</Accordion>
+
+</AccordionGroup>
+**Something we didn't cover?** **Please reach out on your company Slack Connect channel,  message us at** [team@turntable.so](mailto:team@turntable.so), or click `Chat with us` at the bottom right of this page.
+

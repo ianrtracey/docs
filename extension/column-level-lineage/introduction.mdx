@@ -1,0 +1,130 @@
+---
+title: Introduction
+icon: "flag-checkered"
+---
+
+
+
+## Key things to know
+
+<AccordionGroup>
+
+<Accordion title="What is column-level lineage (CLL)?">
+
+Column-level lineage is a more nuanced visualization of your [DAG](https://docs.getdbt.com/terms/dag) that accounts for the connections between _columns_ in each table in your data warehouse, not just tables. 
+</Accordion>
+
+
+
+<Accordion title="How can I use CLL right now to improve my dbt workflow?">
+
+- _**Debugging:**_ CLL can dramatically accelerate the debugging process by giving you visibility into how a column is calculated without having to go line-by-line through each model.
+- _**Knowledge sharing & discussion:**_ CLL can make it easier for data team members to get up to speed on a new data table. We’ve found it makes a great visual for bug bashes, demos, and a variety of internal meeting use cases.
+</Accordion>
+
+
+
+<Accordion title="How is CLL calculated?">
+
+
+Most vendors who offer CLL use batch metadata syncs from your cloud warehouse provider to generate it. This is effective but quite slow. As a result, lineage is often only recalculated once per day.
+
+
+Turntable takes a different approach. We convert your dbt code into sql abstract syntax (using [sqlglot](https://github.com/tobymao/sqlglot)) and leverage our own algorithm to recurse the syntax tree and build CLL.
+</Accordion>
+
+
+<Accordion title="What connection types are possible between columns?">
+
+
+With table lineage, tables are either connected or they are not. With CLL, connections are more nuanced. Here are the main types, and how they are represented in the extension:
+
+
+| Category          | Edge type                 | Description                                                                                         | Common sql keywords          |
+| ----------------- | ------------------------- | --------------------------------------------------------------------------------------------------- | ---------------------------- |
+| Calculation logic | Select as is              | Column is selected exactly as is                                                                    | SELECT                       |
+| Calculation logic | Select with modifications | Column is selected but with transformations, such as changing, type, changing alias, or aggregating | SELECT, CAST, AS, SUM, COUNT |
+| Values included   | Filter                    | Rows of a given column are excluded via a predicated statement                                      | WHERE, HAVING, QUALIFY       |
+| Values included   | Join Key                  | Rows of a given column are excluded based on join keys                                              | ON, USING                    |
+| Values included   | Group by                  | Rows of a given column are excluded based on column grouping                                        | GROUP BY                     |
+
+
+<Warning>
+
+One important caveat: two columns can — and often are — connected by multiple edges. This primarily occurs primarily when a query includes multiple CTEs. In these cases, we take the _union_ of all edge types involved in our visualization. More on this on the next page.
+
+</Warning>
+</Accordion>
+
+
+<Accordion title="What are the limitations of your approach?">
+
+
+| Limitation                                                                                                     | Impact                                                                    | Mitigation                                                                                                                                                                               |
+| -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| We depend on the `catalog.json` file to help with resolve column references.                                   | We may show missing/incomplete columns in some situations.                | - Make sure you have the credentials to run `dbt docs generate` for your project.<br/>- Make sure you materialize models (i.e. `dbt run`) and their ancestors if you make code updates.  |
+| If we can’t parse your sql, we can’t generate column lineage.                                                  | We may only have table-level lineage for some tables.                     | - Qualify your columns (e.g. [`table.id`](http://table.id/) instead of `id` when there are multiple joins).<br/>- Report any issues to us. We can work to make library changes upstream. |
+| We currently cannot correctly parse situations where your table reference is a function (e.g. UNNEST clauses). | We may show incomplete lineage in these cases.                            | - Use SELECT statements where possible.<br/>- Report any issues to us. We will prioritize this once we have enough demand.                                                               |
+| We only support Bigquery and Snowflake.                                                                        | You may not be able to use this feature if your company uses another CDW. | - Drop us a line in our company slack or simply click the `chat with us` button to let us know. We’d love to your help in prioritizing which dbs to support next!                        |
+
+</Accordion>
+
+
+<Accordion title="What improvements do you plan to make to this over time?">
+
+- _**Better dialect coverage:**_ we plan to expand our solution to Databricks, Redshift, Starburst/Trino, and others going forward.
+- _**Better syntax coverage:**_ our goal is 99+% coverage of sql syntax in our supported dialects
+- _**New features based on CLL:**_ we are actively working on new features that leverage CLL for a better experience, including breaking change detection and column auto-renaming.
+</Accordion>
+
+</AccordionGroup>
+
+
+
+## Worked example
+
+
+<Note>
+
+Below is the code for an example dbt model called `current_pipeline`. See the toggle below for its column-level lineage. We’ve hidden it in case you want to try to work through the answer yourself first!
+
+</Note>
+
+
+
+
+```sql title="models/marts/sales/current_pipeline.sql"
+select 
+  r.pipeline_id,
+  r.stage_id,
+  s.order_nr as stage_order,
+  coalesce(r.funnel_size,0) as funnel_size
+from {{ ref('base_pipedrive__stage') }} s
+left join {{ ref('ranked_deals') }} r on r.stage_id = s.id
+where r.pipeline_id = 1
+order by s.order_nr desc
+```
+
+
+<Accordion title="Answer">
+
+
+| From column              | Connection type(s)     | To column                    |
+| ------------------------ | ---------------------- | ---------------------------- |
+| ranked_deals.pipeline_id | Select as is, Filter   | current_pipeline.pipeline_id |
+| ranked_deals.pipeline_id | Filter                 | current_pipeline.stage_id    |
+| ranked_deals.pipeline_id | Filter                 | current_pipeline.stage_order |
+| ranked_deals.pipeline_id | Filter                 | current_pipeline.funnel_size |
+| ranked_deals.stage_id    | Select as is, Join key | current_pipeline.stage_id    |
+| ranked_deals.stage_id    | Join key               | current_pipeline.pipeline_id |
+| ranked_deals.stage_id    | Join key               | current_pipeline.stage_order |
+| ranked_deals.stage_id    | Join key               | current_pipeline.funnel_size |
+| ranked_deals.funnel_size | Modify                 | current_pipeline.funnel_size |
+| base_pipedrive.order_nr  | Modify                 | current_pipeline.stage_order |
+| base_pipedrive__stage.id | Join key               | current_pipeline.pipeline_id |
+| base_pipedrive__stage.id | Join key               | current_pipeline.stage_id    |
+| base_pipedrive__stage.id | Join key               | current_pipeline.stage_order |
+| base_pipedrive__stage.id | Join key               | current_pipeline.funnel_size |
+
+</Accordion>
+

@@ -1,0 +1,131 @@
+---
+title: Interacting with the lineage view
+sidebarTitle: "Interacting with lineage"
+icon: "play"
+---
+
+
+
+<Warning>
+For column-level lineage to work, you must first meet the [pre-requisites](/fcd3551f-98d4-4961-a11c-a2ea736da404). Please do that if you haven’t already
+</Warning>
+
+
+
+
+## Opening the lineage view
+
+
+To open lineage, open a dbt model in your project, click the “Turntable” pane VS Code’s panel. You should see table-level lineage load and then column lineage load a couple of seconds afterwards.
+
+<Accordion title="Walkthrough">
+<iframe 
+    background= "black"
+    width= "100%"
+    height= "350px"
+    allowTransparency="true"
+    src="https://demo.arcade.software/4AoNx52TfNZXpVzXu81F?embed"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+
+/>
+</Accordion>
+
+
+## Viewing lineage of individual columns
+
+
+To view lineage of individual columns in a table, click on the `Show all (n) columns` button at the bottom of the table. Once you do this, if you put your cursor over a column, you will see the lineage edges connecting into and out of it. Clicking on a column focuses the lineage view on that column, and clicking it again removes the focus.
+
+
+<Accordion title="Walkthrough">
+<iframe 
+    background= "black"
+    width= "100%"
+    height= "352px"
+    allowTransparency="true"
+    src="https://demo.arcade.software/wxEHjb52w9lociCCdlg4?embed" 
+    allowFullScreen
+
+/>
+</Accordion>
+
+
+<Note> You may see tables with some columns greyed out and others not. In this case greyed out columns simply mean columns with no connections to show (e.g. they are not selected).</Note>
+
+
+<Warning>
+
+You may also see tables with all columns greyed out— or no columns at all.. This usually means there’s an issue with calculating lineage for that table. For causes and mitigations, see [this page](/0793389f-bbd9-49fb-9fbf-3cb8a80be351#c0063cb1bcc34a48a11f9bdf4a588a13) for more info. 
+
+</Warning>
+
+
+## Inspecting an edge
+
+
+To inspect an edge, simply click on it. Once you do, a popup will open with key details about the edge, including the edge type. Click the ❌ to close it.
+
+<Accordion title="Walkthrough">
+<iframe 
+    background= "black"
+    width= "100%"
+    height= "352px"
+    allowTransparency="true"
+    src="https://demo.arcade.software/hTzagV32UgmZJeu1w1Ra?embed"
+    allowFullScreen
+
+/>
+</Accordion>
+
+<Note>
+
+The colors of each edge correspond to [its type](/0793389f-bbd9-49fb-9fbf-3cb8a80be351#7063381fd63c4b3087f3cc20c76b94e4). The key for this can be found at the bottom right of your lineage graph. If an edge has multiple colors or a gradient, that is because that edge encompasses multiple edge types. Click on that edge.
+
+</Note>
+
+
+
+
+## Refreshing lineage
+
+If you’ve changed a model or simply want to return the view to the default state, you can refresh the lineage view. To do this, click on the 🔄 button at the top right of the pane.
+
+
+<Accordion title="Walkthrough">
+<iframe 
+    background= "black"
+    width= "100%"
+    height= "352px"
+    allowTransparency="true"
+    src="https://demo.arcade.software/OjMqAoH1bPNS4TRXhM6L?embed" 
+    allowFullScreen
+
+/>
+</Accordion>
+
+<Warning>
+
+Refreshing lineage recompiles the model, but does not account for schema changes upstream or downstream. Turntable relies on the `catalog.json` file for schema information, so in many cases you will need to materialize your changes (i.e. run `dbt run`) for catalog changes to take effect.
+
+</Warning>
+
+
+
+
+## Navigating across models 
+
+
+You can use Turntable to help you easily navigate through your DAG. To view another model, simply click that model’s name in your lineage view. A new VSCode window will open with that model, and the lineage pane will update to your selected model’s lineage.
+
+<Accordion title="Walkthrough">
+<iframe 
+    background= "black"
+    width= "100%"
+    height= "352px"
+    allowTransparency="true"
+    src="https://demo.arcade.software/2J7djSAI0rZrNB0miFKx?embed"
+    allowFullScreen
+
+/>
+</Accordion>

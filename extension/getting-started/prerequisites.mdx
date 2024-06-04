@@ -1,0 +1,105 @@
+---
+title: Prerequisites
+icon: "circle-exclamation"
+---
+
+
+
+### Requirements
+
+
+Before you attempt to install Turntable, please make sure your set up meet the following requirements:
+
+
+| Domain                     | Requirement                                                                      |
+| -------------------------- | -------------------------------------------------------------------------------- |
+| Platform                   | Mac (ARM or Intel), Windows (x86), Linux (x86 or ARM)                            |
+| Visual Studio Code version | 1.7.8 or greater                                                                 |
+| Build tools                | XCode command line tools (Mac), Visual C++ build tools (Windows), gcc (Linux)    |
+| Python version installed   | 3.9 or above                                                                     |
+| Python packages installed  | dbt-core, your dbt adapter                                                       |
+| DBT project health         | ability to run `dbt parse` , `dbt compile`, and `dbt docs generate --no compile` |
+
+
+## Remedies
+
+
+Here are some tips on how to remedy the above:
+
+<AccordionGroup>
+<Accordion title="Platform">
+
+
+We support all modern mac implementations. For Windows users, make sure you have Windows Subsystem for Linux [installed](https://learn.microsoft.com/en-us/windows/wsl/install) and [configured](https://code.visualstudio.com/docs/remote/wsl) in VSCode. For Codespaces users, please open the [devcontainer locally](https://code.visualstudio.com/docs/devcontainers/create-dev-container#_create-a-devcontainerjson-file) to use our extension.
+</Accordion>
+
+
+<Accordion title="VS Code version">
+
+
+Press `Control + Shift + P` within VS Code. Type `Code: Check for Updates` and then install the latest version of VSCode when prompted.
+</Accordion>
+
+
+<Accordion title="Build tools">
+
+
+On Mac, open a terminal and run `xcode-select --install`. Note, this may take 20 minutes or more.
+
+
+On Windows, download the build tools [here](https://visualstudio.microsoft.com/visual-cpp-build-tools/). Open the downloaded exe and follow the prompts to install Visual C++ build tools.
+
+
+On Linux,  `sudo apt-get install build-essential` on Debian-based distros and `yum install gcc gcc-c++ kernel-devel make` on Fedora-based distros.
+</Accordion>
+
+
+<Accordion title="Python version">
+
+
+This depends on how you are managing your Python environment (venv, poetry, etc.). Once you have created a Python environment with Python interpreter version 3.8 or above, press `Control + Shift + P` within VS Code, type `Python: Select Interpreter` and then select the interpreter you have modified/created. You may need to press refresh button in the pane to load the latest environments.
+
+
+<Tip>
+
+If you are having trouble finding your current interpreter and have dbt already working, you can find the correct path by running `dbt debug` in your terminal  and then looking at the `python_path` that is returned.
+
+</Tip>
+
+<iframe 
+    background= "black"
+    width= "100%"
+    height= "350px"
+    allowTransparency="true"
+    src="https://demo.arcade.software/dXPNXpi9b41BtNR80iP8?embed"
+    allowFullScreen
+/>
+
+</Accordion>
+
+<Accordion title="Python packages installed">
+
+Once you have selected the correct interpreter, press `Control + Shift + P` within VS Code, type `Python: Create Terminal` . In the terminal that opens run `pip install dbt-{adapter}` where adapter is the database provider you are using. Here’s a list of [verified](https://docs.getdbt.com/docs/supported-data-platforms) and [community](https://docs.getdbt.com/docs/community-adapters) adapters for dbt-core.
+
+<iframe 
+    background= "black"
+    width= "100%"
+    height= "350px"
+    allowTransparency="true"
+    src="https://demo.arcade.software/f1DLYYRkpohZ1hNI3poW?embed"
+    allowFullScreen
+/>
+</Accordion>
+
+
+<Accordion title="DBT project health">
+
+How to remedy this highly depends on your specific setup, but here are some common fixes:
+
+- Make sure your `packages.yml` file is up to date and corresponds to your dbt version
+- Make sure you’ve run `dbt deps`
+- Address any repo errors reported when you run `dbt parse` or `dbt compile`
+- Make sure that your dbt profile has sufficient database permissions to access the metadata of your development schema
+</Accordion>
+
+</AccordionGroup>
