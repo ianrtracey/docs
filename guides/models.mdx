@@ -1,0 +1,78 @@
+---
+title: "Models"
+description: "Learn how to create and publish your models"
+icon: cube
+
+--- 
+
+## Overview
+Data modeling and integration is a core component of Turntable. We use [SQLMesh](https://github.com/TobikoData/sqlmesh) for our data transformation infrastructure, giving you world-class modeling capabilities with simple developer ergonomics.
+
+
+## Creating a model
+Models are created in the UI by clicking the 3 dots next to a folder or at the root of the model section. Models are plain SQL files with a preamble at the top.
+
+```sql
+-- models/my_model.sql
+
+MODEL(
+  name <schema>.<model_name>,
+  tags [...],
+  cron '@daily' or '@weekly' or '@monthly' or '@quarterly' or '@yearly' or '* * * * *',
+  kind FULL or VIEW
+);
+
+select * from my_table
+```
+
+## Building a project
+Clicking 'build project' at the top does 3 operations under the covers:
+1. Diffs the models that haven't changed. (Note: running multiple times is a safe operation)
+2. Runs the transformations for the models that have changed.
+3. Deploys these new models to be available in your project.
+
+## Creating public models (explores)
+To have models appear in your explore, you need to create a bi model. This is useful when you transformations are complicated or involve staging models that you don't want to surface to the rest of your team to use for analysis.
+
+To publish a model, all you have to do is add the 'bi' tags to the model and click 'build project'.
+```sql
+-- models/my_model.sql
+
+MODEL(
+  name db.my_model,
+  -- add this line
+  tags ['bi'],
+  kind FULL
+);
+
+select * from my_table
+```
+
+Note: models without the 'bi' tag will not be deployed to the explore but can still be used for transformations.
+
+
+## Typecasting models
+Sometimes, you may need to typecast a column to a different type. This is useful when you want to use a column in a metric or dimension that is a different type than the column is in your data warehouse.
+This often comes up with datetimes and timestamps from upstream tables.
+
+```sql
+-- models/my_model.sql
+MODEL(
+  name db.my_model,
+  kind VIEW
+);
+select
+  timestamp_column::datetime as timestamp_column,
+  order_amount::float as order_amount,
+  customer_id 
+from my_table
+```
+
+
+
+
+
+
+
+
+

@@ -18,24 +18,6 @@
       "to": "#9c40ff"
     }
   },
-  "topbarCtaButton": {
-    "name": "Get Started",
-    "url": "https://www.turntable.so/get-started"
-  },
-  "tabs": [
-    {
-      "name": "Extension",
-      "url": "extension"
-    },
-    {
-      "name": "CLI",
-      "url": "vinyl"
-    },
-    {
-      "name": "Reference",
-      "url": "reference"
-    }
-  ],
   "anchors": [
     {
       "name": "Join our Slack",
@@ -50,78 +32,17 @@
   ],
   "navigation": [
     {
-      "group": "Security",
-      "pages": [
-        "security/on_prem_agent"
-      ]
-    },
-    {
       "group": "Getting Started",
       "pages": [
-        "vinyl/introduction",
-        "vinyl/quickstart"
+        "introduction"
       ]
     },
     {
-      "group": "Showcase",
+      "group": "Guides",
       "pages": [
-        "vinyl/showcase/syntax"
-      ]
-    },
-    {
-      "group": "Basic Concepts",
-      "pages": [
-        "vinyl/concepts/sources",
-        "vinyl/concepts/models",
-        "vinyl/concepts/deployment",
-        "vinyl/concepts/ai_transforms",
-        "vinyl/concepts/enrichment"
-      ]
-    },
-    {
-      "group": "Walkthrough",
-      "pages": [
-        "vinyl/walkthrough/relations"
-      ]
-    },
-    {
-      "group": "Integrations",
-      "pages": [
-        "vinyl/sources",
-        "vinyl/destinations"
-      ]
-    },
-    {
-      "group": "Connectors",
-      "pages": [
-        "reference/connectors/postgres",
-        "reference/connectors/big_query",
-        "reference/connectors/file"
-      ]
-    },
-    {
-      "group": "Reference",
-      "pages": [
-        {
-          "group": "Table Reference",
-          "pages": [
-            "reference/table"
-          ]
-        },
-        {
-          "group": "Column Reference",
-          "pages": [
-            "reference/column/standard",
-            "reference/column/math",
-            "reference/column/re",
-            "reference/column/str",
-            "reference/column/obj",
-            "reference/column/dt",
-            "reference/column/dict",
-            "reference/column/url",
-            "reference/column/array"
-          ]
-        }
+        "guides/sources",
+        "guides/models",
+        "guides/metrics"
       ]
     },
     {
