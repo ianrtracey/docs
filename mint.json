@@ -32,46 +32,11 @@
   ],
   "navigation": [
     {
-      "group": "Getting Started",
-      "pages": [
-        "introduction"
-      ]
-    },
-    {
       "group": "Guides",
       "pages": [
         "guides/sources",
         "guides/models",
         "guides/metrics"
-      ]
-    },
-    {
-      "group": "Getting started",
-      "pages": [
-        "extension/getting-started/prerequisites",
-        "extension/getting-started/installation",
-        "extension/getting-started/troubleshooting"
-      ]
-    },
-    {
-      "group": "Column-level lineage",
-      "pages": [
-        "extension/column-level-lineage/introduction",
-        "extension/column-level-lineage/interactions"
-      ]
-    },
-    {
-      "group": "Docs composer",
-      "pages": [
-        "extension/docs-composer/generating",
-        "extension/docs-composer/viewing-and-editing"
-      ]
-    },
-    {
-      "group": "FAQ",
-      "pages": [
-        "extension/FAQ",
-        "extension/security-and-privacy"
       ]
     }
   ],
